@@ -1,0 +1,2 @@
+set(navigation_MESSAGE_FILES "msg/NavigationAction.msg;msg/NavigationActionGoal.msg;msg/NavigationActionResult.msg;msg/NavigationActionFeedback.msg;msg/NavigationGoal.msg;msg/NavigationResult.msg;msg/NavigationFeedback.msg;msg/LocalisationAction.msg;msg/LocalisationActionGoal.msg;msg/LocalisationActionResult.msg;msg/LocalisationActionFeedback.msg;msg/LocalisationGoal.msg;msg/LocalisationResult.msg;msg/LocalisationFeedback.msg")
+set(navigation_SERVICE_FILES "srv/move_base.srv")

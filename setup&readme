@@ -1,0 +1,6 @@
+I) Verification of Pkg navigation
+
+- roslaunch navigation aip_tiago_mapping.launch : Ok
+- roslaunch navigation aip_tiago_mapping.launch : Ok
+- rosservice call /sri22/move_base "x: 0.0 y: 0.0 theta: 0.0":Ok 
+

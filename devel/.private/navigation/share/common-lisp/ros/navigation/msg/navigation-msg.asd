@@ -1,0 +1,38 @@
+
+(cl:in-package :asdf)
+
+(defsystem "navigation-msg"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils :actionlib_msgs-msg
+               :geometry_msgs-msg
+               :std_msgs-msg
+)
+  :components ((:file "_package")
+    (:file "LocalisationAction" :depends-on ("_package_LocalisationAction"))
+    (:file "_package_LocalisationAction" :depends-on ("_package"))
+    (:file "LocalisationActionFeedback" :depends-on ("_package_LocalisationActionFeedback"))
+    (:file "_package_LocalisationActionFeedback" :depends-on ("_package"))
+    (:file "LocalisationActionGoal" :depends-on ("_package_LocalisationActionGoal"))
+    (:file "_package_LocalisationActionGoal" :depends-on ("_package"))
+    (:file "LocalisationActionResult" :depends-on ("_package_LocalisationActionResult"))
+    (:file "_package_LocalisationActionResult" :depends-on ("_package"))
+    (:file "LocalisationFeedback" :depends-on ("_package_LocalisationFeedback"))
+    (:file "_package_LocalisationFeedback" :depends-on ("_package"))
+    (:file "LocalisationGoal" :depends-on ("_package_LocalisationGoal"))
+    (:file "_package_LocalisationGoal" :depends-on ("_package"))
+    (:file "LocalisationResult" :depends-on ("_package_LocalisationResult"))
+    (:file "_package_LocalisationResult" :depends-on ("_package"))
+    (:file "NavigationAction" :depends-on ("_package_NavigationAction"))
+    (:file "_package_NavigationAction" :depends-on ("_package"))
+    (:file "NavigationActionFeedback" :depends-on ("_package_NavigationActionFeedback"))
+    (:file "_package_NavigationActionFeedback" :depends-on ("_package"))
+    (:file "NavigationActionGoal" :depends-on ("_package_NavigationActionGoal"))
+    (:file "_package_NavigationActionGoal" :depends-on ("_package"))
+    (:file "NavigationActionResult" :depends-on ("_package_NavigationActionResult"))
+    (:file "_package_NavigationActionResult" :depends-on ("_package"))
+    (:file "NavigationFeedback" :depends-on ("_package_NavigationFeedback"))
+    (:file "_package_NavigationFeedback" :depends-on ("_package"))
+    (:file "NavigationGoal" :depends-on ("_package_NavigationGoal"))
+    (:file "_package_NavigationGoal" :depends-on ("_package"))
+    (:file "NavigationResult" :depends-on ("_package_NavigationResult"))
+    (:file "_package_NavigationResult" :depends-on ("_package"))
+  ))

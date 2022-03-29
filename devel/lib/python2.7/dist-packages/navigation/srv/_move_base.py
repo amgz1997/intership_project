@@ -1,0 +1,1 @@
+/home/stage_18_04/intership_project/devel/.private/navigation/lib/python2.7/dist-packages/navigation/srv/_move_base.py
