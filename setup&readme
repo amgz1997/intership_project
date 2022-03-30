@@ -4,3 +4,9 @@ I) Verification of Pkg navigation
 - roslaunch navigation aip_tiago_mapping.launch : Ok
 - rosservice call /sri22/move_base "x: 0.0 y: 0.0 theta: 0.0":Ok 
 
+II) Coordinates on Map : 
+
+Inital Pose: Posi : x=0.0 ; y=0.0 / Ori : O=0 
+Inital Pose: Posi : x=-3.431 ; y=-4.019 / Ori : O=0 ??
+
+
