@@ -1,4 +1,4 @@
-# Install script for directory: /home/stage_18_04/intership_project/src/navigation
+# Install script for directory: /home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/navigation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -129,13 +129,13 @@ file(INSTALL DESTINATION "/home/stage_18_04/intership_project/install" TYPE FILE
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigation/srv" TYPE FILE FILES "/home/stage_18_04/intership_project/src/navigation/srv/move_base.srv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigation/srv" TYPE FILE FILES "/home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigation/action" TYPE FILE FILES
-    "/home/stage_18_04/intership_project/src/navigation/action/Navigation.action"
-    "/home/stage_18_04/intership_project/src/navigation/action/Localisation.action"
+    "/home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/navigation/action/Navigation.action"
+    "/home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/navigation/action/Localisation.action"
     )
 endif()
 
@@ -207,7 +207,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigation" TYPE FILE FILES "/home/stage_18_04/intership_project/src/navigation/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigation" TYPE FILE FILES "/home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/navigation/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

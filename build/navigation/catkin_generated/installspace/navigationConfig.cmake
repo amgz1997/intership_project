@@ -67,7 +67,7 @@ set(navigation_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(navigation_SOURCE_PREFIX /home/stage_18_04/intership_project/src/navigation)
+  set(navigation_SOURCE_PREFIX /home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/navigation)
   set(navigation_DEVEL_PREFIX /home/stage_18_04/intership_project/devel/.private/navigation)
   set(navigation_INSTALL_PREFIX "")
   set(navigation_PREFIX ${navigation_DEVEL_PREFIX})

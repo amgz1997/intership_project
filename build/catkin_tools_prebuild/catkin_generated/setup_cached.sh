@@ -13,4 +13,4 @@ export PKG_CONFIG_PATH='/home/stage_18_04/tiago_public_ws/devel/lib/pkgconfig:/o
 export PWD='/home/stage_18_04/intership_project/build/catkin_tools_prebuild'
 export PYTHONPATH='/home/stage_18_04/tiago_public_ws/devel/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages'
 export ROSLISP_PACKAGE_DIRECTORIES="/home/stage_18_04/intership_project/devel/.private/catkin_tools_prebuild/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/stage_18_04/intership_project/build/catkin_tools_prebuild:$ROS_PACKAGE_PATH"
+export ROS_PACKAGE_PATH="/home/stage_18_04/intership_project/build/catkin_tools_prebuild:/home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/aip_gazebo:$ROS_PACKAGE_PATH"

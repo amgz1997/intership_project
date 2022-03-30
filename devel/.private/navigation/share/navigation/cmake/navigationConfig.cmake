@@ -67,7 +67,7 @@ set(navigation_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(navigation_SOURCE_PREFIX /home/stage_18_04/intership_project/src/navigation)
+  set(navigation_SOURCE_PREFIX /home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/navigation)
   set(navigation_DEVEL_PREFIX /home/stage_18_04/intership_project/devel/.private/navigation)
   set(navigation_INSTALL_PREFIX "")
   set(navigation_PREFIX ${navigation_DEVEL_PREFIX})
@@ -110,7 +110,7 @@ if(NOT "/home/stage_18_04/intership_project/devel/.private/navigation/include " 
         message(FATAL_ERROR "Project 'navigation' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'navigation' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/stage_18_04/intership_project/src/navigation/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'navigation' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/navigation/${idir}'.  ${_report}")
     endif()
     _list_append_unique(navigation_INCLUDE_DIRS ${include})
   endforeach()
