@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "aip_gazebo"
-PROJECT_SPACE_DIR = "/home/stage_18_04/intership_project/install"
+PROJECT_SPACE_DIR = "/home/pal/intership_project/install"
 PROJECT_VERSION = "0.0.0"

@@ -1,6 +1,6 @@
 Not searching for unused variables given on the command line.
-[36m--[0m The C compiler identification is GNU 7.5.0
-[36m--[0m The CXX compiler identification is GNU 7.5.0
+[36m--[0m The C compiler identification is GNU 7.4.0
+[36m--[0m The CXX compiler identification is GNU 7.4.0
 [36m--[0m Check for working C compiler: /usr/bin/cc
 [36m--[0m Check for working C compiler: /usr/bin/cc -- works
 [36m--[0m Detecting C compiler ABI info
@@ -13,16 +13,16 @@ Not searching for unused variables given on the command line.
 [36m--[0m Detecting CXX compiler ABI info - done
 [36m--[0m Detecting CXX compile features
 [36m--[0m Detecting CXX compile features - done
-[36m--[0m Using CATKIN_DEVEL_PREFIX: /home/stage_18_04/intership_project/devel/.private/navigation
-[36m--[0m Using CMAKE_PREFIX_PATH: /home/stage_18_04/intership_project/devel;/home/stage_18_04/tiago_public_ws/devel;/opt/ros/melodic
-[36m--[0m This workspace overlays: /home/stage_18_04/intership_project/devel;/home/stage_18_04/tiago_public_ws/devel;/opt/ros/melodic
+[36m--[0m Using CATKIN_DEVEL_PREFIX: /home/pal/intership_project/devel/.private/navigation
+[36m--[0m Using CMAKE_PREFIX_PATH: /home/pal/intership_project/devel;/home/pal/projet_sri22/devel;/home/pal/projet/devel;/home/pal/catkin_ws/install;/opt/pal/ferrum;/opt/ros/melodic;/opt/openrobots
+[36m--[0m This workspace overlays: /home/pal/intership_project/devel;/home/pal/projet_sri22/devel;/home/pal/projet/devel;/home/pal/catkin_ws/install;/opt/pal/ferrum;/opt/ros/melodic;/opt/openrobots
 [36m--[0m Found PythonInterp: /usr/bin/python2 (found suitable version "2.7.17", minimum required is "2")
 [36m--[0m Using PYTHON_EXECUTABLE: /usr/bin/python2
 [36m--[0m Using Debian Python package layout
 [36m--[0m Using empy: /usr/bin/empy
 [36m--[0m Using CATKIN_ENABLE_TESTING: ON
 [36m--[0m Call enable_testing()
-[36m--[0m Using CATKIN_TEST_RESULTS_DIR: /home/stage_18_04/intership_project/build/navigation/test_results
+[36m--[0m Using CATKIN_TEST_RESULTS_DIR: /home/pal/intership_project/build/navigation/test_results
 [36m--[0m Found gtest sources under '/usr/src/googletest': gtests will be built
 [36m--[0m Found gmock sources under '/usr/src/googletest': gmock will be built
 [36m--[0m Found PythonInterp: /usr/bin/python2 (found version "2.7.17")
@@ -36,14 +36,14 @@ Not searching for unused variables given on the command line.
 [36m--[0m Looking for pthread_create in pthread - found
 [36m--[0m Found Threads: TRUE
 [36m--[0m Using Python nosetests: /usr/bin/nosetests-2.7
-[36m--[0m catkin 0.7.29
+[36m--[0m catkin 0.7.19
 [36m--[0m BUILD_SHARED_LIBS is on
 [36m--[0m Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
-[36m--[0m Generating .msg files for action navigation/Navigation /home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/navigation/action/Navigation.action
+[36m--[0m Generating .msg files for action navigation/Navigation /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/action/Navigation.action
 Generating for action Navigation
-[36m--[0m Generating .msg files for action navigation/Localisation /home/stage_18_04/intership_project/src/projet-integration-sri-2021-2022/navigation/action/Localisation.action
+[36m--[0m Generating .msg files for action navigation/Localisation /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/action/Localisation.action
 Generating for action Localisation
 [36m--[0m navigation: 14 messages, 1 services
 [36m--[0m Configuring done
 [36m--[0m Generating done
-[36m--[0m Build files have been written to: /home/stage_18_04/intership_project/build/navigation
+[36m--[0m Build files have been written to: /home/pal/intership_project/build/navigation

@@ -1,1 +1,1 @@
-/home/stage_18_04/intership_project/devel/.private/navigation/share/navigation/cmake/navigationConfig.cmake
+/home/pal/intership_project/devel/.private/navigation/share/navigation/cmake/navigationConfig.cmake
