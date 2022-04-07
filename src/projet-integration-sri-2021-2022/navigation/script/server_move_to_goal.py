@@ -29,9 +29,9 @@ class NavigationAction(object):
     	client.wait_for_server()
 
    	# Creates a new goal with the MoveBaseGoal constructor
-   	goal = MoveBaseGoal()
+     	goal = MoveBaseGoal()
     	goal.target_pose.header.frame_id = frame
-   	goal.target_pose.header.stamp = rospy.Time.now()
+    	goal.target_pose.header.stamp = rospy.Time.now()
    	# Move accordingly to the "robot" coordinate frame 
     	goal.target_pose.pose = Pose(point, quaternion)
 
@@ -51,9 +51,9 @@ class NavigationAction(object):
         # helper variables
         r = rospy.Rate(1)
         success = True
-
-	frameid = goal.target.header.frame_id	
-	point = Point(goal.target.pose.position.x, goal.target.pose.position.y, goal.target.pose.position.z)
+ 
+     	frameid = goal.target.header.frame_id	
+    	point = Point(goal.target.pose.position.x, goal.target.pose.position.y, goal.target.pose.position.z)
         orientation = Quaternion(goal.target.pose.orientation.x , goal.target.pose.orientation.y, goal.target.pose.orientation.z , goal.target.pose.orientation.w)     
 
         
@@ -61,16 +61,19 @@ class NavigationAction(object):
         rospy.loginfo('Executing, creating navigation ')
 
         if self._as.is_preempt_requested():
-           rospy.loginfo('%s: Preempted' % self._action_name)
-	   self._result.result_code = 1;
-           self._as.set_preempted(self._result)
-      	   success = False
+
+            rospy.loginfo('%s: Preempted' % self._action_name)
+	    self._result.result_code = 1
+        self._as.set_preempted(self._result)
+      	success = False
 	
-	result = self.movebase_client(point, orientation, frameid )
+    	result = self.movebase_client(point, orientation, frameid )
+
         if result:
+
             rospy.loginfo("Goal execution done!")
 	
-	self._result.result_code = 0;
+    	self._result.result_code = 0
         self._as.set_succeeded(self._result)
 
         
