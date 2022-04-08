@@ -1,1 +1,1 @@
-/home/stage_18_04/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg
+/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg

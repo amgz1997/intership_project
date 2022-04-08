@@ -22,14 +22,14 @@ def navigation_client():
     goal = navigation.msg.NavigationGoal()
 
     # Creates a goal to send to the action server.
-    goal.target.header.frame_id = "map";
-    goal.target.pose.position.x = 0;
-    goal.target.pose.position.y = 0;
-    goal.target.pose.position.z = 0.0;
-    goal.target.pose.orientation.x = 0.0;
-    goal.target.pose.orientation.y = 0.0;
-    goal.target.pose.orientation.z = 0.0;
-    goal.target.pose.orientation.w = 1.0;
+    goal.target.header.frame_id = "map"
+    goal.target.pose.position.x = 0.0
+    goal.target.pose.position.y = 0.0
+    goal.target.pose.position.z = 0.0
+    goal.target.pose.orientation.x = 0.0
+    goal.target.pose.orientation.y = 0.0
+    goal.target.pose.orientation.z = 0.0
+    goal.target.pose.orientation.w = 1.0
 
     # Sends the goal to the action server.
     client.send_goal(goal)
