@@ -8,7 +8,6 @@ import os
 
 import actionlib
 import actionlib_tutorials.msg
-import navigation.msg
 import std_msgs
 
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
@@ -25,6 +24,7 @@ def handle_move(req):
     pose.header.stamp = rospy.Time.now()
     pose.header.frame_id = "map" 
     pose.pose = Pose()
+
     pose.pose.position.x = req.x #  kinect Z value, [2], is X in TF of camera_link
     pose.pose.position.y = req.y # kinect X value, [0], is -Y in TF of camera_link
     pose.pose.position.z = 0.0 # kinect Y value, [1], is -Z in TF of camera_link
@@ -33,15 +33,22 @@ def handle_move(req):
     pose.pose.orientation.z = 0.0
     pose.pose.orientation.w = 1.0
     
-    pub.publish(pose)
+    pub.publish(pose) #Envoie des coordonnées x,y,theta
     return 0
 
 
 def add_move_server():
     
-    rospy.init_node('move_base_server')
-    s = rospy.Service('/sri22/move_base',move_base,handle_move)
+    rospy.init_node('move_base_server') #intilisation du node 
+    s = rospy.Service('/sri22/move_base',move_base,handle_move) #Appel du service /sri/move_base 
+  
+    if s : #verification de la connexion 
+        print("Ready to go")
+    else :
+        print("Calling service  failed ")    
+
     rospy.spin()
+
 
 if __name__=="__main__":
     add_move_server()

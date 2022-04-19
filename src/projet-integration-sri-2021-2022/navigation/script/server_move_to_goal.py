@@ -52,8 +52,8 @@ class NavigationAction(object):
         r = rospy.Rate(1)
         success = True
 
-	frameid = goal.target.header.frame_id	
-	point = Point(goal.target.pose.position.x, goal.target.pose.position.y, goal.target.pose.position.z)
+	    frameid = goal.target.header.frame_id	
+	    point = Point(goal.target.pose.position.x, goal.target.pose.position.y, goal.target.pose.position.z)
         orientation = Quaternion(goal.target.pose.orientation.x , goal.target.pose.orientation.y, goal.target.pose.orientation.z , goal.target.pose.orientation.w)     
 
         
@@ -62,7 +62,7 @@ class NavigationAction(object):
 
         if self._as.is_preempt_requested():
            rospy.loginfo('%s: Preempted' % self._action_name)
-	   self._result.result_code = 1;
+	       self._result.result_code = 1
            self._as.set_preempted(self._result)
       	   success = False
 	
@@ -70,7 +70,7 @@ class NavigationAction(object):
         if result:
             rospy.loginfo("Goal execution done!")
 	
-	self._result.result_code = 0;
+	self._result.result_code = 0
         self._as.set_succeeded(self._result)
 
         

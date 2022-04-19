@@ -4,3 +4,110 @@ I) Verification of Pkg navigation
 - roslaunch navigation aip_tiago_mapping.launch : Ok
 - rosservice call /sri22/move_base "x: 0.0 y: 0.0 theta: 0.0":Ok 
 
+II) Coordonnates on Map :
+Initial Pose : Posi : x=0.0 ; y=0.0 / Ori : O=0
+Finale  Pose : Posi : x=-3.431 ; y=-4.019 / Ori : O= ?? Try to correct 
+
+III) Mapping of the full office (done)
+
+IV) Navigation with move_base and actionlib (done)
+
+V) RDV 1&2
+
+VI) Behavior tree for the navigation 
+
+1) Behavior tree:
+
+_ Task switching structure( hierachy of task )
+Behavior Trees are an interesting alternative to State Machines. Actions between states in a SMACH become leaves in a tree, and moving between states in a SMACH is handles by the root of the tree in Behavior Tree based planning. For more details, visit this overview.
+(https://uos.github.io/mbf_docs/tutorials/advanced/behavior_tree/)
+
+2) Summary : 
+
+_Tick : means to invoke the callback tick() of the tree node 
+
+_The callback must return :
+
+  .success
+  .failure
+  .running
+
+_Sequence : ticks all its children as long as they return Success.If any child returns Failures , the sequence is aborted :
+
+ . Sequence 
+ . SequenceStar 
+ . ReactiveSequence
+ 
+_Decorators :
+
+ .A decorator is a node that can have only a single child.
+It is up to the Decorator to decide if, when and how many times the child should be ticked.
+ .The node Inverter is a Decorator that inverts the result returned by its child .
+
+_ Fallback :
+
+Currently the framework provides two kinds of nodes:
+
+    Fallback
+    ReactiveFallback
+
+They share the following rules:
+
+  . Before ticking the first child, the node status becomes RUNNING.
+
+  . If a child returns FAILURE, the fallback ticks the next child.
+
+  . If the last child returns FAILURE too, all the children are halted and the fallback returns FAILURE.
+
+  . If a child returns SUCCESS, it stops and returns SUCCESS. All the children are halted.
+
+_ Action Node and condition have no child 
+
+_ inputs ports :
+
+ . a static string which can be parsed by the Node, or
+ . a "pointer" to an entry of the Blackboard, identified by a key.
+
+_ Loggers
+  A Logger is a mechanism to display, record and/or publish any state change in the tree.
+
+
+3) C++ vs python 
+
+behaviorTreeCPP vs py_trees
+ Try a tuto with py_tree or behaviorTreeCPP
+
+4) Implement a simple example 
+
+VII) State machines 
+
+1)Tuto with Smach(python lib )
+
+1-1)Summary of the state mahine creting :
+
+_ Creating a state  :
+ . function "init" method to initialise your method 
+ . In the function "excute" all work is done 
+ . return outcome =['succeded','failed','awesome'] , it describes how the a state finishes .
+_ Adding states to state machine :
+ . A state machine is a container that holds a number of states. When adding a state to a state machine container, you specify the transitions between the states
+ . Every state machine container is also a state. So you can next state machines by adding a state machine container to another state machine container.    
+
+1-2) State library :
+
+_SimpleActionState(call action actions) , 
+_ServiceState( call ROS services) , 
+_MonitorState
+
+1-3) Container library :
+
+_StateMachine: generic state machine container
+_Concurrence : that can run states in parallel
+_Sequence : that makes it easy to excute a set of states in a sequence 
+
+1-4) Container notion ??? (research)
+
+2) Navigation realised with smach 
+
+
+VIII) Comparison state machine vs behaviorTree 
