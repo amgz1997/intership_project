@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/pal/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp
+Change Dir: /home/stage_18_04/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_04978/fast"
-/usr/bin/make -f CMakeFiles/cmTC_04978.dir/build.make CMakeFiles/cmTC_04978.dir/build
-make[1]: Entering directory '/home/pal/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_04978.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_04978.dir/CheckSymbolExists.c.o   -c /home/pal/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_04978
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_04978.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_04978.dir/CheckSymbolExists.c.o  -o cmTC_04978 
-CMakeFiles/cmTC_04978.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:"/usr/bin/make" "cmTC_d56ec/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d56ec.dir/build.make CMakeFiles/cmTC_d56ec.dir/build
+make[1]: Entering directory '/home/stage_18_04/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d56ec.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_d56ec.dir/CheckSymbolExists.c.o   -c /home/stage_18_04/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d56ec
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d56ec.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d56ec.dir/CheckSymbolExists.c.o  -o cmTC_d56ec 
+CMakeFiles/cmTC_d56ec.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_04978.dir/build.make:97: recipe for target 'cmTC_04978' failed
-make[1]: *** [cmTC_04978] Error 1
-make[1]: Leaving directory '/home/pal/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_04978/fast' failed
-make: *** [cmTC_04978/fast] Error 2
+CMakeFiles/cmTC_d56ec.dir/build.make:97: recipe for target 'cmTC_d56ec' failed
+make[1]: *** [cmTC_d56ec] Error 1
+make[1]: Leaving directory '/home/stage_18_04/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d56ec/fast' failed
+make: *** [cmTC_d56ec/fast] Error 2
 
-File /home/pal/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/stage_18_04/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,22 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/pal/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp
+Change Dir: /home/stage_18_04/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_84904/fast"
-/usr/bin/make -f CMakeFiles/cmTC_84904.dir/build.make CMakeFiles/cmTC_84904.dir/build
-make[1]: Entering directory '/home/pal/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_84904.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_84904.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_84904
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_84904.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_84904.dir/CheckFunctionExists.c.o  -o cmTC_84904 -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_cb834/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cb834.dir/build.make CMakeFiles/cmTC_cb834.dir/build
+make[1]: Entering directory '/home/stage_18_04/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cb834.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_cb834.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cb834
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cb834.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_cb834.dir/CheckFunctionExists.c.o  -o cmTC_cb834 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_84904.dir/build.make:97: recipe for target 'cmTC_84904' failed
-make[1]: *** [cmTC_84904] Error 1
-make[1]: Leaving directory '/home/pal/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_84904/fast' failed
-make: *** [cmTC_84904/fast] Error 2
+CMakeFiles/cmTC_cb834.dir/build.make:97: recipe for target 'cmTC_cb834' failed
+make[1]: *** [cmTC_cb834] Error 1
+make[1]: Leaving directory '/home/stage_18_04/intership_project/build/catkin_tools_prebuild/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_cb834/fast' failed
+make: *** [cmTC_cb834/fast] Error 2
 
 

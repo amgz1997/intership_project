@@ -7,8 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/pal/intership_project/devel/.private/catkin_tools_prebuild:$CMAKE_PREFIX_PATH"
-export LUA_PATH=";;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua"
-export PWD="/home/pal/intership_project/build/catkin_tools_prebuild"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/pal/intership_project/devel/.private/catkin_tools_prebuild/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/pal/intership_project/build/catkin_tools_prebuild:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/stage_18_04/intership_project/devel/.private/catkin_tools_prebuild:$CMAKE_PREFIX_PATH"
+export PWD='/home/stage_18_04/intership_project/build/catkin_tools_prebuild'
+export ROSLISP_PACKAGE_DIRECTORIES='/home/stage_18_04/intership_project/devel/.private/catkin_tools_prebuild/share/common-lisp'
+export ROS_PACKAGE_PATH="/home/stage_18_04/intership_project/build/catkin_tools_prebuild:$ROS_PACKAGE_PATH"

@@ -57,8 +57,8 @@ struct DataType< ::navigation::move_base > {
 };
 
 
-// service_traits::MD5Sum< ::navigation::move_baseRequest> should match 
-// service_traits::MD5Sum< ::navigation::move_base > 
+// service_traits::MD5Sum< ::navigation::move_baseRequest> should match
+// service_traits::MD5Sum< ::navigation::move_base >
 template<>
 struct MD5Sum< ::navigation::move_baseRequest>
 {
@@ -72,8 +72,8 @@ struct MD5Sum< ::navigation::move_baseRequest>
   }
 };
 
-// service_traits::DataType< ::navigation::move_baseRequest> should match 
-// service_traits::DataType< ::navigation::move_base > 
+// service_traits::DataType< ::navigation::move_baseRequest> should match
+// service_traits::DataType< ::navigation::move_base >
 template<>
 struct DataType< ::navigation::move_baseRequest>
 {
@@ -87,8 +87,8 @@ struct DataType< ::navigation::move_baseRequest>
   }
 };
 
-// service_traits::MD5Sum< ::navigation::move_baseResponse> should match 
-// service_traits::MD5Sum< ::navigation::move_base > 
+// service_traits::MD5Sum< ::navigation::move_baseResponse> should match
+// service_traits::MD5Sum< ::navigation::move_base >
 template<>
 struct MD5Sum< ::navigation::move_baseResponse>
 {
@@ -102,8 +102,8 @@ struct MD5Sum< ::navigation::move_baseResponse>
   }
 };
 
-// service_traits::DataType< ::navigation::move_baseResponse> should match 
-// service_traits::DataType< ::navigation::move_base > 
+// service_traits::DataType< ::navigation::move_baseResponse> should match
+// service_traits::DataType< ::navigation::move_base >
 template<>
 struct DataType< ::navigation::move_baseResponse>
 {

@@ -1,1 +1,1 @@
-/home/pal/intership_project/devel/.private/navigation/share/gennodejs/ros/navigation/_index.js
+/home/stage_18_04/intership_project/devel/.private/navigation/share/gennodejs/ros/navigation/_index.js

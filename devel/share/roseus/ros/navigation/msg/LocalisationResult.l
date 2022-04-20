@@ -1,1 +1,1 @@
-/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationResult.l
+/home/stage_18_04/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationResult.l

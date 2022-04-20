@@ -1,1 +1,1 @@
-/home/pal/intership_project/devel/.private/catkin_tools_prebuild/local_setup.sh
+/home/stage_18_04/intership_project/devel/.private/catkin_tools_prebuild/local_setup.sh

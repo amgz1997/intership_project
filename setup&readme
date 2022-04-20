@@ -111,12 +111,30 @@ _Sequence : that makes it easy to excute a set of states in a sequence
 2) Navigation realised with smach 
 
 
-VIII) Comparison state machine vs behaviorTree 
-=======
-II) Coordinates on Map : 
+VIII) Comparison state machine vs behaviorTree for applications (https://robohub.org/introduction-to-behavior-trees/ 3)
+1)Specific to BTs vs. FSMs, there is a tradeoff between modularity and reactivity. Generally, BTs are easier to compose and modify while FSMs have their strength in designing reactive behaviors.
+2) Comparison with diagram (see link )
+3) To compensate the lack of transition in behavior , we have the notion of retactive sequence that allows to tick a a previous child in a sequence even it return success .
+4) State machine is used to manage high-level operation mode but behavior tree is used to build a complex sequence of behaviors 
+5) (https://www.youtube.com/watch?v=gXrKGTPwfO8 2)
+table 
 
-Inital Pose: Posi : x=0.0 ; y=0.0 / Ori : O=0 
-Inital Pose: Posi : x=-3.431 ; y=-4.019 / Ori : O=0 ??
+State machine :
+_ Easy to Implement and understand
+_ Not scall well with more transitions
+_ Analogy problem 
+_ Optimal state feeback :Next action should only depend on current world state , not on curent action 
+
+=> Good for smaller problem
+
+Behavior Tree (BT):
+_Modular (weak dependence between subtrees )
+_ Function call analogy 
+_ Generalizes : decision trees , subsumption architecture , teleo-reactive approach
+
+=> Good for larger problems 
+
+=======
 
 
 >>>>>>> 67f25fd3cd52e69b0cd8b77ac77172ac008e3ed0

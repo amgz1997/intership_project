@@ -1,34 +1,34 @@
 
 "use strict";
 
-let LocalisationActionResult = require('./LocalisationActionResult.js');
-let NavigationActionFeedback = require('./NavigationActionFeedback.js');
-let NavigationGoal = require('./NavigationGoal.js');
+let LocalisationResult = require('./LocalisationResult.js');
 let NavigationAction = require('./NavigationAction.js');
 let NavigationActionResult = require('./NavigationActionResult.js');
-let LocalisationActionGoal = require('./LocalisationActionGoal.js');
+let LocalisationActionFeedback = require('./LocalisationActionFeedback.js');
+let NavigationActionFeedback = require('./NavigationActionFeedback.js');
+let NavigationActionGoal = require('./NavigationActionGoal.js');
+let NavigationGoal = require('./NavigationGoal.js');
+let LocalisationAction = require('./LocalisationAction.js');
 let NavigationResult = require('./NavigationResult.js');
 let LocalisationGoal = require('./LocalisationGoal.js');
-let NavigationActionGoal = require('./NavigationActionGoal.js');
+let LocalisationActionResult = require('./LocalisationActionResult.js');
 let LocalisationFeedback = require('./LocalisationFeedback.js');
-let LocalisationAction = require('./LocalisationAction.js');
 let NavigationFeedback = require('./NavigationFeedback.js');
-let LocalisationResult = require('./LocalisationResult.js');
-let LocalisationActionFeedback = require('./LocalisationActionFeedback.js');
+let LocalisationActionGoal = require('./LocalisationActionGoal.js');
 
 module.exports = {
-  LocalisationActionResult: LocalisationActionResult,
-  NavigationActionFeedback: NavigationActionFeedback,
-  NavigationGoal: NavigationGoal,
+  LocalisationResult: LocalisationResult,
   NavigationAction: NavigationAction,
   NavigationActionResult: NavigationActionResult,
-  LocalisationActionGoal: LocalisationActionGoal,
+  LocalisationActionFeedback: LocalisationActionFeedback,
+  NavigationActionFeedback: NavigationActionFeedback,
+  NavigationActionGoal: NavigationActionGoal,
+  NavigationGoal: NavigationGoal,
+  LocalisationAction: LocalisationAction,
   NavigationResult: NavigationResult,
   LocalisationGoal: LocalisationGoal,
-  NavigationActionGoal: NavigationActionGoal,
+  LocalisationActionResult: LocalisationActionResult,
   LocalisationFeedback: LocalisationFeedback,
-  LocalisationAction: LocalisationAction,
   NavigationFeedback: NavigationFeedback,
-  LocalisationResult: LocalisationResult,
-  LocalisationActionFeedback: LocalisationActionFeedback,
+  LocalisationActionGoal: LocalisationActionGoal,
 };

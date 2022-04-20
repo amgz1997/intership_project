@@ -1,1 +1,1 @@
-/home/pal/intership_project/devel/.private/navigation/share/common-lisp/ros/navigation/srv/_package.lisp
+/home/stage_18_04/intership_project/devel/.private/navigation/share/common-lisp/ros/navigation/srv/_package.lisp
