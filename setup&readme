@@ -94,7 +94,7 @@ _ Creating a state  :
  . return outcome =['succeded','failed','awesome'] , it describes how the a state finishes .
 
 _ Adding states to state machine :
-
+Def:
  . A state machine is a container that holds a number of states. When adding a state to a state machine container, you specify the transitions between the states
  . Every state machine container is also a state. So you can next state machines by adding a state machine container to another state machine container.    
 
@@ -116,16 +116,18 @@ _Sequence : that makes it easy to excute a set of states in a sequence
 
 
 VIII) Comparison state machine vs behaviorTree for applications (https://robohub.org/introduction-to-behavior-trees/ 3)
+
 1)Specific to BTs vs. FSMs, there is a tradeoff between modularity and reactivity. Generally, BTs are easier to compose and modify while FSMs have their strength in designing reactive behaviors.
 
 2) Comparison with diagram (see link )
 
-3) To compensate the lack of transition in behavior , we have the notion of retactive sequence that allows to tick a a previous child in a sequence even it return success .
+3) To compensate the lack of transition in behavior , we have the notion of reactive sequence that allows to tick a  previous child in a sequence even it return success .
 4) State machine is used to manage high-level operation mode but behavior tree is used to build a complex sequence of behaviors 
 5) (https://www.youtube.com/watch?v=gXrKGTPwfO8 2)
 table 
 
 State machine :
+
 _ Easy to Implement and understand
 _ Not scall well with more transitions
 _Thinking in term of actions and conditions
@@ -135,17 +137,21 @@ _Library : smach for Python and smacc for C++
 => Good for smaller problem
 
 Behavior Tree (BT):
+
 _Modular (weak dependence between subtrees )
 _ easier to read 
 _easier to modified and extend 
 _Thinking in term of state and event 
 _ Function call analogy 
 _ Generalizes : decision trees , subsumption architecture , teleo-reactive approach
-
+_ Behavior Tree allows to isolate better modules . BT has not transition => It does not need a source node fulfill a condition to continue with the process 
 _Library : py_trees for Python and behaviorTreeCPP for C++
+
 => Good for larger problems 
 
-=======
+Conclusion : 
 
+Toutes les deux méthodes ont beaucoup de contributeurs sur github un peu plus pour les behaviorsTree . On remarque tout de meme que la complexité des machines à états vient du fait qu'il faut bien gérer  les transitions entre les états et pour le behaviorTree plus simple à implémenter par contre un certain nombre de concept doivent etre compris et maitriser pour l'implémenter . 
 
->>>>>>> 67f25fd3cd52e69b0cd8b77ac77172ac008e3ed0
+4) Finirle behavior Tree pour  la navigation 
+5) Maitriser la bibliothèque py_trees 
