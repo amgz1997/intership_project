@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <node pkg="navigation" name="client_move_to_goal" type="client_move_to_goal.py" args="move_base.MoveBase">
+      
+  </node>
+</launch>
