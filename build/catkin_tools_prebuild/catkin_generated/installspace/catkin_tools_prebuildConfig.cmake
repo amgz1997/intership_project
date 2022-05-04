@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/pal/intership_project/install/lib;/home/pal/projet_sri22/devel/lib;/home/pal/projet/devel/lib;/home/pal/catkin_ws/install/lib;/opt/pal/ferrum/lib;/opt/ros/melodic/lib;/opt/openrobots/lib)
+    foreach(path /home/pal/intership_project/install/lib;/home/pal/catkin_ws/install/lib;/opt/pal/ferrum/lib;/opt/ros/melodic/lib;/opt/openrobots/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

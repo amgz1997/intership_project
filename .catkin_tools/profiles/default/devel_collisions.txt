@@ -1,1 +1,1 @@
-/home/pal/intership_project/devel/./cmake.lock 64
+/home/pal/intership_project/devel/./cmake.lock 2

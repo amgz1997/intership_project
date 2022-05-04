@@ -270,7 +270,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = '/home/pal/projet_sri22/devel;/home/pal/projet/devel;/home/pal/catkin_ws/install;/opt/pal/ferrum;/opt/ros/melodic;/opt/openrobots'.split(';')
+            CMAKE_PREFIX_PATH = '/home/pal/catkin_ws/install;/opt/pal/ferrum;/opt/ros/melodic;/opt/openrobots;/opt/openrobots'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []
