@@ -1,4 +1,4 @@
-## TIAGo Task (BehaviorTree)
+# TIAGo Task (BehaviorTree)
 
 #1) Verification of Pkg navigation
 
@@ -16,7 +16,7 @@ Finale  Pose : Posi : x=-3.431 ; y=-4.019 / Ori : O= ?? Try to correct
 
 5) RDV 1&2
 
-# Behavior tree vs State machine 
+## Behavior tree vs State machine 
 
 1) Behavior tree:
 
@@ -235,7 +235,7 @@ Variables
 Raises TypeError – if root variable is not an instance of Behaviour
 
 
-# 5) Navigation sous behaviorTree
+## 5) Navigation sous behaviorTree
 
 _ Explication de la navigation 
 
@@ -243,7 +243,7 @@ Revoir les status des chauque action ( chercher comment visualiser le status )
 On peut voir l'état déexcution de chaque action en utilisant :
 =>py_trees-tree-watcher
 
-# 6) Detection de Aruco( done )
+## 6) Detection de Aruco( done )
 
 _ Explication de la detection 
 
