@@ -1,10 +1,11 @@
-1) Verification of Pkg navigation
+## TIAGo Task (BehaviorTree)
+
+#1) Verification of Pkg navigation
 
 - roslaunch navigation aip_tiago_mapping.launch : Ok
 - roslaunch navigation aip_tiago_mapping.launch : Ok
 - rosservice call /sri22/move_base "x: 0.0 y: 0.0 theta: 0.0":Ok 
 
-<<<<<<< HEAD
 2) Coordonnates on Map :
 Initial Pose : Posi : x=0.0 ; y=0.0 / Ori : O=0
 Finale  Pose : Posi : x=-3.431 ; y=-4.019 / Ori : O= ?? Try to correct 
@@ -15,7 +16,7 @@ Finale  Pose : Posi : x=-3.431 ; y=-4.019 / Ori : O= ?? Try to correct
 
 5) RDV 1&2
 
-6) Behavior tree
+# Behavior tree vs State machine 
 
 1) Behavior tree:
 
@@ -221,7 +222,7 @@ Decorators functionnality:
 9.6) Blackboards
  => py_trees.blackboard.Client(*, name=None, namespace=None)
  => py_trees.display.unicode_blackboard()
- 9.7) Trees 
+9.7) Trees 
 
  => py_trees.trees.BehaviourTree(root)
  Parameters root (Behaviour) – root node of the tree
@@ -234,10 +235,18 @@ Variables
 Raises TypeError – if root variable is not an instance of Behaviour
 
 
-5) Navigation sous behaviorTree
+# 5) Navigation sous behaviorTree
+
+_ Explication de la navigation 
 
 Revoir les status des chauque action ( chercher comment visualiser le status )
+On peut voir l'état déexcution de chaque action en utilisant :
+=>py_trees-tree-watcher
 
-6) Detection de Aruco
+# 6) Detection de Aruco( done )
 
-Ajouter aux 3 autres actions 
+_ Explication de la detection 
+
+Les  3 actions sont exécutées , comme l'arbre est en séquence tant qu'une action n'est pas excutée le tree-watcher met une croix sur l'action qui n'est pas exécutée . 
+
+Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) . 
