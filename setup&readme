@@ -1,21 +1,21 @@
-I) Verification of Pkg navigation
+1) Verification of Pkg navigation
 
 - roslaunch navigation aip_tiago_mapping.launch : Ok
 - roslaunch navigation aip_tiago_mapping.launch : Ok
 - rosservice call /sri22/move_base "x: 0.0 y: 0.0 theta: 0.0":Ok 
 
 <<<<<<< HEAD
-II) Coordonnates on Map :
+2) Coordonnates on Map :
 Initial Pose : Posi : x=0.0 ; y=0.0 / Ori : O=0
 Finale  Pose : Posi : x=-3.431 ; y=-4.019 / Ori : O= ?? Try to correct 
 
-III) Mapping of the full office (done)
+3) Mapping of the full office (done)
 
-IV) Navigation with move_base and actionlib (done)
+4) Navigation with move_base and actionlib (done)
 
-V) RDV 1&2
+5) RDV 1&2
 
-VI) Behavior tree for the navigation 
+6) Behavior tree
 
 1) Behavior tree:
 
@@ -81,11 +81,11 @@ behaviorTreeCPP vs py_trees
 
 4) Implement a simple example 
 
-VII) State machines 
+7) State machines 
 
 1)Tuto with Smach(python lib )
 
-1-1)Summary of the state mahine creting :
+1-1)Summary of the state mahine creating :
 
 _ Creating a state  :
 
@@ -115,7 +115,7 @@ _Sequence : that makes it easy to excute a set of states in a sequence
 2) Navigation realised with smach 
 
 
-VIII) Comparison state machine vs behaviorTree for applications (https://robohub.org/introduction-to-behavior-trees/ 3)
+8) Comparison state machine vs behaviorTree for applications (https://robohub.org/introduction-to-behavior-trees/ 3)
 
 1)Specific to BTs vs. FSMs, there is a tradeoff between modularity and reactivity. Generally, BTs are easier to compose and modify while FSMs have their strength in designing reactive behaviors.
 
@@ -151,7 +151,93 @@ _Library : py_trees for Python and behaviorTreeCPP for C++
 
 Conclusion : 
 
-Toutes les deux méthodes ont beaucoup de contributeurs sur github un peu plus pour les behaviorsTree . On remarque tout de meme que la complexité des machines à états vient du fait qu'il faut bien gérer  les transitions entre les états et pour le behaviorTree plus simple à implémenter par contre un certain nombre de concept doivent etre compris et maitriser pour l'implémenter . 
+Toutes les deux méthodes ont beaucoup de contributeurs sur github plus pour les behaviorsTree . On remarque tout de meme que la complexité des machines à états vient du fait qu'il faut bien gérer  les transitions entre les états et concernant le behaviorTree plus simple à implémenter par contre un certain nombre de concept doivent etre compris et maitriser pour l'implémenter . 
 
-4) Finirle behavior Tree pour  la navigation 
-5) Maitriser la bibliothèque py_trees 
+9) Bibliothèque py_trees 
+_ ressources :
+
+ http://docs.ros.org/en/kinetic/api/py_trees_ros/html/tutorials.html#tutorial-3-blackboards
+
+_ https://readthedocs.org/projects/py-trees/downloads/pdf/devel/
+
+Skelton of code explain:
+. The initialise() method kicks in only when the behaviour is not already running
+. The parent tick() method is responsible for determining when to call initialise() , stop() and terminate() methods . 
+. The parent tick() method always calls update() . 
+. The update() method method is responsible for deciding the behavior Status . 
+
+9.1) initialisation : 
+_ The function __init__ should instantiate the behavior sufficiently for offline dot graph generation 
+_ The function initialise configure and reset the behavior ready for (repeated) execution . Initialisation here is about getting ready for immediate execution of a task .
+
+9.2) Status 
+
+=> py_trees.common.Status[FAILURE,INVALID,RUNNING,SUCCESS]
+_FAILURE : Behaviour check has failed, or execution of its action finished with a failed result.
+_INVALID: Behaviour is uninitialised and inactive, i.e. this is the status before first entry, and after a higher priority switch has occurred . 
+_RUNNING: Behaviour is in the middle of executing some action, result still pending.
+_SUCCESS: Behvaior check has passed , or execution of its action has finished with a successful result . 
+
+The update() method must return of RUNNING,SUCCESS,FAILURE . 
+
+9.3) Feedback Message 
+Alter a feedback message when significant events occur .
+
+9.4) Loggers 
+These are used throughout the demo program . 
+
+9.5) Composites :
+You will never need to subclass or create a new composites
+The three composites of library are as follows:
+. Selector : select a child to execute based on cascading priorities
+. Sequence : execute children sequentially 
+. Parallel : execute children concurrently
+
+9.4.1) Selector 
+=> py_trees.composites.Selector(name=’Selector’, memory=False, children=None) 
+A selector execute each of its child behaviors in turn one of them succeeds(itself returns RUNNING or Success or FAILURE) . 
+
+The Selector is the decision makers . 
+
+9.4.2) Sequence 
+=> py_trees.composites.Sequence(name=’Sequence’, memory=True, children=None)
+A sequence will progressively tick over each of its children  so  long as each child returns SUCCESS . If any child returns FAILURE or RUNNING the sequence will halt and the parent will adopt the result of this child . If it reaches the last child , it reurns with that result regardless . 
+
+The Sequence are the factory lines of behavior Trees . 
+
+9.4.3) Parallel
+=> py_trees.composites.Parallel(name=<Name.AUTO_GENERATED:’AUTO_GENERATED’>, pol-
+icy=<py_trees.common.ParallelPolicy.SuccessOnAllobject>, children=None)
+
+The Parallels enable a kinf of concurrency . 
+
+9.5) Decoraters are behavior that manage a single child and provide common modifications to their underlying child behavior . 
+Decorators functionnality:
+ => py_trees.decorators.Condition
+ .
+ .
+ => py_trees.decorators.SuccessIsRunning 
+
+9.6) Blackboards
+ => py_trees.blackboard.Client(*, name=None, namespace=None)
+ => py_trees.display.unicode_blackboard()
+ 9.7) Trees 
+
+ => py_trees.trees.BehaviourTree(root)
+ Parameters root (Behaviour) – root node of the tree
+Variables
+• count – number of times the tree has been ticked.
+• root – root node of the tree
+• visitors – entities that visit traversed parts of the tree when it ticks
+• pre_tick_handlers – functions that run before the entire tree is ticked
+• post_tick_handlers – functions that run after the entire tree is ticked
+Raises TypeError – if root variable is not an instance of Behaviour
+
+
+5) Navigation sous behaviorTree
+
+Revoir les status des chauque action ( chercher comment visualiser le status )
+
+6) Detection de Aruco
+
+Ajouter aux 3 autres actions 
