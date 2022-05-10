@@ -100,136 +100,94 @@
 #     main()
 
 #     ########################################
-import tf
 import rospy
-import py_trees
-import py_trees_ros
 import actionlib
-from actionlib_msgs.msg import GoalStatus
-from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
-
-# class GetLocationFromQueue(py_trees.behaviour.Behaviour):
-#     """ Gets a location name from the queue """
-#     def __init__(self, name, location_dict):
-#         super(GetLocationFromQueue, self).__init__(name)
-#         self.location_dict = location_dict
-#         self.bb = py_trees.blackboard.Blackboard()
-
-#     def update(self):
-#         """ Checks for the status of the navigation action """
-#         loc_list = self.bb.get("loc_list")
-#         if len(loc_list) == 0:
-#             self.logger.info("No locations available")
-#             return py_trees.common.Status.FAILURE
-#         else:
-#             target_location = loc_list.pop()
-#             self.logger.info("Selected location {target_location}")
-#             target_pose = self.location_dict[target_location]
-#             self.bb.set("target_pose", target_pose)
-#             return py_trees.common.Status.SUCCESS
-
-#     def terminate(self, new_status):
-#         self.logger.info("Terminated with status {new_status}")
+from tf.transformations import quaternion_from_euler, euler_from_quaternion
+from geometry_msgs.msg import Point, Quaternion, Pose
+from moveit_msgs.msg import MoveGroupGoal, MoveGroupResult, MoveGroupAction, Constraints, MoveItErrorCodes, JointConstraint
+from shape_msgs.msg import SolidPrimitive
+from std_msgs.msg import Header
 
 
-class GoToPose(py_trees.behaviour.Behaviour):
-    """ Wrapper behavior around the `move_base` action client """
-
-    def __init__(self, name, pose=None):
-        super(GoToPose, self).__init__(name)
-        self.client = actionlib.SimpleActionClient("move_base", MoveBaseAction)
-        self.client.wait_for_server()
-        self.pose = pose
-        self.bb = py_trees.blackboard.Blackboard()
-
-    def initialise(self):
-        """ Sends the initial navigation action goal """
-        # Check if there is a pose available in the blackboard
-        target_pose = self.bb.get("target_pose")
-        if target_pose is not None:
-            self.pose = target_pose
-        
-        x, y, theta = self.pose
-        self.logger.info("Going to [x: {x}, y: {y}, theta: {theta}] ...")
-        goal = create_move_base_goal(x, y, theta)
-        self.client.send_goal(goal)
-        rospy.sleep(0.5)    # Ensure goal was received before checking state
-
-    def update(self):
-        """ Checks for the status of the navigation action """
-        status = self.client.get_state()
-        if status == GoalStatus.SUCCEEDED:
-            return py_trees.common.Status.SUCCESS
-        if status == GoalStatus.ACTIVE:
-            return py_trees.common.Status.RUNNING
-        else:
-            return py_trees.common.Status.FAILURE
-
-    def terminate(self, new_status):
-        self.logger.info("Terminated with status {new_status}")
-        self.bb.set("target_pose", None)
+# Useful dictionary for reading in a human friendly way the MoveIt! error codes
+moveit_error_dict = {}
+for name in MoveItErrorCodes.__dict__.keys():
+    if not name[:1] == '_':
+        code = MoveItErrorCodes.__dict__[name]
+        moveit_error_dict[code] = name
 
 
-def create_move_base_goal(x, y, theta):
-    """ Creates a MoveBaseGoal message from a 2D navigation pose """
-    goal = MoveBaseGoal()
-    goal.target_pose.header.frame_id = "map"
-    goal.target_pose.header.stamp = rospy.Time.now()
-    goal.target_pose.pose.position.x = x
-    goal.target_pose.pose.position.y = y
-    quat = tf.transformations.quaternion_from_euler(0, 0, theta)
-    goal.target_pose.pose.orientation.x = quat[0]
-    goal.target_pose.pose.orientation.y = quat[1]
-    goal.target_pose.pose.orientation.z = quat[2]
-    goal.target_pose.pose.orientation.w = quat[3]
-    return goal
+def create_move_group_joints_goal(joint_names, joint_values, group="right_arm_torso", plan_only=True):
+    """ Creates a move_group goal based on pose.
+    @arg joint_names list of strings of the joint names
+    @arg joint_values list of digits with the joint values
+    @arg group string representing the move_group group to use
+    @arg plan_only bool to for only planning or planning and executing
+    @return MoveGroupGoal with the desired contents"""
+    
+    header = Header()
+    header.frame_id = 'base_footprint'
+    header.stamp = rospy.Time.now()
+    moveit_goal = MoveGroupGoal()
+    goal_c = Constraints()
+    for name, value in zip(joint_names, joint_values):
+        joint_c = JointConstraint()
+        joint_c.joint_name = name
+        joint_c.position = value
+        joint_c.tolerance_above = 0.01
+        joint_c.tolerance_below = 0.01
+        joint_c.weight = 1.0
+        goal_c.joint_constraints.append(joint_c)
 
-if __name__=="__main__":
-    # Start ROS node
-    rospy.init_node("navigation_node")
+    moveit_goal.request.goal_constraints.append(goal_c)
+    moveit_goal.request.num_planning_attempts = 1
+    moveit_goal.request.allowed_planning_time = 15.0
+    moveit_goal.planning_options.plan_only = plan_only
+    moveit_goal.planning_options.planning_scene_diff.is_diff = True
+    moveit_goal.request.group_name = group
+    
+    return moveit_goal
 
-    # Parse locations YAML file
-    #location_file = rospy.get_param("location_file")
-    # print("Using location file: {location_file}")
-    #with open(location_file, "r") as f:
-    #   locations = yaml.load(f, Loader=yaml.FullLoader)
 
-    # Navigate goals randomly
-    use_behavior_trees = True
-    if use_behavior_trees:
-        # Create behavior tree from shuffled locations
-        root = py_trees.composites.Sequence(name="navigation")
-        # loc_list = list(locations.keys())
-        # random.shuffle(loc_list)
-        #for loc in loc_list:
-        pose = create_move_base_goal(2.3, 0.588, 0.0)
-        root.add_child(GoToPose("go_to", pose))
-        tree = py_trees.trees.BehaviourTree(root)
-        ros_tree = py_trees_ros.trees.BehaviourTree(root)
-        ros_tree.setup(timeout=10.0)
-        py_trees.logging.level = py_trees.logging.Level.INFO
+if __name__=='__main__':
+    rospy.init_node("moveit_snippet")
 
-        # Tick the tree until a terminal state is reached
-        while not rospy.is_shutdown():
-            ros_tree.tick()
-            if ros_tree.root.status == py_trees.common.Status.SUCCESS:
-                print("Behavior tree succeeded")
-                exit()
-            elif ros_tree.root.status == py_trees.common.Status.FAILURE:
-                print("Behavior tree failed.")
-                exit()
-            rospy.sleep(0.5)
-      
-    # else:
-    #     # Start move_base client and loop indefinitely
-    #     client = actionlib.SimpleActionClient("move_base", MoveBaseAction)
-    #     client.wait_for_server()
-    #     while not rospy.is_shutdown():
-    #        # next_loc = random.choice(list(locations.keys()))
-    #         x, y, theta = pose()
-    #         print("Selected {next_loc}")
-    #         print("Going to [x: {x}, y: {y}, theta: {theta}] ...")
-    #         goal = create_move_base_goal(2.3, 0.588, 0.0)
-    #         client.send_goal(goal)
-    #         result = client.wait_for_result()
-    #         print("Action complete with result: {result}")    
+    rospy.loginfo("Connecting to move_group AS")
+    moveit_ac = actionlib.SimpleActionClient('move_group', MoveGroupAction)
+    moveit_ac.wait_for_server()
+    rospy.loginfo("Succesfully connected.")
+    
+    rospy.loginfo("Creating goal.")
+    # Set a list of joint values for the joints specified
+    # joint values for right arm 
+    joint_names=['torso_lift_joint', 'arm_1_joint', 'arm_1_joint', 
+                 'arm_2_joint', 'arm_3_joint', 'arm_4_joint', 
+                 'arm_5_joint', 'arm_6_joint','arm_7_joint']
+    # this is the arm straight down
+    # joint_list_right_arm_straight_down = [-5.85101288255e-05, -0.00100779755239, 9.26099389043e-05,
+    #                                       0.000257664105577, -1.55489239528e-06, -0.00244347294573,
+    #                                       -2.55958709623e-05]
+    
+    joint_posi_init=[0.34, 0.21, -1.34, -0.2, 1.94 ,-1.57, 1.37, 0.0]
+
+    # this is the arm in front like if it was going to shake it's hand with someone
+    # joint_list_right_arm_shake_hand_pose = [0.376906673976, 0.114372113957, -0.198407737748,
+    #                                         1.36616457377, 0.970099953413, 0.108292227188,
+    #                                         -0.822999433641]
+
+    joint_list = joint_posi_init
+    moveit_goal = create_move_group_joints_goal(joint_names, joint_list, group="right_arm", plan_only=True)
+    rospy.loginfo("Sending goal...")
+    moveit_ac.send_goal(moveit_goal)
+    rospy.loginfo("Waiting for result...")
+    moveit_ac.wait_for_result(rospy.Duration(10.0))
+    moveit_result = moveit_ac.get_result()
+    
+    #rospy.loginfo("Got result:\n" + str(moveit_result)) # Uncomment if you want to see the full result message
+    #r = MoveGroupResult()
+    if moveit_result != None and moveit_result.error_code.val != 1:
+        rospy.logwarn("Goal not succeeded: \"" + moveit_error_dict[moveit_result.error_code.val]  + "\"")
+    elif moveit_result != None:
+        rospy.loginfo("Goal achieved.")
+    else:
+        rospy.logerr("Couldn't get result, something went wrong, the goal probably timed out.")

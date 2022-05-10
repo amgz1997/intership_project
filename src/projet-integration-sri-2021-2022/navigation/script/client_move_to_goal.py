@@ -29,8 +29,8 @@ def move(goal):
 
 def nav():
 
-    goals = [   create_goal(2.1, 0.58, 0, 0, 0, 0.0, 1),
-                create_goal(0.0, 0.0, 0, 0, 0, 0.0, 1),
+    goals = [   create_goal(2.33, 0.588, 0.0, 0, 0, 0.0, 1),
+                create_goal(0.0, 0.0, 0.0, 0, 0, 0.0, 1),
                 
     ]
 
