@@ -7,14 +7,12 @@
 - rosservice call /sri22/move_base "x: 0.0 y: 0.0 theta: 0.0":Ok 
 
 2) Coordonnates on Map :
-Initial Pose : Posi : x=0.0 ; y=0.0 / Ori : O=0
-Finale  Pose : Posi : x=-3.431 ; y=-4.019 / Ori : O= ?? Try to correct 
+Initial Pose : Posi : x=; y= / Ori : O= 1.0  ( Put coordonnates ) 
+Finale  Pose : Posi : x= ; y= / Ori : O=1.0  
 
 3) Mapping of the full office (done)
 
 4) Navigation with move_base and actionlib (done)
-
-5) RDV 1&2
 
 ## Behavior tree vs State machine 
 
@@ -26,21 +24,21 @@ Behavior Trees are an interesting alternative to State Machines. Actions between
 
 2) Summary : 
 
-_Tick : means to invoke the callback tick() of the tree node 
+_ Tick : means to invoke the callback tick() of the tree node 
 
-_The callback must return :
+_ The callback must return :
 
   .success
   .failure
   .running
 
-_Sequence : ticks all its children as long as they return Success.If any child returns Failures , the sequence is aborted :
+_ Sequence : ticks all its children as long as they return Success.If any child returns Failures , the sequence is aborted :
 
  . Sequence 
  . SequenceStar 
  . ReactiveSequence
  
-_Decorators :
+_ Decorators :
 
  .A decorator is a node that can have only a single child.
 It is up to the Decorator to decide if, when and how many times the child should be ticked.
@@ -57,11 +55,8 @@ Currently the framework provides two kinds of nodes:
 They share the following rules:
 
   . Before ticking the first child, the node status becomes RUNNING.
-
   . If a child returns FAILURE, the fallback ticks the next child.
-
   . If the last child returns FAILURE too, all the children are halted and the fallback returns FAILURE.
-
   . If a child returns SUCCESS, it stops and returns SUCCESS. All the children are halted.
 
 _ Action Node and condition have no child 
@@ -74,7 +69,6 @@ _ inputs ports :
 _ Loggers
   A Logger is a mechanism to display, record and/or publish any state change in the tree.
 
-
 3) C++ vs python 
 
 behaviorTreeCPP vs py_trees
@@ -82,7 +76,7 @@ behaviorTreeCPP vs py_trees
 
 4) Implement a simple example 
 
-7) State machines 
+5) State machines 
 
 1)Tuto with Smach(python lib )
 
@@ -115,7 +109,6 @@ _Sequence : that makes it easy to excute a set of states in a sequence
 
 2) Navigation realised with smach 
 
-
 8) Comparison state machine vs behaviorTree for applications (https://robohub.org/introduction-to-behavior-trees/ 3)
 
 1)Specific to BTs vs. FSMs, there is a tradeoff between modularity and reactivity. Generally, BTs are easier to compose and modify while FSMs have their strength in designing reactive behaviors.
@@ -124,42 +117,43 @@ _Sequence : that makes it easy to excute a set of states in a sequence
 
 3) To compensate the lack of transition in behavior , we have the notion of reactive sequence that allows to tick a  previous child in a sequence even it return success .
 4) State machine is used to manage high-level operation mode but behavior tree is used to build a complex sequence of behaviors 
+
 5) (https://www.youtube.com/watch?v=gXrKGTPwfO8 2)
-table 
 
 State machine :
 
 _ Easy to Implement and understand
 _ Not scall well with more transitions
-_Thinking in term of actions and conditions
+_ Thinking in term of actions and conditions
 _ Analogy problem 
 _ Optimal state feeback :Next action should only depend on current world state , not on curent action 
-_Library : smach for Python and smacc for C++
+_ Library : smach for Python and smacc for C++
 => Good for smaller problem
 
 Behavior Tree (BT):
 
-_Modular (weak dependence between subtrees )
+_ Modular (weak dependence between subtrees )
 _ easier to read 
-_easier to modified and extend 
-_Thinking in term of state and event 
+_ easier to modified and extend 
+_ Thinking in term of state and event 
 _ Function call analogy 
 _ Generalizes : decision trees , subsumption architecture , teleo-reactive approach
 _ Behavior Tree allows to isolate better modules . BT has not transition => It does not need a source node fulfill a condition to continue with the process 
-_Library : py_trees for Python and behaviorTreeCPP for C++
+_ Library : py_trees for Python and behaviorTreeCPP for C++
 
 => Good for larger problems 
 
 Conclusion : 
 
-Toutes les deux méthodes ont beaucoup de contributeurs sur github plus pour les behaviorsTree . On remarque tout de meme que la complexité des machines à états vient du fait qu'il faut bien gérer  les transitions entre les états et concernant le behaviorTree plus simple à implémenter par contre un certain nombre de concept doivent etre compris et maitriser pour l'implémenter . 
+ Toutes les deux méthodes ont beaucoup de contributeurs sur github plus pour les behaviorsTree . On remarque tout de meme que la complexité des machines à états vient du fait qu'il faut bien gérer  les transitions entre les états et concernant le behaviorTree plus simple à implémenter par contre un certain nombre de concept doivent etre compris et maitriser pour l'implémenter . 
 
 9) Bibliothèque py_trees 
+
 _ ressources :
 
- http://docs.ros.org/en/kinetic/api/py_trees_ros/html/tutorials.html#tutorial-3-blackboards
+ _  http://docs.ros.org/en/kinetic/api/py_trees_ros/html/tutorials.html#tutorial-3-blackboards
 
-_ https://readthedocs.org/projects/py-trees/downloads/pdf/devel/
+ _  https://readthedocs.org/projects/py-trees/downloads/pdf/devel/
 
 Skelton of code explain:
 . The initialise() method kicks in only when the behaviour is not already running
@@ -168,16 +162,17 @@ Skelton of code explain:
 . The update() method method is responsible for deciding the behavior Status . 
 
 9.1) initialisation : 
+
 _ The function __init__ should instantiate the behavior sufficiently for offline dot graph generation 
 _ The function initialise configure and reset the behavior ready for (repeated) execution . Initialisation here is about getting ready for immediate execution of a task .
 
 9.2) Status 
 
 => py_trees.common.Status[FAILURE,INVALID,RUNNING,SUCCESS]
-_FAILURE : Behaviour check has failed, or execution of its action finished with a failed result.
-_INVALID: Behaviour is uninitialised and inactive, i.e. this is the status before first entry, and after a higher priority switch has occurred . 
-_RUNNING: Behaviour is in the middle of executing some action, result still pending.
-_SUCCESS: Behvaior check has passed , or execution of its action has finished with a successful result . 
+_ FAILURE : Behaviour check has failed, or execution of its action finished with a failed result.
+_ INVALID: Behaviour is uninitialised and inactive, i.e. this is the status before first entry, and after a higher priority switch has occurred . 
+_ RUNNING: Behaviour is in the middle of executing some action, result still pending.
+_ SUCCESS: Behvaior check has passed , or execution of its action has finished with a successful result . 
 
 The update() method must return of RUNNING,SUCCESS,FAILURE . 
 
@@ -210,7 +205,7 @@ The Sequence are the factory lines of behavior Trees .
 => py_trees.composites.Parallel(name=<Name.AUTO_GENERATED:’AUTO_GENERATED’>, pol-
 icy=<py_trees.common.ParallelPolicy.SuccessOnAllobject>, children=None)
 
-The Parallels enable a kinf of concurrency . 
+The Parallels enable a kind of concurrency . 
 
 9.5) Decoraters are behavior that manage a single child and provide common modifications to their underlying child behavior . 
 Decorators functionnality:
@@ -222,6 +217,7 @@ Decorators functionnality:
 9.6) Blackboards
  => py_trees.blackboard.Client(*, name=None, namespace=None)
  => py_trees.display.unicode_blackboard()
+
 9.7) Trees 
 
  => py_trees.trees.BehaviourTree(root)
@@ -234,7 +230,6 @@ Variables
 • post_tick_handlers – functions that run after the entire tree is ticked
 Raises TypeError – if root variable is not an instance of Behaviour
 
-
 ## 5) Navigation sous behaviorTree
 
 _ Explication de la navigation 
@@ -245,8 +240,16 @@ On peut voir l'état déexcution de chaque action en utilisant :
 
 ## 6) Detection de Aruco( done )
 
-_ Explication de la detection 
+The implement of the aruco detection allow to recognize the object which we pick and place . We choose this kind of perception .  
+
+## 7) Préparation du bras (arm_arng)
+ 
+Two functions which allow us to put the arm in a first static position during a predifined time about the first function and the second function like the once , moves the torso in a  position during a time . We will these function to prepare and achieve the task of pick & place . 
+
 
 Les  3 actions sont exécutées , comme l'arbre est en séquence tant qu'une action n'est pas excutée le tree-watcher met une croix sur l'action qui n'est pas exécutée . 
 
-Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) . 
+
+Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) ou l'arreter après une exécution . !!! 
+
+Revoir l'action arm_tucking .!!!
