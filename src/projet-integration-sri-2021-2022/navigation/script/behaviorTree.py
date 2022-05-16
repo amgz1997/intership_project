@@ -54,12 +54,12 @@ class movebase(pt.behaviour.Behaviour):
 
       if self.pose=="point1":
 
-        goals=self.create_goal(-1.3, 10.075, 1.0)
+        goals=self.create_goal(-0.2, 0.8, -1.0)
         self.client.send_goal(goals)
 
       elif self.pose=="point2":
 
-        goals=self.create_goal(2.75, 9.733, 1.0)
+        goals=self.create_goal(0.0, 0.0, 1.0)
 
         self.client.send_goal(goals)
 
@@ -152,78 +152,35 @@ class aruco_detect(pt.behaviour.Behaviour):
 #                 self.aruco_pose.pose.orientation.w=0.1 
 #                 self.aruco_pub.publish(self.aruco_pose.pose)  
 
-class arm_arng(pt.behaviour.Behaviour):
+
+
+class arm_tucking(pt.behaviour.Behaviour):
 
     def __init__(self,config):
 
-        
-        rospy.loginfo("Arm tucking")
-        self.arm_cmd = rospy.Publisher('/arm_controller/command', JointTrajectory, queue_size=1)
-        self.torso_cmd = rospy.Publisher('/torso_controller/command', JointTrajectory, queue_size=1)
-
         self.config=config
-
-        # moveit_commander.roscpp_initialize(sys.argv)
-        # self.robot=moveit_commander.RobotCommander()
-        # self.scene=moveit_commander.PlanningSceneInterface()
-        # self.group1=moveit_commander.MoveGroupCommander("arm_torso")         
-        # self.display_trajectory_publisher=rospy.Publisher('/move_group/display_planned_path',moveit_msgs.msg.DisplayTrajectory,queue_size=1) 
         
-        # self.moveit_ac=SimpleActionClient('/move_group', MoveGroupAction)
-        # self.moveit_ac.wait_for_server()
+        self.arm_ac=SimpleActionClient('/safe_arm_controller/follow_joint_trajectory', FollowJointTrajectoryAction) #JointTrajectory
+        self.arm_ac.wait_for_server()
 
         rospy.loginfo("connected to /arm_controller")
-
-        # if not self.motion_ac.wait_for_server(rospy.Duration(5.0)):
-        #     rospy.logerr("Could not connect to /tts action server!")
-        #     exit(0)
         rospy.loginfo("Connected!")
 
         self.sent_goal=False
         
-        super(arm_arng, self).__init__("Tucking_Arm")
+        super(arm_tucking, self).__init__("Tucking_Arm")
 
     def update(self):
-       
-        #rospy.sleep(2)
-
-####################################################
-
-        # rospy.sleep(1.0)
-
-        # joint_goal=self.moveit_create_goal(0.25, 0.20, -1.34, -0.2, 1.94 ,-1.57, 1.37, 0.0)
-
-        # elif self.config=="config2":
-        # joint_goal=self.group1.get_current_joint_values()
-
-        # joint_posi=[0.30, 0.20, -1.34, -0.2, 1.94 ,-1.57, 1.37, 0.0]
-        # joint_name=["torso_lift_joint", "arm_1_joint", "arm_2_joint", "arm_3_joint", "arm_4_joint", "arm_5_joint", "arm_6_joint", "arm_7_joint"]
-
-        #  self.group1.go(joint_goal, wait=True)
-
-        # print("A")
-
-        # joint_goal=self.moveit_create_goal(joint_name, joint_posi, group="arm_torso", plan_only=True)
-        # self.moveit_ac.send_goal(joint_goal)
-
-############################################        
-    #     g=PlayMotionGoal()
-    #     g.motion_name='pregrasp'
-    #     g.skip_planning=False
-    #    # motion=self.play_motion_goal()
-    #     self.motion_ac.send_goal_and_wait(g)
-##################################################
 
         if self.config=="config1":
 
             
-            mov_torso=self.torso_mov(0.30)
+            #mov_torso=self.torso_mov(0.30)
             #mov_joint=self.joint_mov(0.21, 0.35, -0.2, 2.0, -1.57, 1.52, 0.0) #final
 
-            mov_joint=self.joint_mov(0.20, -1.34, -0.20, 1.94, -1.57, 1.37, 0.0) #initial
+            mov_joint=self.joint_mov(0.21, -1.37, -0.20, 1.94, -1.57, 1.37, 0.0) #initial
 
            # rospy.sleep(5)
-            mov_torso=self.torso_mov(0.25)
             
             #rospy.sleep(25)
 
@@ -242,96 +199,108 @@ class arm_arng(pt.behaviour.Behaviour):
 
             return pt.common.Status.SUCCESS
 
-#################################################################################
-   # def moveit_create_goal(self,torso,arm1,arm2,arm3,arm4,arm5,arm6,arm7):
-   # def moveit_create_goal(self,joint_names, joint_values, group="arm_torso", plan_only=True):
-   # def play_motion_goal(self):
-
-        # joint_goal=self.group1.get_current_joint_values()
-        # joint_goal=[torso, arm1, arm2, arm3, arm4,arm5, arm6, arm7]
-        # #joint_goal=[0.15, 0.20, -1.34, -0.2, 1.94 ,-1.57, 1.37, 0.0]
-        # self.group1.set_joint_value_target(joint_goal)
-        # plan1=self.group1.plan()
-        # self.group1.set_planning_time(5.0)
-        # return self.group1.go(wait=True)
-###################################################################################
-
-        #self.group1.stop() 
-        # header=Header()
-        # header.frame_id='base_footprint'
-        # header.stamp=rospy.Time.now()
-        # moveit_goal=MoveGroupGoal()
-        # goal_c=Constraints()
-        # goal_c.header.header.frame_id='base_footprint'
-        # for name, value in zip(joint_names, joint_values):
-        #     joint_c= JointConstraint()
-        #     joint_c.joint_name= name
-        #     joint_c.position= value
-        #     joint_c.tolerance_above=0.01
-        #     joint_c.tolerance_below=0.01
-        #     joint_c.weight=1.0        
-        #     goal_c.joint_constraints.append(joint_c)   
-        # moveit_goal.request.goal_constraints.append(goal_c)
-        # moveit_goal.request.max_velocity_scaling_factor=0.25
-        # moveit_goal.request.planner_id="arm_torso"
-        # moveit_goal.request.num_planning_attempts=1
-        # moveit_goal.request.allowed_planning_time=15.0
-        # moveit_goal.planning_options.plan_only=plan_only
-        # moveit_goal.planning_options.planning_scene_diff.is_diff= True 
-        # moveit_goal.request.group_name= group        
-        # return  self.moveit_ac.send_goal(moveit_goal) #self.moveit_ac.send_goal(moveit_goal.goal)
-        # #return self.moveit_goal.goal
-        #g=PlayMotionGoal()
-        #g.motion_name='pregrasp'
-        #return g
-#######################################################################################
-
     def joint_mov(self,arm1,arm2,arm3,arm4,arm5,arm6,arm7):
 
         jt=JointTrajectory()
         jt.joint_names=['arm_1_joint', 'arm_2_joint', 'arm_3_joint', 'arm_4_joint', 'arm_5_joint', 'arm_6_joint', 'arm_7_joint']
         jtp=JointTrajectoryPoint()
-        #jtp.positions =[0.2, -1.2, -0.2, 1.94 ,-1.57, 1.37, 0.0]
         jtp.positions =[arm1, arm2, arm3, arm4, arm5, arm6, arm7]
-        jtp.time_from_start = rospy.Duration(7)
+        jtp.time_from_start = rospy.Duration(10)
+        arm_goal_pos=FollowJointTrajectoryGoal()
         jt.points.append(jtp)
+        arm_goal_pos.trajectory=jt
+        arm_goal_pos.goal_time_tolerance=rospy.Duration(0)
+        self.arm_ac.send_goal(arm_goal_pos)
+        rospy.loginfo("goal send success")
+        self.arm_ac.wait_for_result()
 
-        return self.arm_cmd.publish(jt)
+class torso_tucking(pt.behaviour.Behaviour):
+
+    def __init__(self,config):
+
+        self.config=config
+        
+        self.torso_ac=SimpleActionClient('/safe_torso_controller/follow_joint_trajectory', FollowJointTrajectoryAction) #JointTrajectory
+        self.torso_ac.wait_for_server()
+
+        rospy.loginfo("connected to /torso_controller")
+        rospy.loginfo("Connected!")
+
+        self.sent_goal=False
+        
+        super(torso_tucking, self).__init__("Tucking_torso")
+
+    def update(self):
+
+        if self.config=="config1":
+
+            
+            mov_torso=self.torso_mov(0.15)
+            
+            #rospy.sleep(25)
+
+        elif self.config=="config2":
+            
+            #rospy.sleep(25)
+
+            mov_torso=self.torso_mov(0.25)
+
+        if self.sent_goal:
+
+            return pt.common.Status.FAILURE
+
+        else:
+
+            return pt.common.Status.SUCCESS
+
+
 
     def torso_mov(self,tors):
 
         tor=JointTrajectory()
         tor.joint_names=['torso_lift_joint']
         tor_p=JointTrajectoryPoint()
-        #tor_p.positions =[0.25]
         tor_p.positions =[tors]
-
-        tor_p.time_from_start = rospy.Duration(4)
+        tor_p.time_from_start = rospy.Duration(7)
+        torso_goal_pos=FollowJointTrajectoryGoal()
         tor.points.append(tor_p)
-
-        return self.torso_cmd.publish(tor)
-
+        torso_goal_pos.trajectory=tor
+        torso_goal_pos.goal_time_tolerance=rospy.Duration(0)
+        self.torso_ac.send_goal(torso_goal_pos)
+        rospy.loginfo("goal send success")
+        self.torso_ac.wait_for_result()
 
 # Faire pick + octomap (voir lien )
 #class pick(ptr.trees.BehaviourTree):
-    #See if i should implement a one class or two for the pick and place goal 
+#See if i should implement a one class or two for the pick and place goal 
+
 class BehaviourTree(ptr.trees.BehaviourTree):
 
     def __init__(self):
 
         rospy.loginfo("Initialising behaviour tree")
 
-        nav1=movebase("point1")
-        nav2=movebase("point2")
-        detect=aruco_detect()
-        arm_tucking1=arm_arng("config1")
-        arm_tucking2=arm_arng("config2")
+        Nav1=movebase("point1")
+
+        Nav2=movebase("point2")
+
+        Detect=aruco_detect()
+
+        Arm_tucking1=arm_tucking("config1")
+
+        Arm_tucking2=arm_tucking("config2")
+
+        Torso_tucking1=torso_tucking("config1")
+
+        Torso_tucking2=torso_tucking("config2")
+
         root=pt.composites.Sequence(name="Task")
 
-       # root.add_children([nav1,detect,arm_tucking1]) ##Revoir l'aruco detecte ??
+        root.add_children([Nav1,Detect,Arm_tucking1,Torso_tucking1,Nav2]) ##Revoir l'aruco detecte ??
         
-        #root.add_children([nav1])
-        root.add_children([arm_tucking1])
+        #root.add_children([Nav1,Nav2])
+
+        #root.add_children([Torso_tucking1])
         
         #print(pt.display.ascii_tree(root))
 
@@ -340,7 +309,7 @@ class BehaviourTree(ptr.trees.BehaviourTree):
         rospy.sleep(5)
         self.setup(timeout=15)
 
-        while not rospy.is_shutdown(): self.tick_tock(500)
+        while not rospy.is_shutdown(): self.tick_tock(1)
         
         rospy.is_shutdown()
 
