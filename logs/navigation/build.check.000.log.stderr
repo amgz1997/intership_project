@@ -1,0 +1,5 @@
+[31m[1mCMake Error[0m at /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/CMakeLists.txt:20 (generate_dynamic_reconfigure_options):
+  Unknown CMake command "generate_dynamic_reconfigure_options".
+
+
+make: *** [cmake_check_build_system] Error 1

@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(navigation_EXPORTED_TARGETS "navigation_generate_messages_cpp;navigation_generate_messages_eus;navigation_generate_messages_lisp;navigation_generate_messages_nodejs;navigation_generate_messages_py")
+set(navigation_EXPORTED_TARGETS "navigation_gencfg;navigation_generate_messages_cpp;navigation_generate_messages_eus;navigation_generate_messages_lisp;navigation_generate_messages_nodejs;navigation_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${navigation_EXPORTED_TARGETS})
   if(NOT TARGET ${t})

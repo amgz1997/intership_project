@@ -1,0 +1,1 @@
+/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg

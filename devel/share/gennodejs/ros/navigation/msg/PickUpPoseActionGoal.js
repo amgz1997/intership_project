@@ -1,0 +1,1 @@
+/home/pal/intership_project/devel/.private/navigation/share/gennodejs/ros/navigation/msg/PickUpPoseActionGoal.js

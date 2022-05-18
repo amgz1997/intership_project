@@ -7,15 +7,28 @@ project(navigation)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
+
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+  dynamic_reconfigure
   std_msgs
   genmsg 
+  actionlib
+  aruco_ros
+  moveit_msgs
   actionlib_msgs
   geometry_msgs
+  tf2_ros
+  tf2_geometry_msgs
+  std_msgs
+  std_srvs
   message_generation
 )
+
+generate_dynamic_reconfigure_options(cfg/SphericalGrasp.cfg)
+
+
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -71,7 +84,7 @@ find_package(catkin REQUIRED COMPONENTS
 #   Action2.action
 # )
 
-add_action_files(DIRECTORY action FILES Navigation.action Localisation.action)
+add_action_files(DIRECTORY action FILES Navigation.action Localisation.action PickUpPose.action )
 
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
@@ -211,3 +224,4 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+

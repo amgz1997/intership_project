@@ -129,6 +129,22 @@ file(INSTALL DESTINATION "/home/pal/intership_project/install" TYPE FILE FILES "
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/navigation" TYPE FILE FILES "/home/pal/intership_project/devel/.private/navigation/include/navigation/SphericalGraspConfig.h")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/navigation" TYPE FILE FILES "/home/pal/intership_project/devel/.private/navigation/lib/python2.7/dist-packages/navigation/__init__.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/pal/intership_project/devel/.private/navigation/lib/python2.7/dist-packages/navigation/cfg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/navigation" TYPE DIRECTORY FILES "/home/pal/intership_project/devel/.private/navigation/lib/python2.7/dist-packages/navigation/cfg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigation/srv" TYPE FILE FILES "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv")
 endif()
 
@@ -136,6 +152,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigation/action" TYPE FILE FILES
     "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/action/Navigation.action"
     "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/action/Localisation.action"
+    "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/action/PickUpPose.action"
     )
 endif()
 
@@ -160,6 +177,18 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg"
     "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg"
     "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigation/msg" TYPE FILE FILES
+    "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg"
+    "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg"
+    "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg"
+    "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg"
+    "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg"
+    "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg"
+    "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg"
     )
 endif()
 

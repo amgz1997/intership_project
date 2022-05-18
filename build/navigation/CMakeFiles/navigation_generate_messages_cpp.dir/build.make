@@ -55,15 +55,22 @@ include CMakeFiles/navigation_generate_messages_cpp.dir/progress.make
 
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionGoal.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationGoal.h
+CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseGoal.h
+CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionFeedback.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionFeedback.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionResult.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionGoal.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionResult.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationResult.h
+CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationFeedback.h
+CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseResult.h
+CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionFeedback.h
+CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionResult.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationAction.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationGoal.h
+CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseFeedback.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationResult.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationAction.h
 CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationFeedback.h
@@ -89,6 +96,27 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from navigation/LocalisationGoal.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseGoal.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseGoal.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseGoal.h: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseGoal.h: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseGoal.h: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseGoal.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseGoal.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseGoal.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from navigation/PickUpPoseGoal.msg"
+	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
+
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionFeedback.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionFeedback.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionFeedback.h: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionFeedback.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionFeedback.h: /opt/ros/melodic/share/actionlib_msgs/msg/GoalStatus.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionFeedback.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionFeedback.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from navigation/PickUpPoseActionFeedback.msg"
+	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
+
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionFeedback.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionFeedback.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionFeedback.h: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
@@ -100,7 +128,7 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionFeedback.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionFeedback.h: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionFeedback.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from navigation/NavigationActionFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from navigation/NavigationActionFeedback.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionResult.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -110,7 +138,7 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionResult.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionResult.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionResult.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from navigation/NavigationActionResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from navigation/NavigationActionResult.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionGoal.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -119,7 +147,7 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionGoal.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionGoal.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionGoal.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from navigation/LocalisationActionGoal.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from navigation/LocalisationActionGoal.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionResult.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -129,14 +157,33 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionResult.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionResult.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionResult.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from navigation/LocalisationActionResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from navigation/LocalisationActionResult.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationResult.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationResult.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationResult.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating C++ code from navigation/LocalisationResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from navigation/LocalisationResult.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
+
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /opt/ros/melodic/share/actionlib_msgs/msg/GoalStatus.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating C++ code from navigation/PickUpPoseAction.msg"
+	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationFeedback.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationFeedback.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg
@@ -146,8 +193,27 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationFeedback.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationFeedback.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationFeedback.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from navigation/NavigationFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating C++ code from navigation/NavigationFeedback.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
+
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseResult.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseResult.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseResult.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating C++ code from navigation/PickUpPoseResult.msg"
+	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
+
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating C++ code from navigation/PickUpPoseActionGoal.msg"
+	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionFeedback.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionFeedback.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg
@@ -160,8 +226,18 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionFeedback.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionFeedback.h: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionFeedback.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from navigation/LocalisationActionFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating C++ code from navigation/LocalisationActionFeedback.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
+
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionResult.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionResult.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionResult.h: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionResult.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionResult.h: /opt/ros/melodic/share/actionlib_msgs/msg/GoalStatus.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionResult.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionResult.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating C++ code from navigation/PickUpPoseActionResult.msg"
+	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationAction.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationAction.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg
@@ -179,7 +255,7 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationAction.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationAction.h: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationAction.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating C++ code from navigation/LocalisationAction.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating C++ code from navigation/LocalisationAction.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationGoal.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -190,13 +266,19 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationGoal.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationGoal.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationGoal.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating C++ code from navigation/NavigationGoal.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating C++ code from navigation/NavigationGoal.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
+
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseFeedback.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseFeedback.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg
+/home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseFeedback.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating C++ code from navigation/PickUpPoseFeedback.msg"
+	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationResult.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationResult.h: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationResult.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating C++ code from navigation/NavigationResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating C++ code from navigation/NavigationResult.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationAction.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -215,7 +297,7 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationAction.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationAction.h: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationAction.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating C++ code from navigation/NavigationAction.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating C++ code from navigation/NavigationAction.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationFeedback.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -226,28 +308,35 @@ CMakeFiles/navigation_generate_messages_cpp: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationFeedback.h: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationFeedback.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
 /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationFeedback.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating C++ code from navigation/LocalisationFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating C++ code from navigation/LocalisationFeedback.msg"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/pal/intership_project/devel/.private/navigation/include/navigation/move_base.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/pal/intership_project/devel/.private/navigation/include/navigation/move_base.h: /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv
 /home/pal/intership_project/devel/.private/navigation/include/navigation/move_base.h: /opt/ros/melodic/share/gencpp/msg.h.template
 /home/pal/intership_project/devel/.private/navigation/include/navigation/move_base.h: /opt/ros/melodic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating C++ code from navigation/move_base.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating C++ code from navigation/move_base.srv"
 	cd /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation && /home/pal/intership_project/build/navigation/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/include/navigation -e /opt/ros/melodic/share/gencpp/cmake/..
 
 navigation_generate_messages_cpp: CMakeFiles/navigation_generate_messages_cpp
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionGoal.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationGoal.h
+navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseGoal.h
+navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionFeedback.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionFeedback.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationActionResult.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionGoal.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionResult.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationResult.h
+navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseAction.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationFeedback.h
+navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseResult.h
+navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionGoal.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationActionFeedback.h
+navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseActionResult.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationAction.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationGoal.h
+navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/PickUpPoseFeedback.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationResult.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/NavigationAction.h
 navigation_generate_messages_cpp: /home/pal/intership_project/devel/.private/navigation/include/navigation/LocalisationFeedback.h

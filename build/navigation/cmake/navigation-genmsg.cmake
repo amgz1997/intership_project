@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "navigation: 14 messages, 1 services")
+message(STATUS "navigation: 21 messages, 1 services")
 
 set(MSG_I_FLAGS "-Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg;-Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -17,34 +17,14 @@ add_custom_target(navigation_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
-add_custom_target(_navigation_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" "actionlib_msgs/GoalID:navigation/NavigationGoal:geometry_msgs/Pose:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
-)
-
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
-add_custom_target(_navigation_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" ""
-)
-
 get_filename_component(_filename "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv" NAME_WE)
 add_custom_target(_navigation_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv" ""
 )
 
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg" NAME_WE)
 add_custom_target(_navigation_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" "actionlib_msgs/GoalID:navigation/NavigationFeedback:actionlib_msgs/GoalStatus:geometry_msgs/Pose:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
-)
-
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
-add_custom_target(_navigation_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" ""
-)
-
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
-add_custom_target(_navigation_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" "actionlib_msgs/GoalID:navigation/LocalisationGoal:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg" "geometry_msgs/Pose:geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/PoseStamped:std_msgs/Header"
 )
 
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg" NAME_WE)
@@ -52,19 +32,29 @@ add_custom_target(_navigation_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg" "geometry_msgs/Pose:geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/PoseStamped:std_msgs/Header"
 )
 
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg" "actionlib_msgs/GoalID:navigation/PickUpPoseGoal:geometry_msgs/Pose:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg" "actionlib_msgs/GoalID:navigation/PickUpPoseGoal:navigation/PickUpPoseActionGoal:actionlib_msgs/GoalStatus:navigation/PickUpPoseResult:navigation/PickUpPoseActionFeedback:geometry_msgs/Pose:navigation/PickUpPoseActionResult:std_msgs/Header:navigation/PickUpPoseFeedback:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" ""
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" "actionlib_msgs/GoalID:navigation/NavigationGoal:geometry_msgs/Pose:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
+)
+
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionResult.msg" NAME_WE)
 add_custom_target(_navigation_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionResult.msg" "actionlib_msgs/GoalID:actionlib_msgs/GoalStatus:navigation/LocalisationResult:std_msgs/Header"
-)
-
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
-add_custom_target(_navigation_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" "actionlib_msgs/GoalID:actionlib_msgs/GoalStatus:navigation/LocalisationFeedback:geometry_msgs/Pose:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
-)
-
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
-add_custom_target(_navigation_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" "actionlib_msgs/GoalID:geometry_msgs/Pose:actionlib_msgs/GoalStatus:navigation/LocalisationActionGoal:navigation/LocalisationFeedback:navigation/LocalisationResult:navigation/LocalisationActionFeedback:navigation/LocalisationGoal:std_msgs/Header:navigation/LocalisationActionResult:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
 )
 
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg" NAME_WE)
@@ -72,9 +62,44 @@ add_custom_target(_navigation_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg" "geometry_msgs/Pose:geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/PoseStamped:std_msgs/Header"
 )
 
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" ""
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" "actionlib_msgs/GoalID:geometry_msgs/Pose:actionlib_msgs/GoalStatus:navigation/LocalisationActionGoal:navigation/LocalisationFeedback:navigation/LocalisationResult:navigation/LocalisationActionFeedback:navigation/LocalisationGoal:std_msgs/Header:navigation/LocalisationActionResult:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" "actionlib_msgs/GoalID:navigation/LocalisationGoal:std_msgs/Header"
+)
+
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg" NAME_WE)
 add_custom_target(_navigation_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg" ""
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg" "actionlib_msgs/GoalID:navigation/PickUpPoseResult:actionlib_msgs/GoalStatus:std_msgs/Header"
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" "geometry_msgs/Pose:geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/PoseStamped:std_msgs/Header"
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg" "actionlib_msgs/GoalID:navigation/PickUpPoseFeedback:actionlib_msgs/GoalStatus:std_msgs/Header"
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" "actionlib_msgs/GoalID:navigation/NavigationFeedback:actionlib_msgs/GoalStatus:geometry_msgs/Pose:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
 )
 
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionResult.msg" NAME_WE)
@@ -82,14 +107,24 @@ add_custom_target(_navigation_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionResult.msg" "actionlib_msgs/GoalID:actionlib_msgs/GoalStatus:navigation/NavigationResult:std_msgs/Header"
 )
 
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg" ""
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg" ""
+)
+
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
+add_custom_target(_navigation_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" "actionlib_msgs/GoalID:actionlib_msgs/GoalStatus:navigation/LocalisationFeedback:geometry_msgs/Pose:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
+)
+
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
 add_custom_target(_navigation_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" "actionlib_msgs/GoalID:navigation/NavigationGoal:actionlib_msgs/GoalStatus:navigation/NavigationActionGoal:navigation/NavigationActionFeedback:geometry_msgs/Pose:navigation/NavigationFeedback:std_msgs/Header:navigation/NavigationActionResult:navigation/NavigationResult:geometry_msgs/Quaternion:geometry_msgs/PoseStamped:geometry_msgs/Point"
-)
-
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
-add_custom_target(_navigation_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation" "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" "geometry_msgs/Pose:geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/PoseStamped:std_msgs/Header"
 )
 
 #
@@ -108,6 +143,18 @@ _generate_msg_cpp(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg"
   "${MSG_I_FLAGS}"
   ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
+)
+_generate_msg_cpp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
+)
+_generate_msg_cpp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
 )
 _generate_msg_cpp(navigation
@@ -141,15 +188,39 @@ _generate_msg_cpp(navigation
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
 )
 _generate_msg_cpp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
+)
+_generate_msg_cpp(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
 )
 _generate_msg_cpp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
+)
+_generate_msg_cpp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
+)
+_generate_msg_cpp(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
+)
+_generate_msg_cpp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
 )
 _generate_msg_cpp(navigation
@@ -162,6 +233,12 @@ _generate_msg_cpp(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
+)
+_generate_msg_cpp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation
 )
 _generate_msg_cpp(navigation
@@ -203,35 +280,49 @@ add_custom_target(navigation_generate_messages_cpp
 add_dependencies(navigation_generate_messages navigation_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv" NAME_WE)
 add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionResult.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionResult.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_cpp _navigation_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -253,6 +344,18 @@ _generate_msg_eus(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg"
   "${MSG_I_FLAGS}"
   ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
+)
+_generate_msg_eus(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
+)
+_generate_msg_eus(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
 )
 _generate_msg_eus(navigation
@@ -286,15 +389,39 @@ _generate_msg_eus(navigation
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
 )
 _generate_msg_eus(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
+)
+_generate_msg_eus(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
 )
 _generate_msg_eus(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
+)
+_generate_msg_eus(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
+)
+_generate_msg_eus(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
+)
+_generate_msg_eus(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
 )
 _generate_msg_eus(navigation
@@ -307,6 +434,12 @@ _generate_msg_eus(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
+)
+_generate_msg_eus(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation
 )
 _generate_msg_eus(navigation
@@ -348,35 +481,49 @@ add_custom_target(navigation_generate_messages_eus
 add_dependencies(navigation_generate_messages navigation_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv" NAME_WE)
 add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionResult.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionResult.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_eus _navigation_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -398,6 +545,18 @@ _generate_msg_lisp(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg"
   "${MSG_I_FLAGS}"
   ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
+)
+_generate_msg_lisp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
+)
+_generate_msg_lisp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
 )
 _generate_msg_lisp(navigation
@@ -431,15 +590,39 @@ _generate_msg_lisp(navigation
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
 )
 _generate_msg_lisp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
+)
+_generate_msg_lisp(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
 )
 _generate_msg_lisp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
+)
+_generate_msg_lisp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
+)
+_generate_msg_lisp(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
+)
+_generate_msg_lisp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
 )
 _generate_msg_lisp(navigation
@@ -452,6 +635,12 @@ _generate_msg_lisp(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
+)
+_generate_msg_lisp(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation
 )
 _generate_msg_lisp(navigation
@@ -493,35 +682,49 @@ add_custom_target(navigation_generate_messages_lisp
 add_dependencies(navigation_generate_messages navigation_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv" NAME_WE)
 add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionResult.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionResult.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_lisp _navigation_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -543,6 +746,18 @@ _generate_msg_nodejs(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg"
   "${MSG_I_FLAGS}"
   ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
+)
+_generate_msg_nodejs(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
+)
+_generate_msg_nodejs(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
 )
 _generate_msg_nodejs(navigation
@@ -576,15 +791,39 @@ _generate_msg_nodejs(navigation
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
 )
 _generate_msg_nodejs(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
+)
+_generate_msg_nodejs(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
 )
 _generate_msg_nodejs(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
+)
+_generate_msg_nodejs(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
+)
+_generate_msg_nodejs(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
+)
+_generate_msg_nodejs(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
 )
 _generate_msg_nodejs(navigation
@@ -597,6 +836,12 @@ _generate_msg_nodejs(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
+)
+_generate_msg_nodejs(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation
 )
 _generate_msg_nodejs(navigation
@@ -638,35 +883,49 @@ add_custom_target(navigation_generate_messages_nodejs
 add_dependencies(navigation_generate_messages navigation_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv" NAME_WE)
 add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionResult.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionResult.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_nodejs _navigation_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -688,6 +947,18 @@ _generate_msg_py(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg"
   "${MSG_I_FLAGS}"
   ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
+)
+_generate_msg_py(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
+)
+_generate_msg_py(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
 )
 _generate_msg_py(navigation
@@ -721,15 +992,39 @@ _generate_msg_py(navigation
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
 )
 _generate_msg_py(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
+)
+_generate_msg_py(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
 )
 _generate_msg_py(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
+)
+_generate_msg_py(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
+)
+_generate_msg_py(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
+)
+_generate_msg_py(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg;/opt/ros/melodic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
 )
 _generate_msg_py(navigation
@@ -742,6 +1037,12 @@ _generate_msg_py(navigation
   "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/melodic/share/geometry_msgs/cmake/../msg/PoseStamped.msg;/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
+)
+_generate_msg_py(navigation
+  "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation
 )
 _generate_msg_py(navigation
@@ -783,35 +1084,49 @@ add_custom_target(navigation_generate_messages_py
 add_dependencies(navigation_generate_messages navigation_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv" NAME_WE)
 add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionResult.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
-add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionResult.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg" NAME_WE)
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg" NAME_WE)
+add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg" NAME_WE)
 add_dependencies(navigation_generate_messages_py _navigation_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

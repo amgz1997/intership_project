@@ -55,15 +55,22 @@ include CMakeFiles/navigation_generate_messages_eus.dir/progress.make
 
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionGoal.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationGoal.l
+CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseGoal.l
+CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionFeedback.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionFeedback.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionResult.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionGoal.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionResult.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationResult.l
+CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationFeedback.l
+CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseResult.l
+CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionFeedback.l
+CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionResult.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationAction.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationGoal.l
+CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseFeedback.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationResult.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationAction.l
 CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationFeedback.l
@@ -88,6 +95,25 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from navigation/LocalisationGoal.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseGoal.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseGoal.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseGoal.l: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseGoal.l: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseGoal.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseGoal.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseGoal.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from navigation/PickUpPoseGoal.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
+
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionFeedback.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionFeedback.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionFeedback.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionFeedback.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionFeedback.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalStatus.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionFeedback.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from navigation/PickUpPoseActionFeedback.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
+
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionFeedback.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionFeedback.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionFeedback.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
@@ -98,7 +124,7 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionFeedback.l: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionFeedback.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionFeedback.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from navigation/NavigationActionFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from navigation/NavigationActionFeedback.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionResult.l: /opt/ros/melodic/lib/geneus/gen_eus.py
@@ -107,7 +133,7 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionResult.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalStatus.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionResult.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionResult.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from navigation/NavigationActionResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from navigation/NavigationActionResult.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationActionResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionGoal.l: /opt/ros/melodic/lib/geneus/gen_eus.py
@@ -115,7 +141,7 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionGoal.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionGoal.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationGoal.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionGoal.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from navigation/LocalisationActionGoal.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from navigation/LocalisationActionGoal.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionGoal.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionResult.l: /opt/ros/melodic/lib/geneus/gen_eus.py
@@ -124,13 +150,31 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionResult.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalStatus.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionResult.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionResult.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from navigation/LocalisationActionResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp code from navigation/LocalisationActionResult.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationResult.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationResult.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from navigation/LocalisationResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp code from navigation/LocalisationResult.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
+
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalStatus.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionFeedback.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating EusLisp code from navigation/PickUpPoseAction.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseAction.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationFeedback.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationFeedback.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg
@@ -139,8 +183,25 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationFeedback.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationFeedback.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationFeedback.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp code from navigation/NavigationFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating EusLisp code from navigation/NavigationFeedback.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
+
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseResult.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseResult.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating EusLisp code from navigation/PickUpPoseResult.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
+
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseGoal.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l: /opt/ros/melodic/share/geometry_msgs/msg/Pose.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating EusLisp code from navigation/PickUpPoseActionGoal.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionGoal.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionFeedback.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionFeedback.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg
@@ -152,8 +213,17 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionFeedback.l: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionFeedback.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionFeedback.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp code from navigation/LocalisationActionFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating EusLisp code from navigation/LocalisationActionFeedback.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationActionFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
+
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionResult.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionResult.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionResult.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalID.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionResult.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseResult.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionResult.l: /opt/ros/melodic/share/actionlib_msgs/msg/GoalStatus.msg
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionResult.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating EusLisp code from navigation/PickUpPoseActionResult.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseActionResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationAction.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationAction.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg
@@ -170,7 +240,7 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationAction.l: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationAction.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationAction.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating EusLisp code from navigation/LocalisationAction.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating EusLisp code from navigation/LocalisationAction.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationAction.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationGoal.l: /opt/ros/melodic/lib/geneus/gen_eus.py
@@ -180,12 +250,17 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationGoal.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationGoal.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationGoal.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating EusLisp code from navigation/NavigationGoal.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating EusLisp code from navigation/NavigationGoal.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationGoal.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
+
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseFeedback.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseFeedback.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating EusLisp code from navigation/PickUpPoseFeedback.msg"
+	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/PickUpPoseFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationResult.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationResult.l: /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating EusLisp code from navigation/NavigationResult.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Generating EusLisp code from navigation/NavigationResult.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationResult.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationAction.l: /opt/ros/melodic/lib/geneus/gen_eus.py
@@ -203,7 +278,7 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationAction.l: /opt/ros/melodic/share/geometry_msgs/msg/Quaternion.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationAction.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationAction.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating EusLisp code from navigation/NavigationAction.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Generating EusLisp code from navigation/NavigationAction.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/NavigationAction.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationFeedback.l: /opt/ros/melodic/lib/geneus/gen_eus.py
@@ -213,30 +288,37 @@ CMakeFiles/navigation_generate_messages_eus: /home/pal/intership_project/devel/.
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationFeedback.l: /opt/ros/melodic/share/geometry_msgs/msg/Point.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationFeedback.l: /opt/ros/melodic/share/geometry_msgs/msg/PoseStamped.msg
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationFeedback.l: /opt/ros/melodic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating EusLisp code from navigation/LocalisationFeedback.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Generating EusLisp code from navigation/LocalisationFeedback.msg"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/devel/.private/navigation/share/navigation/msg/LocalisationFeedback.msg -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/srv/move_base.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/srv/move_base.l: /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating EusLisp code from navigation/move_base.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Generating EusLisp code from navigation/move_base.srv"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv -Inavigation:/home/pal/intership_project/devel/.private/navigation/share/navigation/msg -Iactionlib_msgs:/opt/ros/melodic/share/actionlib_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/melodic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p navigation -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/srv
 
 /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating EusLisp manifest code for navigation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pal/intership_project/build/navigation/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Generating EusLisp manifest code for navigation"
 	catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation navigation actionlib_msgs geometry_msgs
 
 navigation_generate_messages_eus: CMakeFiles/navigation_generate_messages_eus
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionGoal.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationGoal.l
+navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseGoal.l
+navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionFeedback.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionFeedback.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationActionResult.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionGoal.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionResult.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationResult.l
+navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseAction.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationFeedback.l
+navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseResult.l
+navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionGoal.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationActionFeedback.l
+navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseActionResult.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationAction.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationGoal.l
+navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/PickUpPoseFeedback.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationResult.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/NavigationAction.l
 navigation_generate_messages_eus: /home/pal/intership_project/devel/.private/navigation/share/roseus/ros/navigation/msg/LocalisationFeedback.l

@@ -1,0 +1,31 @@
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[  0%] Built target _navigation_generate_messages_check_deps_LocalisationActionFeedback
+[  0%] Built target _navigation_generate_messages_check_deps_LocalisationAction
+[  0%] Built target _navigation_generate_messages_check_deps_NavigationActionResult
+[  0%] Built target _navigation_generate_messages_check_deps_LocalisationResult
+[  0%] Built target _navigation_generate_messages_check_deps_LocalisationGoal
+[  0%] Built target _navigation_generate_messages_check_deps_NavigationGoal
+[  0%] Built target _navigation_generate_messages_check_deps_NavigationActionFeedback
+[  0%] Built target _navigation_generate_messages_check_deps_move_base
+[  0%] Built target _navigation_generate_messages_check_deps_LocalisationFeedback
+[  0%] Built target _navigation_generate_messages_check_deps_NavigationResult
+[  0%] Built target actionlib_msgs_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target _navigation_generate_messages_check_deps_LocalisationActionResult
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target actionlib_msgs_generate_messages_eus
+[  0%] Built target _navigation_generate_messages_check_deps_LocalisationActionGoal
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target _navigation_generate_messages_check_deps_NavigationAction
+[  0%] Built target _navigation_generate_messages_check_deps_NavigationFeedback
+[  0%] Built target _navigation_generate_messages_check_deps_NavigationActionGoal
+[  0%] Built target actionlib_msgs_generate_messages_cpp
+[ 38%] Built target navigation_generate_messages_cpp
+[ 38%] Built target navigation_generate_messages_lisp
+[ 57%] Built target navigation_generate_messages_nodejs
+[ 78%] Built target navigation_generate_messages_eus
+[100%] Built target navigation_generate_messages_py
+[100%] Built target navigation_generate_messages
