@@ -246,24 +246,32 @@ The implement of the aruco detection allow to recognize the object which we pick
  
 _Two functions which allow us to put the arm in a first static position during a predifined time about the first function during a time . We will these function to prepare and achieve the task of pick & place . 
 
-_ Utilisation de Actionlib avec le service /arm_controller/follow_joint_trajectory
+_ Useing Actionlib with service  /arm_controller/follow_joint_trajectory
 
 ## 8) Torso tucking (torso_tucking )
 
 _Function which allows us to move the torso in a  position during a time . We will these function to prepare and achieve the task of pick & place . 
 
-_ Utilisation de Actionlib avec le service /torso_controller/follow_joint_trajectory
+_ Useing Actionlib with service /torso_controller/follow_joint_trajectory
+
+## 9) Pick_Aruco
 
 
-## NB: L'arbre des actions étant en séquence tant qu'une action n'est pas excutée le tree-watcher met une croix sur l'action qui n'est pas exécutée. 
+For this part , we have create a server which allow to plab the pick and place scene with moveit . This server specifies the differents instances for the object ot grasp . Once we define the server , we create a client which allows us to pick the object with using the server and the pose of object through a ArUco . 
+The server call a function named sphericalgrasp for the grasping a spherical ,cylindrique ... object . 
+
+When the robot see the aruco pattern , it plan a trajectory for grasping this object . The end effector of the robot approch the object, and the end effector grasp  the object . 
+
+See the script spherical_grasp_server.py for details about object grasping and see script behaviortree.py/class pick_place() for details about  object picking  and placing . 
+
+### NB: L'arbre des actions étant en séquence tant qu'une action n'est pas excutée , le py-tree-watcher met une croix sur l'action qui n'est pas exécutée.
+
+
 
 ## A Faire !!
 
+1) Lire la doc sur py_trees !!( A reprendre)
+2) Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) ou l'arreter après une exécution .!!! 
+3) Try to see the placing object is correctly excuted !! 
 
-Lire la doc sur py_trees !!( A reprendre)
-
-Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) ou l'arreter après une exécution .!!! 
-
-_ Essayer d'utiliser action lib avec /arm_controller/follow_joint_trajecory  (  /arm_controller )
-ou /safe_arm_controller/follow_joint_trajectory (safe_arm_controller) (done)
 

@@ -1,0 +1,137 @@
+ rosnode info /pick_client 
+--------------------------------------------------------------------------------
+Node [/pick_client]
+
+Publications: 
+
+ * /detected_aruco_pose [geometry_msgs/PoseStamped]
+ * /head_controller/command [trajectory_msgs/JointTrajectory]
+ * /pickup_pose/cancel [actionlib_msgs/GoalID]
+ * /pickup_pose/goal [tiago_pick_demo/PickUpPoseActionGoal]
+ * /place_pose/cancel [actionlib_msgs/GoalID]
+ * /place_pose/goal [tiago_pick_demo/PickUpPoseActionGoal]
+ * /play_motion/cancel [actionlib_msgs/GoalID]
+ * /play_motion/goal [play_motion_msgs/PlayMotionActionGoal]
+ * /rosout [rosgraph_msgs/Log]
+ * /torso_controller/command [trajectory_msgs/JointTrajectory]
+
+Subscriptions: 
+
+ * /clock [rosgraph_msgs/Clock]
+ * /pickup_pose/feedback [tiago_pick_demo/PickUpPoseActionFeedback]
+ * /pickup_pose/result [tiago_pick_demo/PickUpPoseActionResult]
+ * /pickup_pose/status [actionlib_msgs/GoalStatusArray]
+ * /place_pose/feedback [tiago_pick_demo/PickUpPoseActionFeedback]
+ * /place_pose/result [tiago_pick_demo/PickUpPoseActionResult]
+ * /place_pose/status [actionlib_msgs/GoalStatusArray]
+ * /play_motion/feedback [play_motion_msgs/PlayMotionActionFeedback]
+ * /play_motion/result [play_motion_msgs/PlayMotionActionResult]
+ * /play_motion/status [actionlib_msgs/GoalStatusArray]
+ * /tf [tf2_msgs/TFMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+
+ * /pick_client/get_loggers
+ * /pick_client/set_logger_level
+ * /pick_client/tf2_frames
+ * /pick_gui
+ * /place_gui
+
+
+contacting node http://PC31:46733/ ...
+Pid: 9835
+Connections:
+ * topic: /place_pose/cancel
+    * to: /pick_and_place_server
+    * direction: outbound (42899 - 127.0.0.1:39594) [35]
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (42899 - 127.0.0.1:39470) [15]
+    * transport: TCPROS
+ * topic: /pickup_pose/goal
+    * to: /pick_and_place_server
+    * direction: outbound (42899 - 127.0.0.1:39572) [31]
+    * transport: TCPROS
+ * topic: /play_motion/goal
+    * to: /play_motion
+    * direction: outbound (42899 - 127.0.0.1:39630) [56]
+    * transport: TCPROS
+ * topic: /torso_controller/command
+    * to: /gazebo
+    * direction: outbound (42899 - 127.0.0.1:39632) [57]
+    * transport: TCPROS
+ * topic: /pickup_pose/cancel
+    * to: /pick_and_place_server
+    * direction: outbound (42899 - 127.0.0.1:39558) [16]
+    * transport: TCPROS
+ * topic: /place_pose/goal
+    * to: /pick_and_place_server
+    * direction: outbound (42899 - 127.0.0.1:39596) [44]
+    * transport: TCPROS
+ * topic: /play_motion/cancel
+    * to: /play_motion
+    * direction: outbound (42899 - 127.0.0.1:39628) [41]
+    * transport: TCPROS
+ * topic: /head_controller/command
+    * to: /gazebo
+    * direction: outbound (42899 - 127.0.0.1:39634) [61]
+    * transport: TCPROS
+ * topic: /pickup_pose/status
+    * to: /pick_and_place_server (http://PC31:37363/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /pickup_pose/result
+    * to: /pick_and_place_server (http://PC31:37363/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /place_pose/feedback
+    * to: /pick_and_place_server (http://PC31:37363/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /play_motion/status
+    * to: /play_motion (http://PC31:43167/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /robot_state_publisher (http://PC31:37973/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /gazebo (http://PC31:37321/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /aruco_single (http://PC31:43901/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /place_pose/status
+    * to: /pick_and_place_server (http://PC31:37363/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /robot_state_publisher (http://PC31:37973/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /gazebo (http://PC31:37321/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /pickup_pose/feedback
+    * to: /pick_and_place_server (http://PC31:37363/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /play_motion/result
+    * to: /play_motion (http://PC31:43167/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /place_pose/result
+    * to: /pick_and_place_server (http://PC31:37363/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /play_motion/feedback
+    * to: /play_motion (http://PC31:43167/)
+    * direction: inbound
+    * transport: TCPROS
+

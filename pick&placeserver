@@ -1,0 +1,146 @@
+rosnode info /pick_and_place_server 
+--------------------------------------------------------------------------------
+Node [/pick_and_place_server]
+Publications: 
+ * /attached_collision_object [moveit_msgs/AttachedCollisionObject]
+ * /collision_object [moveit_msgs/CollisionObject]
+ * /grasp_poses [geometry_msgs/PoseArray]
+ * /object_marker [visualization_msgs/Marker]
+ * /pick_and_place_server/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /pick_and_place_server/parameter_updates [dynamic_reconfigure/Config]
+ * /pickup/cancel [actionlib_msgs/GoalID]
+ * /pickup/goal [moveit_msgs/PickupActionGoal]
+ * /pickup_pose/feedback [tiago_pick_demo/PickUpPoseActionFeedback]
+ * /pickup_pose/result [tiago_pick_demo/PickUpPoseActionResult]
+ * /pickup_pose/status [actionlib_msgs/GoalStatusArray]
+ * /place/cancel [actionlib_msgs/GoalID]
+ * /place/goal [moveit_msgs/PlaceActionGoal]
+ * /place_pose/feedback [tiago_pick_demo/PickUpPoseActionFeedback]
+ * /place_pose/result [tiago_pick_demo/PickUpPoseActionResult]
+ * /place_pose/status [actionlib_msgs/GoalStatusArray]
+ * /rosout [rosgraph_msgs/Log]
+ * /sphere_poses [geometry_msgs/PoseArray]
+
+Subscriptions: 
+ * /clock [rosgraph_msgs/Clock]
+ * /pickup/feedback [moveit_msgs/PickupActionFeedback]
+ * /pickup/result [moveit_msgs/PickupActionResult]
+ * /pickup/status [actionlib_msgs/GoalStatusArray]
+ * /pickup_pose/cancel [actionlib_msgs/GoalID]
+ * /pickup_pose/goal [tiago_pick_demo/PickUpPoseActionGoal]
+ * /place/feedback [moveit_msgs/PlaceActionFeedback]
+ * /place/result [moveit_msgs/PlaceActionResult]
+ * /place/status [actionlib_msgs/GoalStatusArray]
+ * /place_pose/cancel [actionlib_msgs/GoalID]
+ * /place_pose/goal [tiago_pick_demo/PickUpPoseActionGoal]
+
+Services: 
+ * /pick_and_place_server/get_loggers
+ * /pick_and_place_server/set_logger_level
+ * /pick_and_place_server/set_parameters
+
+
+contacting node http://PC31:37363/ ...
+Pid: 9834
+Connections:
+ * topic: /pickup_pose/status
+    * to: /pick_client
+    * direction: outbound (39695 - 127.0.0.1:43534) [51]
+    * transport: TCPROS
+ * topic: /sphere_poses
+    * to: /pick_demo_rviz
+    * direction: outbound (39695 - 127.0.0.1:43452) [23]
+    * transport: TCPROS
+ * topic: /collision_object
+    * to: /move_group
+    * direction: outbound (39695 - 127.0.0.1:43530) [50]
+    * transport: TCPROS
+ * topic: /place/cancel
+    * to: /move_group
+    * direction: outbound (39695 - 127.0.0.1:43476) [31]
+    * transport: TCPROS
+ * topic: /place_pose/feedback
+    * to: /pick_client
+    * direction: outbound (39695 - 127.0.0.1:43556) [71]
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (39695 - 127.0.0.1:43434) [10]
+    * transport: TCPROS
+ * topic: /pickup/goal
+    * to: /move_group
+    * direction: outbound (39695 - 127.0.0.1:43456) [9]
+    * transport: TCPROS
+ * topic: /pickup_pose/feedback
+    * to: /pick_client
+    * direction: outbound (39695 - 127.0.0.1:43532) [46]
+    * transport: TCPROS
+ * topic: /place/goal
+    * to: /move_group
+    * direction: outbound (39695 - 127.0.0.1:43474) [22]
+    * transport: TCPROS
+ * topic: /place_pose/result
+    * to: /pick_client
+    * direction: outbound (39695 - 127.0.0.1:43554) [65]
+    * transport: TCPROS
+ * topic: /pickup_pose/result
+    * to: /pick_client
+    * direction: outbound (39695 - 127.0.0.1:43536) [52]
+    * transport: TCPROS
+ * topic: /pickup/cancel
+    * to: /move_group
+    * direction: outbound (39695 - 127.0.0.1:43454) [17]
+    * transport: TCPROS
+ * topic: /attached_collision_object
+    * to: /move_group
+    * direction: outbound (39695 - 127.0.0.1:43526) [36]
+    * transport: TCPROS
+ * topic: /place_pose/status
+    * to: /pick_client
+    * direction: outbound (39695 - 127.0.0.1:43558) [72]
+    * transport: TCPROS
+ * topic: /place_pose/cancel
+    * to: /pick_client (http://PC31:46733/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /pickup/status
+    * to: /move_group (http://PC31:42871/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /pickup_pose/goal
+    * to: /pick_client (http://PC31:46733/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /pickup/result
+    * to: /move_group (http://PC31:42871/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /place/status
+    * to: /move_group (http://PC31:42871/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /place/result
+    * to: /move_group (http://PC31:42871/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /gazebo (http://PC31:37321/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /place/feedback
+    * to: /move_group (http://PC31:42871/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /pickup_pose/cancel
+    * to: /pick_client (http://PC31:46733/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /place_pose/goal
+    * to: /pick_client (http://PC31:46733/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /pickup/feedback
+    * to: /move_group (http://PC31:42871/)
+    * direction: inbound
+    * transport: TCPROS
+
