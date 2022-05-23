@@ -1,0 +1,39 @@
+[  1%] Built target navigation_gencfg
+[  1%] Built target _navigation_generate_messages_check_deps_NavigationActionGoal
+[  1%] Built target _navigation_generate_messages_check_deps_PickUpPoseActionResult
+[  1%] Built target _navigation_generate_messages_check_deps_PickUpPoseFeedback
+[  1%] Built target _navigation_generate_messages_check_deps_PickUpPoseResult
+[  1%] Built target _navigation_generate_messages_check_deps_LocalisationActionFeedback
+[  1%] Built target _navigation_generate_messages_check_deps_NavigationGoal
+[  1%] Built target _navigation_generate_messages_check_deps_PickUpPoseActionFeedback
+[  1%] Built target _navigation_generate_messages_check_deps_LocalisationFeedback
+[  1%] Built target _navigation_generate_messages_check_deps_LocalisationResult
+[  1%] Built target actionlib_msgs_generate_messages_nodejs
+[  1%] Built target _navigation_generate_messages_check_deps_NavigationActionResult
+[  1%] Built target _navigation_generate_messages_check_deps_LocalisationGoal
+[  1%] Built target geometry_msgs_generate_messages_nodejs
+[  1%] Built target _navigation_generate_messages_check_deps_move_base
+[  1%] Built target _navigation_generate_messages_check_deps_NavigationResult
+[  1%] Built target _navigation_generate_messages_check_deps_NavigationActionFeedback
+[  1%] Built target _navigation_generate_messages_check_deps_LocalisationAction
+[  1%] Built target _navigation_generate_messages_check_deps_LocalisationActionResult
+[  1%] Built target _navigation_generate_messages_check_deps_PickUpPoseActionGoal
+[  1%] Built target _navigation_generate_messages_check_deps_NavigationAction
+[  1%] Built target _navigation_generate_messages_check_deps_LocalisationActionGoal
+[  1%] Built target geometry_msgs_generate_messages_py
+[  1%] Built target _navigation_generate_messages_check_deps_NavigationFeedback
+[  1%] Built target _navigation_generate_messages_check_deps_PickUpPoseAction
+[  1%] Built target _navigation_generate_messages_check_deps_PickUpPoseGoal
+[  1%] Built target actionlib_msgs_generate_messages_lisp
+[  1%] Built target actionlib_msgs_generate_messages_py
+[  1%] Built target geometry_msgs_generate_messages_lisp
+[  1%] Built target geometry_msgs_generate_messages_eus
+[  1%] Built target actionlib_msgs_generate_messages_eus
+[  1%] Built target geometry_msgs_generate_messages_cpp
+[  1%] Built target actionlib_msgs_generate_messages_cpp
+[ 19%] Built target navigation_generate_messages_nodejs
+[ 39%] Built target navigation_generate_messages_lisp
+[ 60%] Built target navigation_generate_messages_py
+[100%] Built target navigation_generate_messages_eus
+[100%] Built target navigation_generate_messages_cpp
+[100%] Built target navigation_generate_messages

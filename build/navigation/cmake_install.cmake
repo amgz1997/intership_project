@@ -145,6 +145,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/navigation" TYPE PROGRAM FILES "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/scripts/spherical_grasps_server.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigation/srv" TYPE FILE FILES "/home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/srv/move_base.srv")
 endif()
 

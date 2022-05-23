@@ -9,7 +9,7 @@
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/pal/intership_project/devel/.private/navigation:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/pal/intership_project/devel/.private/navigation/lib:$LD_LIBRARY_PATH"
-export LUA_PATH=";;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua"
+export LUA_PATH=";;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua;/opt/pal/ferrum/share/lua/5.1/?.lua"
 export PKG_CONFIG_PATH="/home/pal/intership_project/devel/.private/navigation/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/pal/intership_project/build/navigation"
 export PYTHONPATH="/home/pal/intership_project/devel/.private/navigation/lib/python2.7/dist-packages:$PYTHONPATH"

@@ -17,7 +17,8 @@
 [36m--[0m Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
 [36m--[0m Generating .msg files for action navigation/Navigation /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/action/Navigation.action
 [36m--[0m Generating .msg files for action navigation/Localisation /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/action/Localisation.action
-[36m--[0m navigation: 14 messages, 1 services
+[36m--[0m Generating .msg files for action navigation/PickUpPose /home/pal/intership_project/src/projet-integration-sri-2021-2022/navigation/action/PickUpPose.action
+[36m--[0m navigation: 21 messages, 1 services
 [36m--[0m Configuring done
 [36m--[0m Generating done
 [36m--[0m Build files have been written to: /home/pal/intership_project/build/navigation

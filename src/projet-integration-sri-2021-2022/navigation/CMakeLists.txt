@@ -28,7 +28,10 @@ find_package(catkin REQUIRED COMPONENTS
 
 generate_dynamic_reconfigure_options(cfg/SphericalGrasp.cfg)
 
-
+install(PROGRAMS
+        scripts/spherical_grasps_server.py
+        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
