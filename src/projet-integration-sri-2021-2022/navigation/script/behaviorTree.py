@@ -274,7 +274,6 @@ class pick_place(pt.behaviour.Behaviour):
             rospy.logwarn("Didn't find any links to allow contacts... at param ~links_to_allow_contact")
         else:
             rospy.loginfo("Found links to allow contacts: " + str(self.links_to_allow_contact))
- 
         print("I")
 
         self.pick_as = SimpleActionServer('/pickup_pose', PickUpPoseAction,execute_cb=self.pick_cb, auto_start=False)
@@ -298,25 +297,29 @@ class pick_place(pt.behaviour.Behaviour):
         self.pick_cl.wait_for_server()
         rospy.loginfo("connect to /pickup_pose server")
         print("A")
+
         self.place_cl=SimpleActionClient('/place_pose',PickUpPoseAction)
-        self.pick_cl.wait_for_server()
+        self.place_cl.wait_for_server()
+        rospy.loginfo("connect to /place_pose server")
         print("B")
-        rospy.loginfo("connect to /pickup_pose server")
+
         self.detected_pose_pub=rospy.Publisher('/detected_aruco_pose',PoseStamped,queue_size=1,latch=True)
         self.pick_place_goal=False
         print("C")
+
         self.moveit_error_dict = {}
         for name in MoveItErrorCodes.__dict__.keys():
             if not name[:1] == '_':
                 code = MoveItErrorCodes.__dict__[name]
                 self.moveit_error_dict[code] = name
+        print("AA")
 
         super(pick_place, self).__init__("pick_place")   
 
     def update(self):
             
         Pick=self.pick_aruco("pick")
-        Place=self.place()
+        Place=self.place_aruco()
 
         if self.pick_place_goal:
 
@@ -333,17 +336,15 @@ class pick_place(pt.behaviour.Behaviour):
     def pick_aruco(self,operator):
 
         aruco_pose=rospy.wait_for_message('/aruco_single/pose',PoseStamped) #Utiliser unwait_for_server
-        aruco_pose.header.frame_id=self.strip_leading_slash(aruco_pose.header.frame_id)
-        
+        aruco_pose.header.frame_id=self.strip_leading_slash(aruco_pose.header.frame_id)     
         rospy.loginfo("Go to :"+str(aruco_pose))
-
         rospy.loginfo("spherical_grasp_gui: Transforming frame:" + aruco_pose.header.frame_id + " to 'base_footprint' ")
         
         ps=PoseStamped()
-
         ps.pose.position=aruco_pose.pose.position   
         ps.header.stamp=self.tfBuffer.get_latest_common_time("base_footprint", aruco_pose.header.frame_id) 
         ps.header.frame_id=aruco_pose.header.frame_id
+
         transform_ok= False
 
         while not transform_ok :
@@ -426,9 +427,9 @@ class pick_place(pt.behaviour.Behaviour):
         return placeg
 
     def pick_cb(self, goal):
-        """
-        :type goal: PickUpPoseGoal
-        """
+        
+        #type goal: PickUpPoseGoal
+        
         error_code = self.grasp_object(goal.object_pose)
         p_res = PickUpPoseResult()
         p_res.error_code = error_code
@@ -438,9 +439,9 @@ class pick_place(pt.behaviour.Behaviour):
             self.pick_as.set_succeeded(p_res)
 
     def place_cb(self, goal):
-        """
-        :type goal: PickUpPoseGoal
-        """
+        
+        #type goal: PickUpPoseGoal
+        
         error_code = self.place_object(goal.object_pose)
         p_res = PickUpPoseResult()
         p_res.error_code = error_code
@@ -488,7 +489,6 @@ class pick_place(pt.behaviour.Behaviour):
 
         rospy.sleep(2.0)  # Removing is fast
         rospy.loginfo("Adding new 'part' object")
-
         rospy.loginfo("Object pose: %s", object_pose.pose)
         
         #Add object description in scene
@@ -532,7 +532,7 @@ class pick_place(pt.behaviour.Behaviour):
 		possible_placings = self.sg.create_placings_from_object_pose(object_pose)
 		# Try only with arm
 		rospy.loginfo("Trying to place using only arm")
-		goal = createPlaceGoal(object_pose, possible_placings, "arm", "part", self.links_to_allow_contact)
+		goal = self.createPlaceGoal(object_pose, possible_placings, "arm", "part", self.links_to_allow_contact)
 		rospy.loginfo("Sending goal")
 		self.place_ac.send_goal(goal)
 		rospy.loginfo("Waiting for result")
@@ -543,7 +543,7 @@ class pick_place(pt.behaviour.Behaviour):
 		if str(self.moveit_error_dict[result.error_code.val]) != "SUCCESS":
 			rospy.loginfo("Trying to place with arm and torso")
 			# Try with arm and torso
-			goal = createPlaceGoal(object_pose, possible_placings, "arm_torso", "part", self.links_to_allow_contact)
+			goal = self.createPlaceGoal(object_pose, possible_placings, "arm_torso", "part", self.links_to_allow_contact)
 			rospy.loginfo("Sending goal")
 			self.place_ac.send_goal(goal)
 			rospy.loginfo("Waiting for result")
@@ -552,7 +552,6 @@ class pick_place(pt.behaviour.Behaviour):
 			rospy.logerr(str(self.moveit_error_dict[result.error_code.val]))
 
         # print result
-
 		rospy.loginfo("Result: " +str(self.moveit_error_dict[result.error_code.val]))
 		rospy.loginfo("Removing previous 'part' object")
 		self.scene.remove_world_object("part")
