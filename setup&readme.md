@@ -210,10 +210,7 @@ The Parallels enable a kind of concurrency .
 9.5) Decoraters are behavior that manage a single child and provide common modifications to their underlying child behavior . 
 Decorators functionnality:
  => py_trees.decorators.Condition
- .
- .
- => py_trees.decorators.SuccessIsRunning 
-
+ .tf2_ros.ExtrapolationException
 9.6) Blackboards
  => py_trees.blackboard.Client(*, name=None,namespace=None)
  => py_trees.display.unicode_blackboard()
@@ -256,22 +253,52 @@ _ Useing Actionlib with service /torso_controller/follow_joint_trajectory
 
 ## 9) Pick_Aruco
 
-
-For this part , we have create a server which allow to plab the pick and place scene with moveit . This server specifies the differents instances for the object ot grasp . Once we define the server , we create a client which allows us to pick the object with using the server and the pose of object through a ArUco . 
-The server call a function named sphericalgrasp for the grasping a spherical ,cylindrique ... object . 
+For this part , we have create a server which allow to plab the pick and place scene with moveit . This server specifies the differents instances for the object ot grasp . Once we define the server , we create a client which allows us to pick the object with using the server and the pose of object through a ArUco . The server call a function named sphericalgrasp for the grasping a spherical ,cylindrique ... object . 
 
 When the robot see the aruco pattern , it plan a trajectory for grasping this object . The end effector of the robot approch the object, and the end effector grasp  the object . 
 
-See the script spherical_grasp_server.py for details about object grasping and see script behaviortree.py/class pick_place() for details about  object picking  and placing . 
+See the script spherical_grasp_server.py for details about object grasping and see script behaviorTree.py/class pick_place() for details about  object picking  and placing . 
 
 ### NB: L'arbre des actions étant en séquence tant qu'une action n'est pas excutée , le py-tree-watcher met une croix sur l'action qui n'est pas exécutée.
 
 
+## Report
 
-## A Faire !!
+Abstrat
+Contents
+Liste of tables ,figures 
+Intro
+State of art on TIAGo
+State of art on ROS
+State of art on BehaviorTree
+_Intro
+_ BehaviorTree ( see the doc for the explain of the behavior Tree composition )
+_ Comparison between  the state machine 
+
+Task(Scenario with TIAGo)
+_ Intro
+_ How to implement a action with behaviorTree 
+_ How to build a tree
+_ Explain the choice of the strucuture of the tree 
+_ Explain each action and their implement with behaviorTree
+
+Experience 
+_Show for each action an image to illustrate the action 
+
+User manuel 
+_ Explain how the reproduce the project 
+
+Conclusion
+Futur work
+Acknowledgements 
+Reference
+_try to follow the chronologic order of the report 
+Annnexe and code repository
+
+## A Faire !!!
 
 1) Lire la doc sur py_trees !!( A reprendre)
 2) Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) ou l'arreter après une exécution .!!! 
-3) Try to see the placing object is correctly excuted !! 
-
-
+3) Try to see the placing object is correctly executed !!!
+4) Change the package name navigation to task !!!
+5) Voir comment le script spherical graps fonctionnent en détails !!!
