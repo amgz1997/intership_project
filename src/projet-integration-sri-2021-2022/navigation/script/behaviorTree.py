@@ -86,18 +86,18 @@ class movebase(pt.behaviour.Behaviour):
 
     def create_goal(self,x,y,w):
 
-        goal = MoveBaseGoal()
-        goal.target_pose.header.frame_id = "map"
-        goal.target_pose.header.stamp = rospy.Time.now()
-        goal.target_pose.pose.position.x = x
-        goal.target_pose.pose.position.y = y
-        goal.target_pose.pose.position.z = 0.0
-        goal.target_pose.pose.orientation.x = 0.0
-        goal.target_pose.pose.orientation.y = 0.0
-        goal.target_pose.pose.orientation.z = 0.0
-        goal.target_pose.pose.orientation.w = w
+        Goal = MoveBaseGoal()
+        Goal.target_pose.header.frame_id = "map"
+        Goal.target_pose.header.stamp = rospy.Time.now()
+        Goal.target_pose.pose.position.x = x
+        Goal.target_pose.pose.position.y = y
+        Goal.target_pose.pose.position.z = 0.0
+        Goal.target_pose.pose.orientation.x = 0.0
+        Goal.target_pose.pose.orientation.y = 0.0
+        Goal.target_pose.pose.orientation.z = 0.0
+        Goal.target_pose.pose.orientation.w = w
         
-        return goal 
+        return Goal 
 
 class aruco_detect(pt.behaviour.Behaviour):
 
@@ -312,6 +312,7 @@ class pick_place(pt.behaviour.Behaviour):
             if not name[:1] == '_':
                 code = MoveItErrorCodes.__dict__[name]
                 self.moveit_error_dict[code] = name
+
         print("AA")
 
         super(pick_place, self).__init__("pick_place")   
@@ -322,7 +323,6 @@ class pick_place(pt.behaviour.Behaviour):
         Place=self.place_aruco()
 
         if self.pick_place_goal:
-
             return pt.common.Status.FAILURE
 
         else:
@@ -335,7 +335,7 @@ class pick_place(pt.behaviour.Behaviour):
 
     def pick_aruco(self,operator):
 
-        aruco_pose=rospy.wait_for_message('/aruco_single/pose',PoseStamped) #Utiliser unwait_for_server
+        aruco_pose=rospy.wait_for_message('/aruco_single/pose',PoseStamped) #Utiliser un wait_for_server
         aruco_pose.header.frame_id=self.strip_leading_slash(aruco_pose.header.frame_id)     
         rospy.loginfo("Go to :"+str(aruco_pose))
         rospy.loginfo("spherical_grasp_gui: Transforming frame:" + aruco_pose.header.frame_id + " to 'base_footprint' ")
@@ -383,8 +383,8 @@ class pick_place(pt.behaviour.Behaviour):
 
                 return
 
-    def place_aruco(self):
-
+    def place_aruco(self): #Essaye d'implémenter cette foncton comme une classe pour placer l'object quand on veut 
+                          #ou garder la meme en instanciant un operateur pour "place" with a elif 
         rospy.sleep(5)
         pick_g.object_pose.pose.position.z=0.05    
         self.place_cl.send_goal_and_wait(pick_g)
@@ -575,7 +575,7 @@ class BehaviourTree(ptr.trees.BehaviourTree):
         #PickPlace=pick_place()
         root=pt.composites.Sequence(name="Task")
 
-       # root.add_children([Nav1,Detect,Arm_tucking1,Torso_tucking1,Nav2]) ##Revoir l'aruco detecte ??
+       #root.add_children([Nav1,Detect,Arm_tucking1,Torso_tucking1,Nav2]) ##Revoir l'aruco detecte ??
         
         root.add_children([Arm_tucking1])
 
