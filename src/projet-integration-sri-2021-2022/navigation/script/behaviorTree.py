@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+# -*- coding:utf-8 -*-
 
 import functools
 import py_trees as pt 
@@ -12,16 +13,12 @@ import time
 import tf2_ros
 import tf2_geometry_msgs 
 import cv2
-import moveit_commander
-import moveit_msgs.msg  
 import move_base_msgs.msg as mb_msgs
 from cv_bridge import CvBridge 
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal, MoveBaseActionFeedback, MoveBaseActionGoal 
 from actionlib_msgs.msg import GoalStatus
 from actionlib import SimpleActionClient, SimpleActionServer
 from geometry_msgs.msg import PoseStamped, Pose, PoseArray, Vector3Stamped, Vector3, Quaternion 
-from aruco_msgs.msg import Marker
-from aruco_msgs.msg import MarkerArray
 from play_motion_msgs.msg import PlayMotionAction, PlayMotionGoal
 from moveit_commander import PlanningSceneInterface
 from moveit_msgs.msg import Grasp, PickupAction, PickupGoal, PickupResult, MoveItErrorCodes
@@ -42,7 +39,7 @@ class movebase(pt.behaviour.Behaviour):
         
         rospy.loginfo('Initialisiation move base ')
         rospy.loginfo("waiting for /move_base actin server")
-        self.client=SimpleActionClient('move_base', MoveBaseAction)
+        self.client=SimpleActionClient('move_base', MoveBaseAction) #connect to server with a client 
 
         if not self.client.wait_for_server():
 
@@ -51,7 +48,7 @@ class movebase(pt.behaviour.Behaviour):
 
         rospy.loginfo("Connected to /move_base server success")
 
-        super(movebase,self).__init__("Move_Base ")  
+        super(movebase,self).__init__("Move_Base ")  #Init the class 
         self.pose=pose 
         self.at_position=False
         self.bb=pt.blackboard.Blackboard() 
@@ -60,25 +57,26 @@ class movebase(pt.behaviour.Behaviour):
 
       if self.pose=="point1":
 
-        goals=self.create_goal(-0.2, 0.8, -1.0)
-        self.client.send_goal(goals)
+        goals=self.create_goal(-0.181, 0.631, 1.0) #Create the first point with function create_goal
+        self.client.send_goal(goals) #send goal 1  
+
 
       elif self.pose=="point2":
 
-        goals=self.create_goal(0.0, 0.0, 1.0)
+        goals=self.create_goal(-1.161, -1.459, 1.0) #Create the first point with function create_goal
 
-        self.client.send_goal(goals)
+        self.client.send_goal(goals) #send goal 2
 
       #self.at_position=True
-      success=self.client.wait_for_result()
-      status=self.client.get_state()
+      success=self.client.wait_for_result() # See the status of the goal 
+      status=self.client.get_state() #See the state of the goal 
 
       if not success:
-          return pt.common.Status.FAILURE
+          return pt.common.Status.FAILURE #Behvaior status  for no success
 
       if success:
 
-          return pt.common.Status.SUCCESS   
+          return pt.common.Status.SUCCESS   #Behvaior status  for  successs
 
     def terminate(self,new_status):
 
@@ -86,7 +84,8 @@ class movebase(pt.behaviour.Behaviour):
 
     def create_goal(self,x,y,w):
 
-        Goal = MoveBaseGoal()
+        #create a goal (x,y,z)
+        Goal = MoveBaseGoal() #See move_base_msgs.msg
         Goal.target_pose.header.frame_id = "map"
         Goal.target_pose.header.stamp = rospy.Time.now()
         Goal.target_pose.pose.position.x = x
@@ -107,31 +106,31 @@ class aruco_detect(pt.behaviour.Behaviour):
         rospy.loginfo("Waiting for Aruco detection  ")
 
         self.last_call=time.time()
-        self.aruco_pose=rospy.Subscriber('/aruco_single/pose',PoseStamped,self.aruco_cb) #Utiliser unwait_for_server
+        self.aruco_pose=rospy.Subscriber('/aruco_single/pose',PoseStamped,self.aruco_cb) #Subscribe to  topic  
 
         self.aruco_verif=False 
 
-        super(aruco_detect,self).__init__("Aruco_detection")
+        super(aruco_detect,self).__init__("Aruco_detection") #Init the class 
 
     def update(self):
 
         rospy.sleep(1)
 
         if self.aruco_verif:
-           # self.feedback_mess
-            return pt.common.Status.SUCCESS #Try pt.Status.SUCCESS??
-       
+            return pt.common.Status.SUCCESS # Behvaior status  for  success
+     
+        # Return a loginfo in 0.5 s if the aruco is not detected with callback
         if abs(self.last_call-time.time())>0.5:
 
             rospy.loginfo("Aruco not detected")
             self.aruco_verif=False
-            return pt.common.Status.FAILURE
+            return pt.common.Status.FAILURE #Behvaior status  for no success
 
         else:
 
             rospy.loginfo(" Aruco detected")
             self.aruco_verif=True
-            return pt.common.Status.SUCCESS
+            return pt.common.Status.SUCCESS #Behvaior status  for  success
 
     def aruco_cb(self,data):
 
@@ -143,10 +142,9 @@ class arm_tucking(pt.behaviour.Behaviour):
 
     def __init__(self,config):
 
-        self.config=config
-        
-        self.arm_ac=SimpleActionClient('/safe_arm_controller/follow_joint_trajectory', FollowJointTrajectoryAction) #JointTrajectory
-        self.arm_ac.wait_for_server()
+        self.config=config 
+        self.arm_ac=SimpleActionClient('/safe_arm_controller/follow_joint_trajectory', FollowJointTrajectoryAction) #Connect to server with a client 
+        self.arm_ac.wait_for_server() #wait server 
         rospy.loginfo("connected to /arm_controller")
 
         self.sent_goal=False
@@ -157,32 +155,36 @@ class arm_tucking(pt.behaviour.Behaviour):
 
         if self.config=="config1":
             #mov_joint=self.joint_mov(0.05, -0.07, -2.8, 1.5, -1.57, 0.7, 0.0) #Pose for grasping
-            mov_joint=self.joint_mov(0.20, -1.34, -0.2, 1.94, -1.57, 1.37, 0.0) #for testing
+            mov_joint=self.joint_mov(0.20, -1.34, -0.2, 1.94, -1.57, 1.37, 0.0) #for testing # First position of the joints
 
         elif self.config=="config2":
-            mov_joint=self.joint_mov(0.2, -1.34, -0.2, 1.94, -1.57, 1.37, 0.0) #safe pose 
+            mov_joint=self.joint_mov(0.2, -1.34, -0.2, 1.94, -1.57, 1.37, 0.0) #safe pose  # Second position of the joints
 
         if self.sent_goal:
-            return pt.common.Status.FAILURE
+            return pt.common.Status.FAILURE #Behvaior status  for no success
+
 
         else:
 
-            return pt.common.Status.SUCCESS
+            return pt.common.Status.SUCCESS #Behvaior status  for  success
+
 
     def joint_mov(self,arm1,arm2,arm3,arm4,arm5,arm6,arm7):
 
-        jt=JointTrajectory()
-        jt.joint_names=['arm_1_joint', 'arm_2_joint', 'arm_3_joint', 'arm_4_joint', 'arm_5_joint', 'arm_6_joint', 'arm_7_joint']
-        jtp=JointTrajectoryPoint()
-        jtp.positions =[arm1, arm2, arm3, arm4, arm5, arm6, arm7]
+        #create the movement for the joint 
+
+        jt=JointTrajectory() #See trajectory_msg.msg
+        jt.joint_names=['arm_1_joint', 'arm_2_joint', 'arm_3_joint', 'arm_4_joint', 'arm_5_joint', 'arm_6_joint', 'arm_7_joint'] #Define the joint 
+        jtp=JointTrajectoryPoint() #See trajectory_msg.msg
+        jtp.positions =[arm1, arm2, arm3, arm4, arm5, arm6, arm7] #Define the point 
         jtp.time_from_start = rospy.Duration(7)
-        arm_goal_pos=FollowJointTrajectoryGoal()
-        jt.points.append(jtp)
+        arm_goal_pos=FollowJointTrajectoryGoal() #See control_msg.msg
+        jt.points.append(jtp) #Add the point of the joint 
         arm_goal_pos.trajectory=jt
         arm_goal_pos.goal_time_tolerance=rospy.Duration(0)
-        self.arm_ac.send_goal(arm_goal_pos)
+        self.arm_ac.send_goal(arm_goal_pos) #Send the position to reach by each joint 
         rospy.loginfo("goal send success")
-        self.arm_ac.wait_for_result()
+        self.arm_ac.wait_for_result() #wait the result 
 
 class torso_tucking(pt.behaviour.Behaviour):
 
@@ -198,38 +200,38 @@ class torso_tucking(pt.behaviour.Behaviour):
 
         self.sent_goal=False
         
-        super(torso_tucking, self).__init__("Tucking_torso")
+        super(torso_tucking, self).__init__("Tucking_torso") #Init the class 
 
     def update(self):
 
         if self.config=="config1":
-            mov_torso=self.torso_mov(0.34)
+            mov_torso=self.torso_mov(0.34) # First position of the torso
             
-        elif self.config=="config2":
-            
-            mov_torso=self.torso_mov(0.25)
+        elif self.config=="config2":         
+            mov_torso=self.torso_mov(0.25) # Second position of the torso
 
         if self.sent_goal:
-            return pt.common.Status.FAILURE
+            return pt.common.Status.FAILURE  #Behvaior status  for no success
 
         else:
 
-            return pt.common.Status.SUCCESS
+            return pt.common.Status.SUCCESS  #Behvaior status  for  success
 
     def torso_mov(self,tors):
-
-        tor=JointTrajectory()
-        tor.joint_names=['torso_lift_joint']
-        tor_p=JointTrajectoryPoint()
-        tor_p.positions =[tors]
+        
+        #create the movement for the torso
+        tor=JointTrajectory() #See trajectory_msg.msg
+        tor.joint_names=['torso_lift_joint'] #Define the joint 
+        tor_p=JointTrajectoryPoint() #See trajectory_msg.msg
+        tor_p.positions =[tors]  #Define the point
         tor_p.time_from_start = rospy.Duration(7)
-        torso_goal_pos=FollowJointTrajectoryGoal()
-        tor.points.append(tor_p)
+        torso_goal_pos=FollowJointTrajectoryGoal() #See control_msg.msg
+        tor.points.append(tor_p) #Add the point of the joint 
         torso_goal_pos.trajectory=tor
         torso_goal_pos.goal_time_tolerance=rospy.Duration(0)
-        self.torso_ac.send_goal(torso_goal_pos)
+        self.torso_ac.send_goal(torso_goal_pos) #Send the position to reach by each joint
         rospy.loginfo("goal send success")
-        self.torso_ac.wait_for_result()
+        self.torso_ac.wait_for_result() #wait the result 
  
 
 class pick_place(pt.behaviour.Behaviour):
@@ -237,26 +239,26 @@ class pick_place(pt.behaviour.Behaviour):
     def __init__(self):
 
         rospy.loginfo(" Init pick and place ")
-        self.sg = SphericalGrasps()
+        self.sg = SphericalGrasps() #Call the class for grasping object
         print("M")
         rospy.loginfo("Connecting to pickup AS")
-        self.pickup_ac = SimpleActionClient('/pickup', PickupAction)
+        self.pickup_ac = SimpleActionClient('/pickup', PickupAction) #Connect to server with  the client 
         print("k")
 
-        self.pickup_ac.wait_for_server()
-        rospy.loginfo("SucceLfully connected.")
+        self.pickup_ac.wait_for_server() #Wait the server response
+        rospy.loginfo("Succefully connected.")
         rospy.loginfo("Connecting to place AS")
-        self.place_ac = SimpleActionClient('/place', PlaceAction)
+        self.place_ac = SimpleActionClient('/place', PlaceAction) #Connect to server with  the client 
         print("k")
 
-        self.place_ac.wait_for_server()
+        self.place_ac.wait_for_server() #Wait the server response 
         rospy.loginfo("Succesfully connected.")
-        self.scene = PlanningSceneInterface()
+        self.scene = PlanningSceneInterface() #Call the class for planning the scene ( see moveit_msg)
         rospy.loginfo("Connecting to /get_planning_scene service")
-        self.scene_srv = rospy.ServiceProxy('/get_planning_scene', GetPlanningScene)
+        self.scene_srv = rospy.ServiceProxy('/get_planning_scene', GetPlanningScene) #Call the service 
         print("L")
 
-        self.scene_srv.wait_for_service()
+        self.scene_srv.wait_for_service()  #Wait the server response 
         rospy.loginfo("Connected.")
         print("N")
 
@@ -267,7 +269,7 @@ class pick_place(pt.behaviour.Behaviour):
 
 		# Get the links of the end effector exclude from collisions
 
-        self.links_to_allow_contact =['gripper_left_finger_link', 'gripper_right_finger_link', 'gripper_link']
+        self.links_to_allow_contact =['gripper_left_finger_link', 'gripper_right_finger_link', 'gripper_link'] #Define the gripper link
 
         if self.links_to_allow_contact is None:
 
@@ -276,37 +278,39 @@ class pick_place(pt.behaviour.Behaviour):
             rospy.loginfo("Found links to allow contacts: " + str(self.links_to_allow_contact))
         print("I")
 
-        self.pick_as = SimpleActionServer('/pickup_pose', PickUpPoseAction,execute_cb=self.pick_cb, auto_start=False)
-        self.pick_as.start()
+        self.pick_as = SimpleActionServer('/pickup_pose', PickUpPoseAction,execute_cb=self.pick_cb, auto_start=False) #Connect to server with  the client 
+        self.pick_as.start() #Active the service 
         print("J")
 
-        self.place_as = SimpleActionServer('/place_pose', PickUpPoseAction, execute_cb=self.place_cb, auto_start=False)
-        self.place_as.start()
+        self.place_as = SimpleActionServer('/place_pose', PickUpPoseAction, execute_cb=self.place_cb, auto_start=False) #Connect to server with  the client 
+        self.place_as.start() #Active the service 
         print("O")
 
         rospy.loginfo("Connecting to clear octomap service...")
-        self.clear_octomap_srv = rospy.ServiceProxy('/clear_octomap', Empty)
-        self.clear_octomap_srv.wait_for_service()
+        self.clear_octomap_srv = rospy.ServiceProxy('/clear_octomap', Empty) #Call the service 
+        self.clear_octomap_srv.wait_for_service()  #Wait the server response 
         rospy.loginfo("Connected!")
 
-        self.bridge=CvBridge()
-        self.tfBuffer=tf2_ros.Buffer()
-        self.tf_l=tf2_ros.TransformListener(self.tfBuffer)
-        rospy.loginfo("wait /pickup")
-        self.pick_cl=SimpleActionClient('/pickup_pose',PickUpPoseAction)
-        self.pick_cl.wait_for_server()
+        #Here we will use transform a from the camera to the base_footprint for the end effector 
+        self.bridge=CvBridge() #Convert between ros image messages to Opencv images 
+        self.tfBuffer=tf2_ros.Buffer() #Create a buffer
+        self.tf_l=tf2_ros.TransformListener(self.tfBuffer) #create a listener 
+        ######################################
+        self.pick_cl=SimpleActionClient('/pickup_pose',PickUpPoseAction) #Connect to server with  the client
+        self.pick_cl.wait_for_server() #Wait the server response 
         rospy.loginfo("connect to /pickup_pose server")
         print("A")
 
-        self.place_cl=SimpleActionClient('/place_pose',PickUpPoseAction)
-        self.place_cl.wait_for_server()
+        self.place_cl=SimpleActionClient('/place_pose',PickUpPoseAction) #Connect to server with  the client
+        self.place_cl.wait_for_server() #Wait the server response 
         rospy.loginfo("connect to /place_pose server")
         print("B")
 
-        self.detected_pose_pub=rospy.Publisher('/detected_aruco_pose',PoseStamped,queue_size=1,latch=True)
+        self.detected_pose_pub=rospy.Publisher('/detected_aruco_pose',PoseStamped,queue_size=1,latch=True) #Publish the detected pose 
         self.pick_place_goal=False
         print("C")
 
+        #Verify the error from the moveit when we use a moveit class 
         self.moveit_error_dict = {}
         for name in MoveItErrorCodes.__dict__.keys():
             if not name[:1] == '_':
@@ -315,19 +319,20 @@ class pick_place(pt.behaviour.Behaviour):
 
         print("AA")
 
-        super(pick_place, self).__init__("pick_place")   
+        super(pick_place, self).__init__("pick_place")   #Init the class 
 
     def update(self):
             
-        Pick=self.pick_aruco("pick")
-        Place=self.place_aruco()
+        Pick=self.pick_aruco("pick") #pick the object 
+        Place=self.place_aruco()    #place the object
 
         if self.pick_place_goal:
-            return pt.common.Status.FAILURE
+            return pt.common.Status.FAILURE #Behvaior status  for no success
 
         else:
 
-            return pt.common.Status.SUCCESS
+            return pt.common.Status.SUCCESS #Behvaior status  for  success
+
 
     def strip_leading_slash(self,s):
 
@@ -335,12 +340,12 @@ class pick_place(pt.behaviour.Behaviour):
 
     def pick_aruco(self,operator):
 
-        aruco_pose=rospy.wait_for_message('/aruco_single/pose',PoseStamped) #Utiliser un wait_for_server
-        aruco_pose.header.frame_id=self.strip_leading_slash(aruco_pose.header.frame_id)     
-        rospy.loginfo("Go to :"+str(aruco_pose))
+        aruco_pose=rospy.wait_for_message('/aruco_single/pose',PoseStamped) #Wait for message from the topic 
+        aruco_pose.header.frame_id=self.strip_leading_slash(aruco_pose.header.frame_id)  #take the pose 
+        rospy.loginfo("Go to :"+str(aruco_pose)) 
         rospy.loginfo("spherical_grasp_gui: Transforming frame:" + aruco_pose.header.frame_id + " to 'base_footprint' ")
         
-        ps=PoseStamped()
+        ps=PoseStamped() #See geometry_msgs.msg
         ps.pose.position=aruco_pose.pose.position   
         ps.header.stamp=self.tfBuffer.get_latest_common_time("base_footprint", aruco_pose.header.frame_id) 
         ps.header.frame_id=aruco_pose.header.frame_id
@@ -359,39 +364,40 @@ class pick_place(pt.behaviour.Behaviour):
                 rospy.sleep(0.1)
                 ps.header.stamp=self.tfBuffer.get_latest_common_time("base_footprint", aruco_pose.header.frame_id) 
            
-            pick_g=PickUpPoseGoal()    
+            pick_g=PickUpPoseGoal()    #(See navigation.msg )  Create a pickUp goal for sending 
 
         if operator=="pick":
 
             rospy.loginfo("Setting object pose based on Aruco detection")
-            pick_g.object_pose.pose.position= aruco_ps.pose.position
+            pick_g.object_pose.pose.position= aruco_ps.pose.position #Pick position
             pick_g.object_pose.pose.position.z -= 0.1*0.5
 
-            rospy.loginfo("aruco pose in base footprint:" + str(pick_g))
+            rospy.loginfo("aruco pose in base footprint:" + str(pick_g)) #Show the aruco position 
 
             pick_g.object_pose.header.frame_id= 'base_footprint'
             pick_g.object_pose.pose.orientation.w= 1.0
-            self.detected_pose_pub.publish(pick_g.object_pose)
+            self.detected_pose_pub.publish(pick_g.object_pose) #Publish the aruco position
             rospy.loginfo(" Go to pick :" + str(pick_g))
-            self.pick_cl.send_goal(pick_g)
+            self.pick_cl.send_goal(pick_g) #Send the position as goal 
             rospy.loginfo("Done !")
-            resut=self.pick_cl.get_result()
+            resut=self.pick_cl.get_result() #Get the result to see if the goal is sending 
 
-            if str(self.moveit_error_dict[result.error_code]) != "Success":
+            if str(self.moveit_error_dict[result.error_code]) != "Success": #Send a message error  if the object is not reach 
 
                 rospy.logerror("Failled to pick trying further")
 
                 return
 
-    def place_aruco(self): #Essaye d'implémenter cette foncton comme une classe pour placer l'object quand on veut 
-                          #ou garder la meme en instanciant un operateur pour "place" with a elif 
+    def place_aruco(self): 
+        #Essaye dimplémenter cette foncton comme une classe pour placer lobject quand on veut 
+        #ou garder la meme en instanciant un operateur pour place with a elif 
         rospy.sleep(5)
         pick_g.object_pose.pose.position.z=0.05    
-        self.place_cl.send_goal_and_wait(pick_g)
+        self.place_cl.send_goal_and_wait(pick_g) #send the pickUp goal  
         rospy.loginfo("Obejct placed ")
 
     def createPickupGoal(self,group="arm_torso", target="part", grasp_pose=PoseStamped(), possible_grasps=[], links_to_allow_contact=None):
-        """ Create a PickupGoal with the provided data"""
+        #For picking the object we should plan this by using moveit 
         pug = PickupGoal()
         pug.target_name = target
         pug.group_name = group
@@ -410,7 +416,7 @@ class pick_place(pt.behaviour.Behaviour):
 
     def createPlaceGoal(self,place_pose, place_locations, group="arm_torso", target="part", links_to_allow_contact=None):
 
-        """Create PlaceGoal with the provided data"""
+        #For placing the object we should plan this by using moveit 
         placeg = PlaceGoal()
         placeg.group_name = group
         placeg.attached_object_name = target
@@ -429,7 +435,7 @@ class pick_place(pt.behaviour.Behaviour):
     def pick_cb(self, goal):
         
         #type goal: PickUpPoseGoal
-        
+        #This callback allow us to know if the picking is done or not 
         error_code = self.grasp_object(goal.object_pose)
         p_res = PickUpPoseResult()
         p_res.error_code = error_code
@@ -441,7 +447,8 @@ class pick_place(pt.behaviour.Behaviour):
     def place_cb(self, goal):
         
         #type goal: PickUpPoseGoal
-        
+        #This callback allow us to know if the placing is done or not 
+
         error_code = self.place_object(goal.object_pose)
         p_res = PickUpPoseResult()
         p_res.error_code = error_code
@@ -462,7 +469,7 @@ class pick_place(pt.behaviour.Behaviour):
         if not part_in_scene:
             # This call takes a while when rgbd sensor is set
             gps_resp = self.scene_srv.call(gps_req)
-            # check if 'part' is in the answer
+            # Check if 'part' is in the answer
             for collision_obj in gps_resp.scene.world.collision_objects:
                 if collision_obj.id == object_name:
                     part_in_scene = True
@@ -474,14 +481,12 @@ class pick_place(pt.behaviour.Behaviour):
         rospy.loginfo("'" + object_name + "'' is in scene!")
 
     def grasp_object(self, object_pose):
-
+        #In this function we take into acount that the object we will be picking in a real world not gazebo 
+        #We have delete arrang this for this task 
         rospy.loginfo("Removing any previous 'part' object")
         self.scene.remove_attached_object("arm_tool_link")
-        print("CC")
-
         self.scene.remove_world_object("part")
         # self.scene.remove_world_object("table")
-        print("BB")
 
         rospy.loginfo("Clearing octomap")
         self.clear_octomap_srv.call(EmptyRequest())
@@ -511,38 +516,37 @@ class pick_place(pt.behaviour.Behaviour):
         print("NN")
 
         # compute grasps
-
-        possible_grasps = self.sg.create_grasps_from_object_pose(object_pose)
+        possible_grasps = self.sg.create_grasps_from_object_pose(object_pose) #Define the object to grasp
         self.pickup_ac
-        goal =self.createPickupGoal("arm_torso", "part", object_pose, possible_grasps, self.links_to_allow_contact)
+        goal =self.createPickupGoal("arm_torso", "part", object_pose, possible_grasps, self.links_to_allow_contact) #Create the goal to send 
         rospy.loginfo("Sending goal")
-        self.pickup_ac.send_goal(goal)
+        self.pickup_ac.send_goal(goal) #Send goal 
         rospy.loginfo("Waiting for result")
-        self.pickup_ac.wait_for_result()
-        result = self.pickup_ac.get_result()
-        rospy.logdebug("Using torso result: " + str(result))
-        rospy.loginfo("Pick result: " + str(self.moveit_error_dict[result.error_code.val]))
-
+        self.pickup_ac.wait_for_result() #Wait the result 
+        result = self.pickup_ac.get_result() #Get the result 
+        rospy.logdebug("Using torso result: " + str(result)) #Show the result 
+        rospy.loginfo("Pick result: " + str(self.moveit_error_dict[result.error_code.val])) #Show if we have a error 
+        
         return result.error_code.val
 
 	def place_object(self, object_pose):
 
 		rospy.loginfo("Clearing octomap")
 		self.clear_octomap_srv.call(EmptyRequest())
-		possible_placings = self.sg.create_placings_from_object_pose(object_pose)
+		possible_placings = self.sg.create_placings_from_object_pose(object_pose) #Define the object to place
 		# Try only with arm
 		rospy.loginfo("Trying to place using only arm")
-		goal = self.createPlaceGoal(object_pose, possible_placings, "arm", "part", self.links_to_allow_contact)
+		goal = self.createPlaceGoal(object_pose, possible_placings, "arm", "part", self.links_to_allow_contact) #Create the goal to send for placing 
 		rospy.loginfo("Sending goal")
-		self.place_ac.send_goal(goal)
+		self.place_ac.send_goal(goal) #send goal 
 		rospy.loginfo("Waiting for result")
-		self.place_ac.wait_for_result()
+		self.place_ac.wait_for_result() #send result 
 		result = self.place_ac.get_result()
-		rospy.loginfo(str(self.moveit_error_dict[result.error_code.val]))
+		rospy.loginfo(str(self.moveit_error_dict[result.error_code.val])) #Show if we have a error 
 
 		if str(self.moveit_error_dict[result.error_code.val]) != "SUCCESS":
 			rospy.loginfo("Trying to place with arm and torso")
-			# Try with arm and torso
+			# Try with arm and torso , it is similary with the previous , here we just add the torso (if the object if on top for example )
 			goal = self.createPlaceGoal(object_pose, possible_placings, "arm_torso", "part", self.links_to_allow_contact)
 			rospy.loginfo("Sending goal")
 			self.place_ac.send_goal(goal)
@@ -561,6 +565,7 @@ class pick_place(pt.behaviour.Behaviour):
 
 class BehaviourTree(ptr.trees.BehaviourTree):
 
+    #This is the principal class which the other class for defining each action in the behaviorTree  
     def __init__(self):
 
         rospy.loginfo("Initialising behaviour tree")
@@ -573,13 +578,13 @@ class BehaviourTree(ptr.trees.BehaviourTree):
         Torso_tucking1=torso_tucking("config1")
         Torso_tucking2=torso_tucking("config2")
         #PickPlace=pick_place()
-        root=pt.composites.Sequence(name="Task")
+        root=pt.composites.Sequence(name="Task") #The type of behaviorTree, here the type is a sequence 
 
-       #root.add_children([Nav1,Detect,Arm_tucking1,Torso_tucking1,Nav2]) ##Revoir l'aruco detecte ??
+       #root.add_children([Nav1,Detect,Arm_tucking1,Torso_tucking1,Nav2]) ##Revoir l'aruco detecte ??   #Add  the actions of the sequence
         
-        root.add_children([Arm_tucking1])
+        root.add_children([Arm_tucking1]) #Add  the actions of the sequence
 
-        super(BehaviourTree, self).__init__(root)
+        super(BehaviourTree, self).__init__(root) #Init the class 
 
         rospy.sleep(5)
 
