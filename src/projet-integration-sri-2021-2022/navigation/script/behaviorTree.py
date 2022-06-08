@@ -29,7 +29,7 @@ from random import shuffle
 from std_srvs.srv import Empty, EmptyRequest
 from control_msgs.msg import FollowJointTrajectoryAction, FollowJointTrajectoryGoal 
 from trajectory_msgs.msg import JointTrajectoryPoint, JointTrajectory
-from navigation.msg import PickUpPoseAction, PickUpPoseGoal 
+from navigation.msg import PickUpPoseAction, PickUpPoseGoal, PickUpPoseResult, PickUpPoseFeedback 
 from spherical_grasps_server import SphericalGrasps
 
 
@@ -240,27 +240,21 @@ class pick_place(pt.behaviour.Behaviour):
 
         rospy.loginfo(" Init pick and place ")
         self.sg = SphericalGrasps() #Call the class for grasping object
-        print("M")
         rospy.loginfo("Connecting to pickup AS")
         self.pickup_ac = SimpleActionClient('/pickup', PickupAction) #Connect to server with  the client 
-        print("k")
 
         self.pickup_ac.wait_for_server() #Wait the server response
         rospy.loginfo("Succefully connected.")
         rospy.loginfo("Connecting to place AS")
         self.place_ac = SimpleActionClient('/place', PlaceAction) #Connect to server with  the client 
-        print("k")
-
         self.place_ac.wait_for_server() #Wait the server response 
         rospy.loginfo("Succesfully connected.")
         self.scene = PlanningSceneInterface() #Call the class for planning the scene ( see moveit_msg)
         rospy.loginfo("Connecting to /get_planning_scene service")
         self.scene_srv = rospy.ServiceProxy('/get_planning_scene', GetPlanningScene) #Call the service 
-        print("L")
 
         self.scene_srv.wait_for_service()  #Wait the server response 
         rospy.loginfo("Connected.")
-        print("N")
 
         # Get the object size
 		# self.object_height = rospy.get_param('~object_height')
@@ -276,15 +270,12 @@ class pick_place(pt.behaviour.Behaviour):
             rospy.logwarn("Didn't find any links to allow contacts... at param ~links_to_allow_contact")
         else:
             rospy.loginfo("Found links to allow contacts: " + str(self.links_to_allow_contact))
-        print("I")
 
         self.pick_as = SimpleActionServer('/pickup_pose', PickUpPoseAction,execute_cb=self.pick_cb, auto_start=False) #Connect to server with  the client 
         self.pick_as.start() #Active the service 
-        print("J")
 
         self.place_as = SimpleActionServer('/place_pose', PickUpPoseAction, execute_cb=self.place_cb, auto_start=False) #Connect to server with  the client 
         self.place_as.start() #Active the service 
-        print("O")
 
         rospy.loginfo("Connecting to clear octomap service...")
         self.clear_octomap_srv = rospy.ServiceProxy('/clear_octomap', Empty) #Call the service 
@@ -299,16 +290,13 @@ class pick_place(pt.behaviour.Behaviour):
         self.pick_cl=SimpleActionClient('/pickup_pose',PickUpPoseAction) #Connect to server with  the client
         self.pick_cl.wait_for_server() #Wait the server response 
         rospy.loginfo("connect to /pickup_pose server")
-        print("A")
 
         self.place_cl=SimpleActionClient('/place_pose',PickUpPoseAction) #Connect to server with  the client
         self.place_cl.wait_for_server() #Wait the server response 
         rospy.loginfo("connect to /place_pose server")
-        print("B")
 
         self.detected_pose_pub=rospy.Publisher('/detected_aruco_pose',PoseStamped,queue_size=1,latch=True) #Publish the detected pose 
         self.pick_place_goal=False
-        print("C")
 
         #Verify the error from the moveit when we use a moveit class 
         self.moveit_error_dict = {}
@@ -322,9 +310,9 @@ class pick_place(pt.behaviour.Behaviour):
         super(pick_place, self).__init__("pick_place")   #Init the class 
 
     def update(self):
-            
+        self.lower_head()    
         Pick=self.pick_aruco("pick") #pick the object 
-        Place=self.place_aruco()    #place the object
+       # Place=self.place_aruco()    #place the object
 
         if self.pick_place_goal:
             return pt.common.Status.FAILURE #Behvaior status  for no success
@@ -370,31 +358,42 @@ class pick_place(pt.behaviour.Behaviour):
 
             rospy.loginfo("Setting object pose based on Aruco detection")
             pick_g.object_pose.pose.position= aruco_ps.pose.position #Pick position
-            pick_g.object_pose.pose.position.z -= 0.1*0.5
+            #pick_g.object_pose.pose.position.z -= 0.1*0.5
+            pick_g.object_pose.pose.position.z -= 0.1*0.75
 
             rospy.loginfo("aruco pose in base footprint:" + str(pick_g)) #Show the aruco position 
 
-            pick_g.object_pose.header.frame_id= 'base_footprint'
+            pick_g.object_pose.header.frame_id='base_footprint'
             pick_g.object_pose.pose.orientation.w= 1.0
             self.detected_pose_pub.publish(pick_g.object_pose) #Publish the aruco position
             rospy.loginfo(" Go to pick :" + str(pick_g))
-            self.pick_cl.send_goal(pick_g) #Send the position as goal 
+            self.pick_cl.send_goal_and_wait(pick_g) #Send the position as goal 
             rospy.loginfo("Done !")
-            resut=self.pick_cl.get_result() #Get the result to see if the goal is sending 
+            result=self.pick_cl.get_result() #Get the result to see if the goal is sending 
 
-            if str(self.moveit_error_dict[result.error_code]) != "Success": #Send a message error  if the object is not reach 
+            if str(self.moveit_error_dict[result.error_code]) != "SUCCESS": #Send a message error  if the object is not reach 
 
-                rospy.logerror("Failled to pick trying further")
+                rospy.logerr("Failled to pick , not trying further")
 
                 return
+    def lower_head(self):
+        rospy.loginfo("Moving head down")
+        jt = JointTrajectory()
+        jt.joint_names = ['head_1_joint', 'head_2_joint']
+        jtp = JointTrajectoryPoint()
+        jtp.positions = [0.0, -0.75]
+        jtp.time_from_start = rospy.Duration(2.0)
+        jt.points.append(jtp)
+        self.head_cmd.publish(jt)
+        rospy.loginfo("Done.")
 
-    def place_aruco(self): 
-        #Essaye dimplémenter cette foncton comme une classe pour placer lobject quand on veut 
-        #ou garder la meme en instanciant un operateur pour place with a elif 
-        rospy.sleep(5)
-        pick_g.object_pose.pose.position.z=0.05    
-        self.place_cl.send_goal_and_wait(pick_g) #send the pickUp goal  
-        rospy.loginfo("Obejct placed ")
+    # def place_aruco(self): 
+    #     #Essaye dimplémenter cette foncton comme une classe pour placer lobject quand on veut 
+    #     #ou garder la meme en instanciant un operateur pour place with a elif 
+    #     rospy.sleep(5)
+    #     pick_g.object_pose.pose.position.z=0.05    
+    #     self.place_cl.send_goal_and_wait(pick_g) #send the pickUp goal  
+    #     rospy.loginfo("Obejct placed ")
 
     def createPickupGoal(self,group="arm_torso", target="part", grasp_pose=PoseStamped(), possible_grasps=[], links_to_allow_contact=None):
         #For picking the object we should plan this by using moveit 
@@ -459,11 +458,9 @@ class pick_place(pt.behaviour.Behaviour):
 
     def wait_for_planning_scene_object(self, object_name='part'):
 
-        rospy.loginfo("Waiting for object '" + object_name + "'' to appear in planning scene...")
+        rospy.loginfo("Waiting for object '" + object_name + "' to appear in planning scene...")
         gps_req = GetPlanningSceneRequest()
-        print("kk")
         gps_req.components.components = gps_req.components.WORLD_OBJECT_NAMES
-        print("gg")
 
         part_in_scene = False
         if not part_in_scene:
@@ -476,7 +473,6 @@ class pick_place(pt.behaviour.Behaviour):
                     break
             else:
                 rospy.sleep(1.0)
-        print("FF")
 
         rospy.loginfo("'" + object_name + "'' is in scene!")
 
@@ -490,7 +486,6 @@ class pick_place(pt.behaviour.Behaviour):
 
         rospy.loginfo("Clearing octomap")
         self.clear_octomap_srv.call(EmptyRequest())
-        print("zz")
 
         rospy.sleep(2.0)  # Removing is fast
         rospy.loginfo("Adding new 'part' object")
@@ -513,7 +508,6 @@ class pick_place(pt.behaviour.Behaviour):
         # # We need to wait for the object part to appear
         self.wait_for_planning_scene_object()
         #self.wait_for_planning_scene_object("table")
-        print("NN")
 
         # compute grasps
         possible_grasps = self.sg.create_grasps_from_object_pose(object_pose) #Define the object to grasp
@@ -577,12 +571,13 @@ class BehaviourTree(ptr.trees.BehaviourTree):
         Arm_tucking2=arm_tucking("config2")
         Torso_tucking1=torso_tucking("config1")
         Torso_tucking2=torso_tucking("config2")
-        #PickPlace=pick_place()
+        PickPlace=pick_place()
         root=pt.composites.Sequence(name="Task") #The type of behaviorTree, here the type is a sequence 
 
-       #root.add_children([Nav1,Detect,Arm_tucking1,Torso_tucking1,Nav2]) ##Revoir l'aruco detecte ??   #Add  the actions of the sequence
+        #root.add_children([Nav1,Detect,Arm_tucking1,Torso_tucking1,Nav2]) ##Revoir l'aruco detecte ??   #Add  the actions of the sequence
         
-        root.add_children([Arm_tucking1]) #Add  the actions of the sequence
+        root.add_children([Arm_tucking1,PickPlace]) #Add  the actions of the sequence
+        #root.add_children([PickPlace])
 
         super(BehaviourTree, self).__init__(root) #Init the class 
 
