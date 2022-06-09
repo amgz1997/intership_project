@@ -45,14 +45,14 @@ class LocalisationAction(object):
     	while time.time() < total:
 		if self._as.is_preempt_requested():
            		rospy.loginfo('%s: Preempted' % self._action_name)
-			self._result.result_code = 1;
+			self._result.result_code = 1
            		self._as.set_preempted(self._result)      		
 		self.pub.publish(move_cmd)
         	rospy.sleep(0.1) 
 
     	rospy.loginfo("Localisation test finished.")
 
-	self._result.result_code = 0;
+	self._result.result_code = 0
         self._as.set_succeeded(self._result)
 
         

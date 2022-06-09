@@ -107,18 +107,16 @@ _Sequence : that makes it easy to excute a set of states in a sequence
 
 1-4) Container notion ??? (research)
 
-2) Navigation realised with smach 
-
 8) Comparison state machine vs behaviorTree for applications (https://robohub.org/introduction-to-behavior-trees/ 3)
+ 
+8-1)Specific to BTs vs. FSMs, there is a tradeoff between modularity and reactivity. Generally, BTs are easier to compose and modify while FSMs have their strength in designing reactive behaviors.
 
-1)Specific to BTs vs. FSMs, there is a tradeoff between modularity and reactivity. Generally, BTs are easier to compose and modify while FSMs have their strength in designing reactive behaviors.
+8-2) Comparison with diagram (see link )
 
-2) Comparison with diagram (see link )
+8-3) To compensate the lack of transition in behavior , we have the notion of reactive sequence that allows to tick a  previous child in a sequence even it return success .
+8-4) State machine is used to manage high-level operation mode but behavior tree is used to build a complex sequence of behaviors 
 
-3) To compensate the lack of transition in behavior , we have the notion of reactive sequence that allows to tick a  previous child in a sequence even it return success .
-4) State machine is used to manage high-level operation mode but behavior tree is used to build a complex sequence of behaviors 
-
-5) (https://www.youtube.com/watch?v=gXrKGTPwfO8 2)
+8-5) (https://www.youtube.com/watch?v=gXrKGTPwfO8 2)
 
 State machine :
 
@@ -227,7 +225,7 @@ Variables
 • post_tick_handlers – functions that run after the entire tree is ticked
 Raises TypeError – if root variable is not an instance of Behaviour
 
-## 5) Navigation sous behaviorTree
+## 5) Navigation sous behaviorTree 
 
 _ Explication de la navigation 
 
@@ -262,43 +260,78 @@ See the script spherical_grasp_server.py for details about object grasping and s
 ### NB: L'arbre des actions étant en séquence tant qu'une action n'est pas excutée , le py-tree-watcher met une croix sur l'action qui n'est pas exécutée.
 
 
-## Report
+## A Faire !!!
+
+Code :
+
+1)Revoir la prise de l'object (pick) !!!!!!!!!!!!!!!!!!
+2) Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) ou l'arreter après une exécution !!! 
+3) Change the package name navigation to task !!!
+4) Voir comment le script spherical graps fonctionnent en détails et faire ces propres commentaires !!!
+5) Ajouter plus de détails pour chaque action !!!
+
+Rapport !!
+
+1) Finir behavior Tree
+2) Finir state machine 
+3) Faire la comparaison
+4) Mettre sous latex
+
+## Plan Report
 
 Abstrat
-Contents
-Liste of tables ,figures 
-Intro
-State of art on TIAGo
-State of art on ROS
-State of art on BehaviorTree
-_Intro
-_ BehaviorTree ( see the doc for the explain of the behavior Tree composition )
-_ Comparison between  the state machine 
 
-Task(Scenario with TIAGo)
-_ Intro
+Contents
+
+Liste of tables ,figures 
+
+Intro
+
+State of art on TIAGo
+
+State of art on ROS
+
+State of art on BehaviorTree
+
 _ How to implement a action with behaviorTree 
 _ How to build a tree
 _ Explain the choice of the strucuture of the tree 
 _ Explain each action and their implement with behaviorTree
 
+State Machine 
+
+_Intro
+_ How to implement a action with behaviorTree 
+_ How to build a tree
+_ Explain the choice of the strucuture of the tree 
+
+Comparison between behaviorTree and state machine 
+
+Task(Scenario with TIAGo)
+
+_ Intro
+_ Explain each action and their implement with behaviorTree_ Comparison between  the state machine 
+
 Experience 
+
 _Show for each action an image to illustrate the action 
 
 User manuel 
-_ Explain how the reproduce the project 
+
+_Explain how the reproduce the project 
+_Tuto for explainning the implementation of the project 
 
 Conclusion
+
 Futur work
-Acknowledgements 
+
+Acknowledgements
+
 Reference
-_try to follow the chronologic order of the report 
-Annnexe and code repository
 
-## A Faire !!!
+_Try to follow the chronologic order of the report and number each reference 
 
-1) Lire la doc sur py_trees !!( A reprendre)
-2) Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) ou l'arreter après une exécution .!!! 
-3) Try to see the placing object is correctly executed !!!
-4) Change the package name navigation to task !!!
-5) Voir comment le script spherical graps fonctionnent en détails !!!
+
+Annnexe and code summary repository
+
+
