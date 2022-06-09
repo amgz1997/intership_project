@@ -284,6 +284,7 @@ Abstrat
 Contents
 
 Liste of tables ,figures 
+Liste des mots clés 
 
 Intro
 
@@ -295,10 +296,9 @@ State of art on BehaviorTree
 
 _ How to implement a action with behaviorTree 
 _ How to build a tree
-_ Explain the choice of the strucuture of the tree 
-_ Explain each action and their implement with behaviorTree
+_ Explain action , tick , and some usage concept  their implement with behaviorTree
 
-State Machine 
+State of Art on State Machine 
 
 _Intro
 _ How to implement a action with behaviorTree 
@@ -306,6 +306,7 @@ _ How to build a tree
 _ Explain the choice of the strucuture of the tree 
 
 Comparison between behaviorTree and state machine 
+_ Explain the choice of the strucuture of the tree 
 
 Task(Scenario with TIAGo)
 
