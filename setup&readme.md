@@ -264,11 +264,10 @@ See the script spherical_grasp_server.py for details about object grasping and s
 
 Code :
 
-1)Revoir la prise de l'object (pick) !!!!!!!!!!!!!!!!!!
+1)Revoir la prise de l'object (pick) et  voir comment le script spherical graps fonctionnent en détails et faire ces propres commentaires !!! !!!!!!!!!!!!!!!!!!
 2) Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) ou l'arreter après une exécution !!! 
 3) Change the package name navigation to task !!!
-4) Voir comment le script spherical graps fonctionnent en détails et faire ces propres commentaires !!!
-5) Ajouter plus de détails pour chaque action !!!
+4) Ajouter plus de détails pour chaque action !!!
 
 Rapport !!
 
@@ -280,47 +279,63 @@ Rapport !!
 ## Plan Report
 
 Abstrat
-
 Contents
-
 Liste of tables ,figures 
-Liste des mots clés 
+Liste of key words 
 
-Intro
+Chapiter N°1
 
-State of art on TIAGo
+Introduction
 
-State of art on ROS
+1)Motivation 
+2)Objective 
+3)Methodology
+4)State of art on TIAGo (ou mettre dans la partie introduciton ? )
+5)State of art on Robot Operating System (ROS) 
+  1)Application graph nfor ROS 1
+    Topic
+    Nodes
+    writting a node 
+    
+Chapiter N°2
 
-State of art on BehaviorTree
+Implementation of a Behaviour  
+
+1) BehaviorTree ( Py_trees )
 
 _ How to implement a action with behaviorTree 
 _ How to build a tree
 _ Explain action , tick , and some usage concept  their implement with behaviorTree
 
-State of Art on State Machine 
+2) State Machine 
 
 _Intro
 _ How to implement a action with behaviorTree 
 _ How to build a tree
 _ Explain the choice of the strucuture of the tree 
 
-Comparison between behaviorTree and state machine 
+3)Comparison between behaviorTree and state machine 
+
 _ Explain the choice of the strucuture of the tree 
+
+Chapiter N°3
 
 Task(Scenario with TIAGo)
 
 _ Intro
 _ Explain each action and their implement with behaviorTree_ Comparison between  the state machine 
 
-Experience 
+Results 
 
 _Show for each action an image to illustrate the action 
+
+Chapiter N°4
 
 User manuel 
 
 _Explain how the reproduce the project 
 _Tuto for explainning the implementation of the project 
+
 
 Conclusion
 
