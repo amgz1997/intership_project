@@ -130,44 +130,40 @@ class SphericalGrasps(object):
     def dyn_rec_callback(self, config, level):
 
         rospy.loginfo("Received reconf call: " + str(config))
-        self._grasp_postures_frame_id = config["grasp_postures_frame_id"]
+        self._grasp_postures_frame_id =  config["grasp_postures_frame_id"]
         self._gripper_joint_names = config["gripper_joint_names"]
-        self._gripper_pre_grasp_positions = config[
-            "gripper_pre_grasp_positions"]
+        self._gripper_pre_grasp_positions = config["gripper_pre_grasp_positions"]
         self._gripper_grasp_positions = config["gripper_grasp_positions"]
-        self._time_pre_grasp_posture = config["time_pre_grasp_posture"]
-        self._time_grasp_posture = config["time_grasp_posture"]
-        self._time_grasp_posture_final = config["time_grasp_posture_final"]
+        self._time_pre_grasp_posture = 2.0 #config["time_pre_grasp_posture"]
+        self._time_grasp_posture = 1.0 #config["time_grasp_posture"]
+        self._time_grasp_posture_final = 3.0 #config["time_grasp_posture_final"]
         self._grasp_pose_frame_id = config["grasp_pose_frame_id"]
 
         self._grasp_desired_distance = config["grasp_desired_distance"]
-        self._grasp_min_distance = config["grasp_min_distance"]
+        self._grasp_min_distance = 0.0 #config["grasp_min_distance"]
 
-        self._pre_grasp_direction_x = config["pre_grasp_direction_x"]
-        self._pre_grasp_direction_y = config["pre_grasp_direction_y"]
-        self._pre_grasp_direction_z = config["pre_grasp_direction_z"]
+        self._pre_grasp_direction_x = 1.0 #config["pre_grasp_direction_x"]
+        self._pre_grasp_direction_y = 0.0 #config["pre_grasp_direction_y"]
+        self._pre_grasp_direction_z = 0.0 #config["pre_grasp_direction_z"]
 
-        self._post_grasp_direction_x = config["post_grasp_direction_x"]
-        self._post_grasp_direction_y = config["post_grasp_direction_y"]
-        self._post_grasp_direction_z = config["post_grasp_direction_z"]
+        self._post_grasp_direction_x = -1.0 #config["post_grasp_direction_x"]
+        self._post_grasp_direction_y = 0.0 #config["post_grasp_direction_y"]
+        self._post_grasp_direction_z = 0.0 #config["post_grasp_direction_z"]
 
-        self._grasp_quality = config["grasp_quality"]
-        self._max_contact_force = config["max_contact_force"]
+        self._grasp_quality = 0.1 #config["grasp_quality"]
+        self._max_contact_force = 0.0 #config["max_contact_force"]
         self._allowed_touch_objects = config["allowed_touch_objects"]
 
-        self._fix_tool_frame_to_grasping_frame_roll = config[
-            "fix_tool_frame_to_grasping_frame_roll"]
-        self._fix_tool_frame_to_grasping_frame_pitch = config[
-            "fix_tool_frame_to_grasping_frame_pitch"]
-        self._fix_tool_frame_to_grasping_frame_yaw = config[
-            "fix_tool_frame_to_grasping_frame_yaw"]
+        self._fix_tool_frame_to_grasping_frame_roll = -90.0 #config["fix_tool_frame_to_grasping_frame_roll"]
+        self._fix_tool_frame_to_grasping_frame_pitch =0.0 #config["fix_tool_frame_to_grasping_frame_pitch"]
+        self._fix_tool_frame_to_grasping_frame_yaw =0.0 #config["fix_tool_frame_to_grasping_frame_yaw"]
 
-        self._step_degrees_yaw = config["step_degrees_yaw"]
-        self._step_degrees_pitch = config["step_degrees_pitch"]
-        self._min_degrees_yaw = config["min_degrees_yaw"]
-        self._max_degrees_yaw = config["max_degrees_yaw"]
-        self._min_degrees_pitch = config["min_degrees_pitch"]
-        self._max_degrees_pitch = config["max_degrees_pitch"]
+        self._step_degrees_yaw =15 #config["step_degrees_yaw"]
+        self._step_degrees_pitch =15 #config["step_degrees_pitch"]
+        self._min_degrees_yaw =0 #config["min_degrees_yaw"]
+        self._max_degrees_yaw =360 #config["max_degrees_yaw"]
+        self._min_degrees_pitch =0 #config["min_degrees_pitch"]
+        self._max_degrees_pitch =360 #config["max_degrees_pitch"]
 
         return config
 

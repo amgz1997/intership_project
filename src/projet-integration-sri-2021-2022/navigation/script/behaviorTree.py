@@ -154,8 +154,8 @@ class arm_tucking(pt.behaviour.Behaviour):
     def update(self):
 
         if self.config=="config1":
-            #mov_joint=self.joint_mov(0.05, -0.07, -2.8, 1.5, -1.57, 0.7, 0.0) #Pose for grasping
-            mov_joint=self.joint_mov(0.20, -1.34, -0.2, 1.94, -1.57, 1.37, 0.0) #for testing # First position of the joints
+            mov_joint=self.joint_mov(0.05, -0.07, -3.0, 1.5, -1.57, 0.2, 0.1) #Pose for grasping
+           # mov_joint=self.joint_mov(0.20, -0.1, -2.0, 1.5, -0.2, 0.2, 0.0) #for testing # First position of the joints
 
         elif self.config=="config2":
             mov_joint=self.joint_mov(0.2, -1.34, -0.2, 1.94, -1.57, 1.37, 0.0) #safe pose  # Second position of the joints
@@ -232,7 +232,53 @@ class torso_tucking(pt.behaviour.Behaviour):
         self.torso_ac.send_goal(torso_goal_pos) #Send the position to reach by each joint
         rospy.loginfo("goal send success")
         self.torso_ac.wait_for_result() #wait the result 
- 
+
+class lower_head(pt.behaviour.Behaviour):
+    def __init__(self,config):
+
+        self.config=config
+        
+        self.head_ac=SimpleActionClient('/head_controller/follow_joint_trajectory', FollowJointTrajectoryAction) #JointTrajectory
+        self.head_ac.wait_for_server()
+
+        rospy.loginfo("connected to /head_controller")
+        rospy.loginfo("Connected!")
+
+        self.send_goal=False
+        
+        super(lower_head, self).__init__("Tucking_torso") #Init the class 
+
+    def update(self):
+
+        if self.config=="config1":
+            mov_head=self.head_mov(0.0,-0.75) # First position of the torso
+            
+        elif self.config=="config2":         
+            mov_head=self.head_mov(0.0,0.0) # Second position of the torso
+
+        if self.send_goal:
+            return pt.common.Status.FAILURE  #Behvaior status  for no success
+
+        else:
+
+            return pt.common.Status.SUCCESS  #Behvaior status  for  success
+
+    def head_mov(self,x1,x2):
+        
+        #create the movement for the torso
+        head=JointTrajectory() #See trajectory_msg.msg
+        head.joint_names=['head_1_joint','head_2_joint'] #Define the joint 
+        head_p=JointTrajectoryPoint() #See trajectory_msg.msg
+        head_p.positions =[x1,x2]  #Define the point
+        head_p.time_from_start = rospy.Duration(7)
+        head_goal_pos=FollowJointTrajectoryGoal() #See control_msg.msg
+        head.points.append(head_p) #Add the point of the joint 
+        head_goal_pos.trajectory=head
+        head_goal_pos.goal_time_tolerance=rospy.Duration(0)
+        self.head_ac.send_goal(head_goal_pos) #Send the position to reach by each joint
+        rospy.loginfo("goal send success")
+        self.head_ac.wait_for_result() #wait the result 
+
 
 class pick_place(pt.behaviour.Behaviour):
 
@@ -256,10 +302,7 @@ class pick_place(pt.behaviour.Behaviour):
         self.scene_srv.wait_for_service()  #Wait the server response 
         rospy.loginfo("Connected.")
 
-        # Get the object size
-		# self.object_height = rospy.get_param('~object_height')
-		# self.object_width = rospy.get_param('~object_width')
-		# self.object_depth = rospy.get_param('~object_depth')
+
 
 		# Get the links of the end effector exclude from collisions
 
@@ -305,12 +348,11 @@ class pick_place(pt.behaviour.Behaviour):
                 code = MoveItErrorCodes.__dict__[name]
                 self.moveit_error_dict[code] = name
 
-        print("AA")
 
         super(pick_place, self).__init__("pick_place")   #Init the class 
 
     def update(self):
-        self.lower_head()    
+
         Pick=self.pick_aruco("pick") #pick the object 
        # Place=self.place_aruco()    #place the object
 
@@ -358,8 +400,17 @@ class pick_place(pt.behaviour.Behaviour):
 
             rospy.loginfo("Setting object pose based on Aruco detection")
             pick_g.object_pose.pose.position= aruco_ps.pose.position #Pick position
+
             #pick_g.object_pose.pose.position.z -= 0.1*0.5
-            pick_g.object_pose.pose.position.z -= 0.1*0.75
+            # pick_g.object_pose.pose.position.z -= 0.1
+            # pick_g.object_pose.pose.position.x += 0.16
+            # pick_g.object_pose.pose.position.y += 0.1 
+
+            pick_g.object_pose.pose.position.z += 0.1*(1.6/2.0)
+
+           # pick_g.object_pose.pose.position.x -= 0.01
+           # pick_g.object_pose.pose.position.y += 0.0
+
 
             rospy.loginfo("aruco pose in base footprint:" + str(pick_g)) #Show the aruco position 
 
@@ -370,30 +421,21 @@ class pick_place(pt.behaviour.Behaviour):
             self.pick_cl.send_goal_and_wait(pick_g) #Send the position as goal 
             rospy.loginfo("Done !")
             result=self.pick_cl.get_result() #Get the result to see if the goal is sending 
-
-            if str(self.moveit_error_dict[result.error_code]) != "SUCCESS": #Send a message error  if the object is not reach 
+            #Send a message error  if the object is not reach 
+            if str(self.moveit_error_dict[result.error_code]) != "SUCCESS":
 
                 rospy.logerr("Failled to pick , not trying further")
 
                 return
-    def lower_head(self):
-        rospy.loginfo("Moving head down")
-        jt = JointTrajectory()
-        jt.joint_names = ['head_1_joint', 'head_2_joint']
-        jtp = JointTrajectoryPoint()
-        jtp.positions = [0.0, -0.75]
-        jtp.time_from_start = rospy.Duration(2.0)
-        jt.points.append(jtp)
-        self.head_cmd.publish(jt)
-        rospy.loginfo("Done.")
+
 
     # def place_aruco(self): 
     #     #Essaye dimplémenter cette foncton comme une classe pour placer lobject quand on veut 
     #     #ou garder la meme en instanciant un operateur pour place with a elif 
-    #     rospy.sleep(5)
-    #     pick_g.object_pose.pose.position.z=0.05    
-    #     self.place_cl.send_goal_and_wait(pick_g) #send the pickUp goal  
-    #     rospy.loginfo("Obejct placed ")
+          # rospy.sleep(5)
+          # pick_g.object_pose.pose.position.z+=0.05    
+          # self.place_cl.send_goal_and_wait(pick_g) #send the pickUp goal  
+          # rospy.loginfo("Object placed ")
 
     def createPickupGoal(self,group="arm_torso", target="part", grasp_pose=PoseStamped(), possible_grasps=[], links_to_allow_contact=None):
         #For picking the object we should plan this by using moveit 
@@ -451,6 +493,7 @@ class pick_place(pt.behaviour.Behaviour):
         error_code = self.place_object(goal.object_pose)
         p_res = PickUpPoseResult()
         p_res.error_code = error_code
+
         if error_code != 1:
             self.place_as.set_aborted(p_res)
         else:
@@ -474,15 +517,15 @@ class pick_place(pt.behaviour.Behaviour):
             else:
                 rospy.sleep(1.0)
 
-        rospy.loginfo("'" + object_name + "'' is in scene!")
+        rospy.loginfo("'" + object_name + "' is in scene!")
 
     def grasp_object(self, object_pose):
         #In this function we take into acount that the object we will be picking in a real world not gazebo 
-        #We have delete arrang this for this task 
+        #We have arrang the code for this task 
         rospy.loginfo("Removing any previous 'part' object")
         self.scene.remove_attached_object("arm_tool_link")
         self.scene.remove_world_object("part")
-        # self.scene.remove_world_object("table")
+        self.scene.remove_world_object("table")
 
         rospy.loginfo("Clearing octomap")
         self.clear_octomap_srv.call(EmptyRequest())
@@ -491,21 +534,24 @@ class pick_place(pt.behaviour.Behaviour):
         rospy.loginfo("Adding new 'part' object")
         rospy.loginfo("Object pose: %s", object_pose.pose)
         
-        #Add object description in scene
-        #self.scene.add_box("part", object_pose, (self.object_depth, self.object_width, self.object_height))
+       # Add object description in scene
+        self.object_height = 0.14
+        self.object_width = 0.075
+        self.object_depth = 0.07
+        self.scene.add_box("part", object_pose, (self.object_depth, self.object_width, self.object_height))
 
-        # rospy.loginfo("Second%s", object_pose.pose)
-        # table_pose = copy.deepcopy(object_pose)
+        rospy.loginfo("Second%s", object_pose.pose)
+        table_pose = deepcopy(object_pose)
 
-        # #define a virtual table below the object
-        # table_height = object_pose.pose.position.z - self.object_width/2  
-        # table_width  = 1.8
-        # table_depth  = 0.5
-        # table_pose.pose.position.z += -(2*self.object_width)/2 -table_height/2
-        # table_height -= 0.008 #remove few milimeters to prevent contact between the object and the table
-        #self.scene.add_box("table", table_pose, (table_depth, table_width, table_height))
+        #define a virtual table below the object
+        table_height = 0.5
+        table_width  = 0.34
+        table_depth  = 0.2
+        table_pose.pose.position.z += -(2*self.object_width)/2 -table_height/2
+        table_height -= 0.02 #remove few milimeters to prevent contact between the object and the table
+        self.scene.add_box("table", table_pose, (table_depth, table_width, table_height))
 
-        # # We need to wait for the object part to appear
+    #     # # We need to wait for the object part to appear
         self.wait_for_planning_scene_object()
         #self.wait_for_planning_scene_object("table")
 
@@ -564,20 +610,23 @@ class BehaviourTree(ptr.trees.BehaviourTree):
 
         rospy.loginfo("Initialising behaviour tree")
 
-        Nav1=movebase("point1")
-        Nav2=movebase("point2")
-        Detect=aruco_detect()
+        #Nav1=movebase("point1")
+        #Nav2=movebase("point2")
+        #Detect=aruco_detect()
         Arm_tucking1=arm_tucking("config1")
         Arm_tucking2=arm_tucking("config2")
-        Torso_tucking1=torso_tucking("config1")
-        Torso_tucking2=torso_tucking("config2")
-        PickPlace=pick_place()
+        #Torso_tucking1=torso_tucking("config1")
+        #Torso_tucking2=torso_tucking("config2")
+        #Head_down=lower_head("config1")
+        #PickPlace=pick_place()
+       
         root=pt.composites.Sequence(name="Task") #The type of behaviorTree, here the type is a sequence 
 
         #root.add_children([Nav1,Detect,Arm_tucking1,Torso_tucking1,Nav2]) ##Revoir l'aruco detecte ??   #Add  the actions of the sequence
         
-        root.add_children([Arm_tucking1,PickPlace]) #Add  the actions of the sequence
-        #root.add_children([PickPlace])
+        #root.add_children([Arm_tucking1,Head_down,PickPlace]) #Add  the actions of the sequence
+        
+        root.add_children([Arm_tucking2])
 
         super(BehaviourTree, self).__init__(root) #Init the class 
 
