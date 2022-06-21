@@ -80,7 +80,7 @@ behaviorTreeCPP vs py_trees
 
 1)Tuto with Smach(python lib )
 
-1-1)Summary of the state mahine creating :
+1-1)Summary of the state machine creating :
 
 _ Creating a state  :
 
@@ -113,7 +113,7 @@ _Sequence : that makes it easy to excute a set of states in a sequence
 
 8-2) Comparison with diagram (see link )
 
-8-3) To compensate the lack of transition in behavior , we have the notion of reactive sequence that allows to tick a  previous child in a sequence even it return success .
+8-3)  To compensate the lack of transition in behavior , we have the notion of reactive sequence that allows to tick a  previous child in a sequence even it return success .
 8-4) State machine is used to manage high-level operation mode but behavior tree is used to build a complex sequence of behaviors 
 
 8-5) (https://www.youtube.com/watch?v=gXrKGTPwfO8 2)
@@ -143,7 +143,7 @@ _ Library : py_trees for Python and behaviorTreeCPP for C++
 
 Conclusion : 
 
- Toutes les deux méthodes ont beaucoup de contributeurs sur github plus pour les behaviorsTree . On remarque tout de meme que la complexité des machines à états vient du fait qu'il faut bien gérer  les transitions entre les états et concernant le behaviorTree plus simple à implémenter par contre un certain nombre de concept doivent etre compris et maitriser pour l'implémenter . 
+ Toutes les deux méthodes ont beaucoup de contributeurs sur github plus pour les behaviorsTree . On remarque tout de meme que la complexité des machines à états vient du fait qu'il faut bien gérer  les transitions entre les états et concernant le behaviorTree plus simple à implémenter par contre un certain nombre de concept doivent etre compris et maitriser pour l'implémenter . Notre choix s'est proté sur le behaviour tree , dans les parties suivantes , nous ferons l'ensemble de nos implémentation sous behvaiour tree . Dans la partie Task , nous expliquerons chaque action sous behaviour .  
 
 9) Bibliothèque py_trees 
 
@@ -323,11 +323,20 @@ Chapiter N°3
 Task(Scenario with TIAGo)
 
 _ Intro
-_ Explain each action and their implement with behaviorTree_ Comparison between  the state machine 
 
-Results 
+_ Scenario : Explain each action and their implement with behaviorTree_ Comparison between  the state machine
 
-_Show for each action an image to illustrate the action 
+    _ Navigation , 
+    _ ArUco detection,
+    _ Pick object , 
+    _ Place object 
+
+_Results (Show for each action an image to illustrate the action) 
+
+    _ Navigation , 
+    _ ArUco detection,
+    _ Pick object , 
+    _ Place object
 
 Chapiter N°4
 
