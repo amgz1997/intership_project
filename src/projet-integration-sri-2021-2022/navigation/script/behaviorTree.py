@@ -406,10 +406,10 @@ class pick_place(pt.behaviour.Behaviour):
             # pick_g.object_pose.pose.position.x += 0.16
             # pick_g.object_pose.pose.position.y += 0.1 
 
-            pick_g.object_pose.pose.position.z += 0.1*(1.6/2.0)
+            pick_g.object_pose.pose.position.z += 0.1 #*(1.6/2.0)
 
-           # pick_g.object_pose.pose.position.x -= 0.01
-           # pick_g.object_pose.pose.position.y += 0.0
+            #pick_g.object_pose.pose.position.x += 0.1
+            pick_g.object_pose.pose.position.y += 0.1
 
 
             rospy.loginfo("aruco pose in base footprint:" + str(pick_g)) #Show the aruco position 
@@ -535,7 +535,7 @@ class pick_place(pt.behaviour.Behaviour):
         rospy.loginfo("Object pose: %s", object_pose.pose)
         
        # Add object description in scene
-        self.object_height = 0.14
+        self.object_height = 0.17
         self.object_width = 0.075
         self.object_depth = 0.07
         self.scene.add_box("part", object_pose, (self.object_depth, self.object_width, self.object_height))
@@ -544,16 +544,21 @@ class pick_place(pt.behaviour.Behaviour):
         table_pose = deepcopy(object_pose)
 
         #define a virtual table below the object
-        table_height = 0.5
-        table_width  = 0.34
-        table_depth  = 0.2
+        table_height = 0.6
+        table_width  = 1.0
+        table_depth  = 0.5
         table_pose.pose.position.z += -(2*self.object_width)/2 -table_height/2
-        table_height -= 0.02 #remove few milimeters to prevent contact between the object and the table
+        print('A')
+        table_height -= 0.03 #remove few milimeters to prevent contact between the object and the table
+        print('B')
+
         self.scene.add_box("table", table_pose, (table_depth, table_width, table_height))
+        print('C')
 
     #     # # We need to wait for the object part to appear
         self.wait_for_planning_scene_object()
         #self.wait_for_planning_scene_object("table")
+        print('D')
 
         # compute grasps
         possible_grasps = self.sg.create_grasps_from_object_pose(object_pose) #Define the object to grasp
@@ -615,16 +620,16 @@ class BehaviourTree(ptr.trees.BehaviourTree):
         #Detect=aruco_detect()
         Arm_tucking1=arm_tucking("config1")
         Arm_tucking2=arm_tucking("config2")
-        #Torso_tucking1=torso_tucking("config1")
+        Torso_tucking1=torso_tucking("config1")
         #Torso_tucking2=torso_tucking("config2")
         #Head_down=lower_head("config1")
-        #PickPlace=pick_place()
+        PickPlace=pick_place()
        
         root=pt.composites.Sequence(name="Task") #The type of behaviorTree, here the type is a sequence 
 
         #root.add_children([Nav1,Detect,Arm_tucking1,Torso_tucking1,Nav2]) ##Revoir l'aruco detecte ??   #Add  the actions of the sequence
         
-        #root.add_children([Arm_tucking1,Head_down,PickPlace]) #Add  the actions of the sequence
+        #root.add_children([Torso_tucking1,Arm_tucking1,PickPlace]) #Add  the actions of the sequence
         
         root.add_children([Arm_tucking2])
 
