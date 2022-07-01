@@ -143,7 +143,7 @@ _ Library : py_trees for Python and behaviorTreeCPP for C++
 
 Conclusion : 
 
- Toutes les deux méthodes ont beaucoup de contributeurs sur github plus pour les behaviorsTree . On remarque tout de meme que la complexité des machines à états vient du fait qu'il faut bien gérer  les transitions entre les états et concernant le behaviorTree plus simple à implémenter par contre un certain nombre de concept doivent etre compris et maitriser pour l'implémenter . Notre choix s'est proté sur le behaviour tree , dans les parties suivantes , nous ferons l'ensemble de nos implémentation sous behvaiour tree . Dans la partie Task , nous expliquerons chaque action sous behaviour .  
+ Toutes les deux méthodes ont beaucoup de contributeurs sur github plus pour les behaviorsTree . On remarque tout de meme que la complexité des machines à états vient du fait qu'il faut bien gérer  les transitions entre les états et concernant le behaviorTree plus simple à implémenter par contre un certain nombre de concept doivent etre compris et maitriser pour l'implémenter . Notre choix s'est proté sur le behaviour tree , dans les parties suivantes , nous ferons l'ensemble de nos implémentation sous behvaiour tree . Dans la partie suivante , nous expliquerons chaque action et sa gestion sous behaviour tree avec Py_trees .  
 
 9) Bibliothèque py_trees 
 
@@ -257,6 +257,42 @@ When the robot see the aruco pattern , it plan a trajectory for grasping this ob
 
 See the script spherical_grasp_server.py for details about object grasping and see script behaviorTree.py/class pick_place() for details about  object picking  and placing . 
 
+Code explain for picking :
+
+
+Init :
+
+_ We initialize the clients and the servers 
+_ Call the sphericalGrasp class
+
+Update :
+
+_ Execution of the pick_aruco function
+_ checking of the action's statue
+
+Strip leading slash :
+
+Pick_aruco :
+
+_ Recovery of the ArUco pose 
+_ We define the base in which to project the ArUco pose using Open_CV to send the images in ROS data through a buffer ?
+_ We define the pose where the terminal organ will go to make the pick following the transformation of the pose from the camera frame to the terminal organ frame and we send this pose as the goal where the terminal organ will go. 
+
+Pick_cb :
+
+_ Allows you to check if the pick has succeeded or failed, by sending a notification. 
+
+Wait_for_planning_scene :
+
+_ Allows to match the objects with which the robot interacts and their virtual representation. 
+_ It takes into account the location of the real objects by anticipating possible collisions with these objects, hence the usefulness of this matching. 
+
+Grasp_object :
+
+_ Define all the objects that moveit wants to take into account during the planning of the trajectory.
+_ Call the create grasp_from_object_pose function to define the object to grab. 
+_ Call the function createPickUpGoal to create the goal to send that corresponds to the object to grab. 
+
 ### NB: L'arbre des actions étant en séquence tant qu'une action n'est pas excutée , le py-tree-watcher met une croix sur l'action qui n'est pas exécutée.
 
 
@@ -301,13 +337,13 @@ Chapiter N°2
 
 Implementation of a Behaviour  
 
-1) BehaviorTree ( Py_trees )
+1) BehaviorTree ( Py_trees ) (rappeler un peu le context historique )
 
 _ How to implement a action with behaviorTree 
 _ How to build a tree
 _ Explain action , tick , and some usage concept  their implement with behaviorTree
 
-2) State Machine 
+2) State Machine (rappeler un peu le context historique )
 
 _Intro
 _ How to implement a action with behaviorTree 
@@ -358,5 +394,3 @@ _Try to follow the chronologic order of the report and number each reference
 
 
 Annnexe and code summary repository
-
-
