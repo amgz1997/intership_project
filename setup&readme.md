@@ -40,10 +40,10 @@ _ Sequence : ticks all its children as long as they return Success.If any child 
  
 _ Decorators :
 
- .A decorator is a node that can have only a single child.
+ . A decorator is a node that can have only a single child.
 It is up to the Decorator to decide if, when and how many times the child should be ticked.
 
- .The node Inverter is a Decorator that inverts the result returned by its child .
+ . The node Inverter is a Decorator that inverts the result returned by its child .
 
 _ Fallback :
 
@@ -57,7 +57,7 @@ They share the following rules:
   . Before ticking the first child, the node status becomes RUNNING.
   . If a child returns FAILURE, the fallback ticks the next child.
   . If the last child returns FAILURE too, all the children are halted and the fallback returns FAILURE.
-  . If a child returns SUCCESS, it stops and returns SUCCESS. All the children are halted.
+  . If a child returns SUCCESS, it stops and returns SUCCESS. All the children are      halted.
 
 _ Action Node and condition have no child 
 
@@ -145,7 +145,7 @@ Conclusion :
 
  Toutes les deux méthodes ont beaucoup de contributeurs sur github plus pour les behaviorsTree . On remarque tout de meme que la complexité des machines à états vient du fait qu'il faut bien gérer  les transitions entre les états et concernant le behaviorTree plus simple à implémenter par contre un certain nombre de concept doivent etre compris et maitriser pour l'implémenter . Notre choix s'est proté sur le behaviour tree , dans les parties suivantes , nous ferons l'ensemble de nos implémentation sous behvaiour tree . Dans la partie suivante , nous expliquerons chaque action et sa gestion sous behaviour tree avec Py_trees .  
 
-9) Bibliothèque py_trees 
+9) Bibliothèque py_trees/py_trees_ros  
 
 _ ressources :
 
@@ -307,10 +307,10 @@ Code :
 
 Rapport !!
 
-1) Finir behavior Tree
-2) Finir state machine 
-3) Faire la comparaison
-4) Mettre sous latex
+1) Finir behavior Tree (To verify)
+2) Finir state machine (To verify)
+3) Faire la comparaison (To verify)
+4) Mettre sous latex(done)
 
 ## Plan Report
 
