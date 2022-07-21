@@ -1,20 +1,4 @@
-# TIAGo Task (BehaviorTree)
-
-#1) Verification of Pkg navigation
-
-- roslaunch navigation aip_tiago_mapping.launch : Ok
-- roslaunch navigation aip_tiago_mapping.launch : Ok
-- rosservice call /sri22/move_base "x: 0.0 y: 0.0 theta: 0.0":Ok 
-
-2) Coordonnates on Map :
-Initial Pose : Posi : x=; y= / Ori : O= 1.0  ( Put coordonnates ) 
-Finale  Pose : Posi : x= ; y= / Ori : O=1.0  
-
-3) Mapping of the full office (done)
-
-4) Navigation with move_base and actionlib (done)
-
-## Behavior tree vs State machine 
+# Behavior tree vs State machine 
 
 1) Behavior tree:
 
@@ -225,31 +209,55 @@ Variables
 • post_tick_handlers – functions that run after the entire tree is ticked
 Raises TypeError – if root variable is not an instance of Behaviour
 
-## 5) Navigation sous behaviorTree 
 
-_ Explication de la navigation 
 
-Revoir les status des chauque action ( chercher comment visualiser le status )
-On peut voir l'état déexcution de chaque action en utilisant :
-=>py_trees-tree-watcher
 
-## 6) Detection de Aruco( done )
+# Scenario (BehaviorTree)
+
+Some corrections on the sri project 
+
+1) Verification of Pkg navigation
+
+- roslaunch navigation aip_tiago_mapping.launch : Ok
+- roslaunch navigation aip_tiago_mapping.launch : Ok
+- rosservice call /sri22/move_base "x: 0.0 y: 0.0 theta: 0.0":Ok 
+
+2) Coordonnates on Map :
+
+Initial Pose : Posi : x=; y= / Ori : O= 1.0  ( Put your coordonnates until you do the  map ) 
+Finale  Pose : Posi : x= ; y= / Ori : O=1.0  
+
+3) Mapping of the full office (done)
+4) Navigation with move_base and actionlib (done)
+
+
+
+## 1) Navigation 
+
+_ We sen coordinate to the service /move_base through the client and verify the status of the action execution. 
+
+
+## 2) Detection de Aruco
 
 The implement of the aruco detection allow to recognize the object which we pick and place . We choose this kind of perception .  
 
-## 7) Préparation du bras (arm_tucking)
+## 3) Arm_tucking
  
 _Two functions which allow us to put the arm in a first static position during a predifined time about the first function during a time . We will these function to prepare and achieve the task of pick & place . 
 
 _ Useing Actionlib with service  /arm_controller/follow_joint_trajectory
 
-## 8) Torso tucking (torso_tucking )
+## 4) Torso_tucking 
 
 _Function which allows us to move the torso in a  position during a time . We will these function to prepare and achieve the task of pick & place . 
 
 _ Useing Actionlib with service /torso_controller/follow_joint_trajectory
 
-## 9) Pick_Aruco
+## 5) Head down 
+
+We use the same method like torso_tucking and Arm_tucking. 
+
+## 6) Pick_Aruco
 
 For this part , we have create a server which allow to plab the pick and place scene with moveit . This server specifies the differents instances for the object ot grasp . Once we define the server , we create a client which allows us to pick the object with using the server and the pose of object through a ArUco . The server call a function named sphericalgrasp for the grasping a spherical ,cylindrique ... object . 
 
@@ -258,7 +266,6 @@ When the robot see the aruco pattern , it plan a trajectory for grasping this ob
 See the script spherical_grasp_server.py for details about object grasping and see script behaviorTree.py/class pick_place() for details about  object picking  and placing . 
 
 Code explain for picking :
-
 
 Init :
 
@@ -275,7 +282,7 @@ Strip leading slash :
 Pick_aruco :
 
 _ Recovery of the ArUco pose 
-_ We define the base in which to project the ArUco pose using Open_CV to send the images in ROS data through a buffer ?
+_ We define the base in which to project the ArUco pose using Open_CV to send the images in ROS data through a buffer 
 _ We define the pose where the terminal organ will go to make the pick following the transformation of the pose from the camera frame to the terminal organ frame and we send this pose as the goal where the terminal organ will go. 
 
 Pick_cb :
@@ -293,26 +300,27 @@ _ Define all the objects that moveit wants to take into account during the plann
 _ Call the create grasp_from_object_pose function to define the object to grab. 
 _ Call the function createPickUpGoal to create the goal to send that corresponds to the object to grab. 
 
-### NB: L'arbre des actions étant en séquence tant qu'une action n'est pas excutée , le py-tree-watcher met une croix sur l'action qui n'est pas exécutée.
+#### NB: 
 
+_L'arbre des actions étant en séquence tant qu'une action n'est pas excutée , le py-tree-watcher met une croix sur l'action qui n'est pas exécutée.
 
-## A Faire !!!
+_ We can see the result of the execution with :
+=>py_trees-tree-watcher
+=> rosrun rqt_py_trees rqt_py_trees
 
-Code :
+## Warning  !!!
 
-1)Revoir la prise de l'object (pick) et  voir comment le script spherical graps fonctionnent en détails et faire ces propres commentaires !!! !!!!!!!!!!!!!!!!!!
-2) Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) ou l'arreter après une exécution !!! 
+Code (to correct soon ):
+
+1)Revoir la prise de l'object (pick)
+2)Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) ou l'arreter après une exécution !!! 
 3) Change the package name navigation to task !!!
-4) Ajouter plus de détails pour chaque action !!!
 
 Rapport !!
 
-1) Finir behavior Tree (To verify)
-2) Finir state machine (To verify)
-3) Faire la comparaison (To verify)
-4) Mettre sous latex(done)
+1) Faire la comparaison (To verify)
 
-## Plan Report
+## Plan Report(modified)
 
 Abstrat
 Contents
