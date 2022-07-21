@@ -312,11 +312,11 @@ _ We can see the result of the execution with :
 => rosrun rqt_py_trees rqt_py_trees
 
 ## Warning  !!!
+=> To correct soon
+Code :
 
-Code (to correct soon ):
-
-1)Revoir la prise de l'object (pick)
-2)Voir comment exécuter l'arbre en seul fois ( soit command ros ou command py_trees ) ou l'arreter après une exécution !!!
-3) Change the package name navigation to task !!!
+1)Review the pick of the object
+2)Review to execute the tree in one time ( either command ros or command py_trees ) or stop it after one execution !!!
+3) Change the package name navigation to task or scenario !!!
 
 
