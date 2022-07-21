@@ -171,7 +171,7 @@ class arm_tucking(pt.behaviour.Behaviour):
 
     def joint_mov(self,arm1,arm2,arm3,arm4,arm5,arm6,arm7):
 
-        #create the movement for the joint 
+    # Create the movement for the joint 
 
         jt=JointTrajectory() #See trajectory_msg.msg
         jt.joint_names=['arm_1_joint', 'arm_2_joint', 'arm_3_joint', 'arm_4_joint', 'arm_5_joint', 'arm_6_joint', 'arm_7_joint'] #Define the joint 
@@ -219,7 +219,7 @@ class torso_tucking(pt.behaviour.Behaviour):
 
     def torso_mov(self,tors):
         
-        #create the movement for the torso
+    #Create the movement for the torso
         tor=JointTrajectory() #See trajectory_msg.msg
         tor.joint_names=['torso_lift_joint'] #Define the joint 
         tor_p=JointTrajectoryPoint() #See trajectory_msg.msg
@@ -251,10 +251,10 @@ class lower_head(pt.behaviour.Behaviour):
     def update(self):
 
         if self.config=="config1":
-            mov_head=self.head_mov(0.0,-0.75) # First position of the torso § TODO
+            mov_head=self.head_mov(0.0,-0.75) # First pose of the torso 
             
         elif self.config=="config2":         
-            mov_head=self.head_mov(0.0,0.0) # Second position of the torso TODO
+            mov_head=self.head_mov(0.0,0.0) # Second pose of the torso 
 
         if self.send_goal:
             return pt.common.Status.FAILURE  #Behvaior status  for no success
@@ -403,8 +403,8 @@ class pick_place(pt.behaviour.Behaviour):
             pick_g.object_pose.pose.position= aruco_ps.pose.position #Pick position
 
             pick_g.object_pose.pose.position.z += 0.17
-        #    pick_g.object_pose.pose.position.x -= 0.01
-        #    pick_g.object_pose.pose.position.y += 0.02
+            #pick_g.object_pose.pose.position.x -= 0.01
+            #pick_g.object_pose.pose.position.y += 0.02
 
             #pick_g.object_pose.pose.position.z += 0.1 #*(1.6/2.0)
             #pick_g.object_pose.pose.position.x += 0.01
@@ -428,8 +428,8 @@ class pick_place(pt.behaviour.Behaviour):
 
 
     # def place_aruco(self): 
-    #     #Essaye dimplémenter cette foncton comme une classe pour placer lobject quand on veut 
-    #     #ou garder la meme en instanciant un operateur pour place with a elif 
+          # Essaye dimplémenter cette foncton comme une classe pour placer lobject quand on veut 
+          # ou garder la meme en instanciant un operateur pour place with a elif 
           # rospy.sleep(5)
           # pick_g.object_pose.pose.position.z+=0.05    
           # self.place_cl.send_goal_and_wait(pick_g) #send the pickUp goal  
@@ -445,7 +445,7 @@ class pick_place(pt.behaviour.Behaviour):
         self.head_cmd.publish(jt)
         rospy.loginfo("Done.")
     def createPickupGoal(self,group="arm_torso", target="part", grasp_pose=PoseStamped(), possible_grasps=[], links_to_allow_contact=None):
-        #For picking the object we should plan this by using moveit 
+    #For picking the object we should plan this by using moveit 
         pug = PickupGoal()
         pug.target_name = target
         pug.group_name = group
@@ -464,7 +464,7 @@ class pick_place(pt.behaviour.Behaviour):
 
     def createPlaceGoal(self,place_pose, place_locations, group="arm_torso", target="part", links_to_allow_contact=None):
 
-        #For placing the object we should plan this by using moveit 
+    #For placing the object we should plan this by using moveit 
         placeg = PlaceGoal()
         placeg.group_name = group
         placeg.attached_object_name = target
@@ -482,8 +482,8 @@ class pick_place(pt.behaviour.Behaviour):
 
     def pick_cb(self, goal):
         
-        #type goal: PickUpPoseGoal
-        #This callback allow us to know if the picking is done or not 
+    #type goal: PickUpPoseGoal
+    #This callback allow us to know if the picking is done or not 
         error_code = self.grasp_object(goal.object_pose)
         p_res = PickUpPoseResult()
         p_res.error_code = error_code
@@ -494,8 +494,8 @@ class pick_place(pt.behaviour.Behaviour):
 
     def place_cb(self, goal):
         
-        #type goal: PickUpPoseGoal
-        #This callback allow us to know if the placing is done or not 
+    #type goal: PlacePoseGoal
+    #This callback allow us to know if the placing is done or not 
 
         error_code = self.place_object(goal.object_pose)
         p_res = PickUpPoseResult()
@@ -514,9 +514,9 @@ class pick_place(pt.behaviour.Behaviour):
 
         part_in_scene = False
         if not part_in_scene:
-            # This call takes a while when rgbd sensor is set
+        # This call takes a while when rgbd sensor is set
             gps_resp = self.scene_srv.call(gps_req)
-            # Check if 'part' is in the answer
+        # Check if 'part' is in the answer
             for collision_obj in gps_resp.scene.world.collision_objects:
                 if collision_obj.id == object_name:
                     part_in_scene = True
@@ -527,8 +527,9 @@ class pick_place(pt.behaviour.Behaviour):
         rospy.loginfo("'" + object_name + "' is in scene!")
 
     def grasp_object(self, object_pose):
-        #In this function we take into acount that the object we will be picking in a real world not gazebo 
-        #We have arrang the code for this task 
+
+    #In this function we take into acount that the object we will be picking in a real world not gazebo 
+    #We have arrang the code for this task 
         rospy.loginfo("Removing any previous 'part' object")
         self.scene.remove_attached_object("arm_tool_link")
         self.scene.remove_world_object("part")
@@ -541,7 +542,7 @@ class pick_place(pt.behaviour.Behaviour):
         rospy.loginfo("Adding new 'part' object")
         rospy.loginfo("Object pose: %s", object_pose.pose)
         
-       # Add object description in scene
+    # Add object description in scene
         self.object_height = 0.12
         self.object_width = 0.1
         self.object_depth = 0.07
@@ -550,7 +551,7 @@ class pick_place(pt.behaviour.Behaviour):
         rospy.loginfo("Second%s", object_pose.pose)
         table_pose = deepcopy(object_pose)
 
-        #define a virtual table below the object
+    #Define a virtual table below the object
         table_height = 0.8
         table_width  = 1.6
         table_depth  = 0.8
@@ -562,12 +563,12 @@ class pick_place(pt.behaviour.Behaviour):
         self.scene.add_box("table", table_pose, (table_depth, table_width, table_height))
         print('C')
 
-    #     # # We need to wait for the object part to appear
+    # We need to wait for the object part to appear
         self.wait_for_planning_scene_object()
         #self.wait_for_planning_scene_object("table")
         print('D')
 
-        # compute grasps
+    # Compute grasps
         possible_grasps = self.sg.create_grasps_from_object_pose(object_pose) #Define the object to grasp
         self.pickup_ac
         goal =self.createPickupGoal("arm_torso", "part", object_pose, possible_grasps, self.links_to_allow_contact) #Create the goal to send 
@@ -586,7 +587,7 @@ class pick_place(pt.behaviour.Behaviour):
         rospy.loginfo("Clearing octomap")
         self.clear_octomap_srv.call(EmptyRequest())
         possible_placings = self.sg.create_placings_from_object_pose(object_pose) #Define the object to place
-        # Try only with arm
+    # Try only with arm
         rospy.loginfo("Trying to place using only arm")
         goal = self.createPlaceGoal(object_pose, possible_placings, "arm", "part", self.links_to_allow_contact) #Create the goal to send for placing 
         rospy.loginfo("Sending goal")
@@ -598,7 +599,7 @@ class pick_place(pt.behaviour.Behaviour):
 
         if str(self.moveit_error_dict[result.error_code.val]) != "SUCCESS":
             rospy.loginfo("Trying to place with arm and torso")
-            # Try with arm and torso , it is similary with the previous , here we just add the torso (if the object if on top for example )
+    # Try with arm and torso , it is similary with the previous , here we just add the torso (if the object if on top for example )
             goal = self.createPlaceGoal(object_pose, possible_placings, "arm_torso", "part", self.links_to_allow_contact)
             rospy.loginfo("Sending goal")
             self.place_ac.send_goal(goal)
@@ -607,7 +608,7 @@ class pick_place(pt.behaviour.Behaviour):
             result = self.place_ac.get_result()
             rospy.logerr(str(self.moveit_error_dict[result.error_code.val]))
 
-        # print result
+    # print result
         rospy.loginfo("Result: " +str(self.moveit_error_dict[result.error_code.val]))
         rospy.loginfo("Removing previous 'part' object")
         self.scene.remove_world_object("part")
