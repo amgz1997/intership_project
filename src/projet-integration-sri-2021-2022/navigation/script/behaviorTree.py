@@ -107,7 +107,6 @@ class aruco_detect(pt.behaviour.Behaviour):
 
         self.last_call=time.time()
         self.aruco_pose=rospy.Subscriber('/aruco_single/pose',PoseStamped,self.aruco_cb) #Subscribe to  topic  
-
         self.aruco_verif=False 
 
         super(aruco_detect,self).__init__("Aruco_detection") #Init the class 
@@ -146,7 +145,6 @@ class arm_tucking(pt.behaviour.Behaviour):
         self.arm_ac=SimpleActionClient('/safe_arm_controller/follow_joint_trajectory', FollowJointTrajectoryAction) #Connect to server with a client 
         self.arm_ac.wait_for_server() #wait server 
         rospy.loginfo("connected to /arm_controller")
-
         self.sent_goal=False
         
         super(arm_tucking, self).__init__("Tucking_Arm")
@@ -190,14 +188,10 @@ class torso_tucking(pt.behaviour.Behaviour):
 
     def __init__(self,config):
 
-        self.config=config
-        
+        self.config=config       
         self.torso_ac=SimpleActionClient('/safe_torso_controller/follow_joint_trajectory', FollowJointTrajectoryAction) #JointTrajectory
         self.torso_ac.wait_for_server()
-
         rospy.loginfo("connected to /torso_controller")
-        rospy.loginfo("Connected!")
-
         self.sent_goal=False
         
         super(torso_tucking, self).__init__("Tucking_torso") #Init the class 
@@ -240,10 +234,7 @@ class lower_head(pt.behaviour.Behaviour):
         
         self.head_ac=SimpleActionClient('/head_controller/follow_joint_trajectory', FollowJointTrajectoryAction) #JointTrajectory
         self.head_ac.wait_for_server()
-
         rospy.loginfo("connected to /head_controller")
-        rospy.loginfo("Connected!")
-
         self.send_goal=False
         
         super(lower_head, self).__init__("Head_down") #Init the class 
@@ -330,7 +321,7 @@ class pick_place(pt.behaviour.Behaviour):
         self.bridge=CvBridge() #Convert between ros image messages to Opencv images 
         self.tfBuffer=tf2_ros.Buffer() #Create a buffer
         self.tf_l=tf2_ros.TransformListener(self.tfBuffer) #create a listener 
-        ######################################
+
         self.pick_cl=SimpleActionClient('/pickup_pose',PickUpPoseAction) #Connect to server with  the client
         self.pick_cl.wait_for_server() #Wait the server response 
         rospy.loginfo("connect to /pickup_pose server")
@@ -370,7 +361,8 @@ class pick_place(pt.behaviour.Behaviour):
         return s[1:] if s.startswith("/") else s
 
     def pick_aruco(self,operator):
-        self.lower_head()
+
+        #self.lower_head()
         aruco_pose=rospy.wait_for_message('/aruco_single/pose',PoseStamped) #Wait for message from the topic 
         aruco_pose.header.frame_id=self.strip_leading_slash(aruco_pose.header.frame_id)  #take the pose 
         rospy.loginfo("Go to :"+str(aruco_pose)) 
@@ -434,17 +426,19 @@ class pick_place(pt.behaviour.Behaviour):
           # pick_g.object_pose.pose.position.z+=0.05    
           # self.place_cl.send_goal_and_wait(pick_g) #send the pickUp goal  
           # rospy.loginfo("Object placed ")
-    def lower_head(self):
-        rospy.loginfo("Moving head down")
-        jt = JointTrajectory()
-        jt.joint_names = ['head_1_joint', 'head_2_joint']
-        jtp = JointTrajectoryPoint()
-        jtp.positions = [0.0, -0.75]
-        jtp.time_from_start = rospy.Duration(2.0)
-        jt.points.append(jtp)
-        self.head_cmd.publish(jt)
-        rospy.loginfo("Done.")
+    # def lower_head(self):
+    #     rospy.loginfo("Moving head down")
+    #     jt = JointTrajectory()
+    #     jt.joint_names = ['head_1_joint', 'head_2_joint']
+    #     jtp = JointTrajectoryPoint()
+    #     jtp.positions = [0.0, -0.75]
+    #     jtp.time_from_start = rospy.Duration(2.0)
+    #     jt.points.append(jtp)
+    #     self.head_cmd.publish(jt)
+    #    rospy.loginfo("Done.")
+
     def createPickupGoal(self,group="arm_torso", target="part", grasp_pose=PoseStamped(), possible_grasps=[], links_to_allow_contact=None):
+
     #For picking the object we should plan this by using moveit 
         pug = PickupGoal()
         pug.target_name = target
@@ -511,8 +505,8 @@ class pick_place(pt.behaviour.Behaviour):
         rospy.loginfo("Waiting for object '" + object_name + "' to appear in planning scene...")
         gps_req = GetPlanningSceneRequest()
         gps_req.components.components = gps_req.components.WORLD_OBJECT_NAMES
-
         part_in_scene = False
+
         if not part_in_scene:
         # This call takes a while when rgbd sensor is set
             gps_resp = self.scene_srv.call(gps_req)
@@ -556,17 +550,13 @@ class pick_place(pt.behaviour.Behaviour):
         table_width  = 1.6
         table_depth  = 0.8
         table_pose.pose.position.z += -(2*self.object_width)/2 -table_height/2
-        print('A')
         table_height -= 0.02 #remove few milimeters to prevent contact between the object and the table
-        print('B')
 
         self.scene.add_box("table", table_pose, (table_depth, table_width, table_height))
-        print('C')
 
     # We need to wait for the object part to appear
         self.wait_for_planning_scene_object()
         #self.wait_for_planning_scene_object("table")
-        print('D')
 
     # Compute grasps
         possible_grasps = self.sg.create_grasps_from_object_pose(object_pose) #Define the object to grasp
